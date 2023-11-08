@@ -1,3 +1,33 @@
 :root {
-    //TODO: write all css variables
+    //Fonts
+    --font-family: Inter, sans-serif;
+    --font-line-height: normal;
+
+    --font-size-xl: 26px;
+    --font-weight-xl: 600;
+    --font-xl: var(--font-weight-xl) var(--font-size-xl) / var(--font-line-height) var(--font-family);
+
+    --font-size-l: 24px;
+    --font-weight-l: 500;
+    --font-l: var(--font-weight-l) var(--font-size-l) / var(--font-line-height) var(--font-family);
+
+    --font-size-m: 18px;
+    --font-weight-m: 400;
+    --font-m: var(--font-weight-m) var(--font-size-m) / var(--font-line-height) var(--font-family);
+
+    --font-size-s: 16px;
+    --font-weight-s: 300;
+    --font-s: var(--font-weight-s) var(--font-size-s) / var(--font-line-height) var(--font-family);
+
+    //Colors
+    --primary-bg-color: #1C1E22;
+    --secondary-bg-color: #2D2D2D;
+    --input-field-color: #C8C8C8;
+    --input-field-color-opacity: rgba(var(--input-field-color), 0.8);
+    --primary-color: #FFFFFF;
+    --secondary-color: #D0E6EE;
+    --active-bg-button-color: #5A9DF5;
+    --play-button-color: linear-gradient(#1EFE77, #0D9834);
+    --error-color: #FF8197;
+    --active-link-color: #65A7FF;
 }
