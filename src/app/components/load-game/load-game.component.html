@@ -1,0 +1,29 @@
+<form
+    class="add-game-form"
+    [formGroup]="loadGameForm"
+    (ngSubmit)="onSubmit()"
+>
+    <div class="add-game-form__container">
+        <input
+            class="add-game-form__data"
+            type="file"
+            formControlName="file"
+            (change)="onFileSelected($event)"
+        >
+    </div>
+    <div class="add-game-form__action">
+        <button
+            class="add-game-form__submit-button"
+            type="submit"
+        >
+            Сохранить
+        </button>
+    </div>
+</form>
+
+<iframe
+    width="800"
+    height="600"
+    src="https://localhost:5000/api/games/{{ gameId }}/index.html"
+>
+</iframe>

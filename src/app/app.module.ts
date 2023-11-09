@@ -3,16 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoadGameComponent } from './components/load-game/load-game.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GameDataService } from './services/game-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        LoadGameComponent
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [
+        GameDataService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
