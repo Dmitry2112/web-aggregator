@@ -7,6 +7,7 @@
         <input
             class="add-game-form__data"
             type="file"
+            accept=".zip"
             formControlName="file"
             (change)="onFileSelected($event)"
         >
@@ -21,9 +22,18 @@
     </div>
 </form>
 
-<iframe
-    width="800"
-    height="600"
-    src="https://localhost:5000/api/games/{{ gameId }}/index.html"
->
-</iframe>
+<ng-container *ngIf="games$ | async as games">
+    <div *ngFor="let game of games">
+        <div (click)="play(game.id)">{{ game }}</div>
+        <hr>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="gameId !== ''">
+    <iframe
+        width="800"
+        height="600"
+        src="{{ backendUrl }}/api/games/{{ gameId }}/index.html"
+    >
+    </iframe>
+</ng-container>

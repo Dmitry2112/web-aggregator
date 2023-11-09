@@ -7,6 +7,7 @@ import { LoadGameComponent } from './components/load-game/load-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GameDataService } from './services/game-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BACKEND_URL_TOKEN } from './tokens/backend-url.token';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
         HttpClientModule
     ],
     providers: [
-        GameDataService
+        GameDataService,
+        {
+            provide: BACKEND_URL_TOKEN,
+            useValue: 'http://localhost:5000'
+        }
     ],
     bootstrap: [AppComponent]
 })
