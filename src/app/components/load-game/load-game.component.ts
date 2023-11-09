@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GameDataService } from '../../services/game-data.service';
 import { BACKEND_URL_TOKEN } from '../../tokens/backend-url.token';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'load-game',
@@ -10,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class LoadGameComponent implements OnInit {
     public gameId: string = '';
-    public games$: Observable<any> = new Observable<any>();
+    //public games$: Observable<any> = new Observable<any>();
 
     public loadGameForm: FormGroup = new FormGroup({
         file: new FormControl('', [
@@ -26,13 +25,13 @@ export class LoadGameComponent implements OnInit {
     ) { }
 
     public ngOnInit(): void {
-        this.games$ = this._gameDataService.games$;
-        this._gameDataService.getAllGames().subscribe();
+        // this.games$ = this._gameDataService.games$;
+        // this._gameDataService.getAllGames().subscribe();
     }
 
-    public play(id: string): void {
-        this.gameId = id;
-    }
+    // public play(id: string): void {
+    //     this.gameId = id;
+    // }
 
     public onFileSelected(event: any): void {
         this._game = event.target.files[0];
@@ -49,6 +48,8 @@ export class LoadGameComponent implements OnInit {
         newGame.append('name', '');
         newGame.append('file', this._game);
 
-        this._gameDataService.addGame(newGame).subscribe();
+        this._gameDataService.addGame(newGame).subscribe((game: any) => {
+            this.gameId = game.id;
+        });
     }
 }

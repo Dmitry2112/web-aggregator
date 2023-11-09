@@ -22,12 +22,12 @@
     </div>
 </form>
 
-<ng-container *ngIf="games$ | async as games">
-    <div *ngFor="let game of games">
-        <div (click)="play(game.id)">{{ game }}</div>
-        <hr>
-    </div>
-</ng-container>
+<!--<ng-container *ngIf="games$ | async as games">-->
+<!--    <div *ngFor="let game of games">-->
+<!--        <div (click)="play(game.id)">{{ game }}</div>-->
+<!--        <hr>-->
+<!--    </div>-->
+<!--</ng-container>-->
 
 <ng-container *ngIf="gameId !== ''">
     <iframe
