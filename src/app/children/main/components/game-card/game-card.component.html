@@ -1,6 +1,5 @@
 <div *ngIf="game">
     <p>{{ game.name }}</p>
-    <button routerLink="about-games">Играть</button>
-<!--    <button (click)="play(game.id)">Играть</button>-->
+    <button routerLink="../about-games/{{ game.id }}">Играть</button>
 </div>
 
