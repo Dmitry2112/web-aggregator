@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { BACKEND_URL_TOKEN } from '../tokens/backend-url.token';
+import { BACKEND_URL_TOKEN } from '../../../../../../data/tokens/backend-url.token';
 
 @Injectable()
 export class GameDataService {

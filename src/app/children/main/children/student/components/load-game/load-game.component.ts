@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { GameDataService } from '../../services/game-data.service';
-import { BACKEND_URL_TOKEN } from '../../tokens/backend-url.token';
+import { GameDataService } from '../../data/services/game-data.service';
+import { BACKEND_URL_TOKEN } from '../../../../../../data/tokens/backend-url.token';
 
 @Component({
     selector: 'load-game',
@@ -29,14 +29,14 @@ export class LoadGameComponent implements OnInit {
         // this._gameDataService.getAllGames().subscribe();
     }
 
-    // public play(id: string): void {
-    //     this.gameId = id;
-    // }
+    public play(id: string): void {
+        this.gameId = id;
+    }
 
     public onFileSelected(event: any): void {
         this._game = event.target.files[0];
     }
-
+    //
     public onSubmit(): void {
         if (this.loadGameForm.invalid) {
             this.loadGameForm.markAllAsTouched();

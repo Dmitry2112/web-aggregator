@@ -2,26 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoadGameComponent } from './components/load-game/load-game.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { GameDataService } from './services/game-data.service';
-import { HttpClientModule } from '@angular/common/http';
-import { BACKEND_URL_TOKEN } from './tokens/backend-url.token';
+import { AppComponent } from './component/app.component';
+import { BACKEND_URL_TOKEN } from './data/tokens/backend-url.token';
+import { StudentModule } from './children/main/children/student/student.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        LoadGameComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule,
-        HttpClientModule
+        StudentModule,
     ],
     providers: [
-        GameDataService,
         {
             provide: BACKEND_URL_TOKEN,
             useValue: 'http://localhost:5000'
