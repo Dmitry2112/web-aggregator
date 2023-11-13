@@ -1,14 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { BACKEND_URL_TOKEN } from '../../../../../../data/tokens/backend-url.token';
+import { BACKEND_URL_TOKEN } from '../../../../data/tokens/backend-url.token';
 
 @Injectable()
 export class GameDataService {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    private _gamesSource$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-    // eslint-disable-next-line @typescript-eslint/member-ordering
-    public games$: Observable<any> = this._gamesSource$.asObservable();
+    public games$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
     constructor(
         private _http: HttpClient,
@@ -20,7 +17,7 @@ export class GameDataService {
         return this._http.get<any>(`${this._backendUrl}/api/games`)
             .pipe(
                 tap((games: any) => {
-                    this._gamesSource$.next(games);
+                    this.games$.next(games);
                 })
             );
     }

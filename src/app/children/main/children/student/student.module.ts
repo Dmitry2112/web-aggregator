@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoadGameComponent } from './components/load-game/load-game.component';
-import { GameDataService } from './data/services/game-data.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MainModule } from '../../main.module';
 
 @NgModule({
     declarations: [
@@ -15,9 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
         RouterModule,
         ReactiveFormsModule,
         HttpClientModule,
+        MainModule,
     ],
-    providers: [
-        GameDataService
-    ]
+    providers: []
 })
 export class StudentModule { }

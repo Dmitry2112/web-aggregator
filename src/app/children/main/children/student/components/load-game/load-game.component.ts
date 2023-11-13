@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { GameDataService } from '../../data/services/game-data.service';
+import { GameDataService } from '../../../../data/services/game-data.service';
 import { BACKEND_URL_TOKEN } from '../../../../../../data/tokens/backend-url.token';
 
 @Component({

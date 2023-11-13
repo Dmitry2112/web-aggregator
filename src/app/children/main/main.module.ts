@@ -1,13 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { MainHeaderComponent } from './components/main-header/main-header.component';
+import { MainFooterComponent } from './components/main-footer/main-footer.component';
+import { ShowGamesPageComponent } from './pages/show-games-page/show-games-page.component';
+import { GameDataService } from './data/services/game-data.service';
+import { GamesComponent } from './components/games/games.component';
+import { GameCardComponent } from './components/game-card/game-card.component';
+import { AboutGamesPageComponent } from './pages/about-games-page/about-games-page.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+        MainLayoutComponent,
+        MainHeaderComponent,
+        MainFooterComponent,
+        ShowGamesPageComponent,
+        GamesComponent,
+        GameCardComponent,
+        AboutGamesPageComponent,
+    ],
     imports: [
         CommonModule,
         RouterModule,
     ],
-    providers: []
+    exports: [
+        MainLayoutComponent
+    ],
+    providers: [
+        GameDataService
+    ]
 })
 export class MainModule { }
