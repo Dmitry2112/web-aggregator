@@ -1,11 +1,12 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GameDataService } from '../../../../data/services/game-data.service';
 import { BACKEND_URL_TOKEN } from '../../../../../../data/tokens/backend-url.token';
 
 @Component({
     selector: 'load-game',
-    templateUrl: './load-game.component.html'
+    templateUrl: './load-game.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoadGameComponent implements OnInit {
     public gameId: string = '';

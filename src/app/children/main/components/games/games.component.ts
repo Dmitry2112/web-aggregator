@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { GameDataService } from '../../data/services/game-data.service';
 import { Observable } from 'rxjs';
 
 @Component({
     selector: 'games',
     templateUrl: './games.component.html',
-    styleUrls: ['./styles/games.component.scss']
+    styleUrls: ['./styles/games.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GamesComponent implements OnInit {
     public games$: Observable<any> = new Observable<any>();
