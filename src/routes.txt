@@ -1,3 +1,19 @@
+//Актуальная версия
+
+'/cabinet'
+    '/show-games'
+    '/about-game/:gameId'
+    '/play-game/:gameId'
+    '/auth'
+        '/login'
+        '/register'
+    '/student'
+        '/profile'
+    '/admin'
+
+
+//Старая версия, на всякий случай пока оставлю
+
 '/cabinet'
     '/auth'
         '/login'
@@ -5,8 +21,8 @@
     '/student'
         '/show-games'
         '/profile'
-        '/about-games/:gameId'
+        '/about-game/:gameId'
     '/guest'
         '/show-games'
-        '/about-games/:gameId'
+        '/about-game/:gameId'
     '/admin'

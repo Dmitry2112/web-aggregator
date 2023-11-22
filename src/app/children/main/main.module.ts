@@ -8,7 +8,8 @@ import { ShowGamesPageComponent } from './pages/show-games-page/show-games-page.
 import { GameDataService } from './data/services/game-data.service';
 import { GamesComponent } from './components/games/games.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
-import { AboutGamesPageComponent } from './pages/about-games-page/about-games-page.component';
+import { AboutGamePageComponent } from './pages/about-game-page/about-game-page.component';
+import { PlayGamePageComponent } from './pages/play-game-page/play-game-page.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { AboutGamesPageComponent } from './pages/about-games-page/about-games-pa
         ShowGamesPageComponent,
         GamesComponent,
         GameCardComponent,
-        AboutGamesPageComponent,
+        AboutGamePageComponent,
+        PlayGamePageComponent,
     ],
     imports: [
         CommonModule,
