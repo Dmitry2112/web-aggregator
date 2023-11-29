@@ -1,1 +1,46 @@
-<p>main-header works!</p>
+<header class="main-header">
+    <img class="main-header__logo" src="assets/images/icons/logo.svg" alt="logo" height="27" width="147">
+    <nav class="main-header__nav">
+        <ul class="main-header__nav-list">
+            <li class="main-header__nav-item main-header__nav-item_active">
+                Витрина проектов
+            </li>
+            <li class="main-header__nav-item">
+                Защиты проектов
+            </li>
+            <li class="main-header__nav-item">
+                Заказать проект
+            </li>
+        </ul>
+    </nav>
+
+    <div class="main-header__avatar" (click)="show()">
+        <span class="main-header__avatar-text">
+            Гость
+        </span>
+        <img class="main-header__avatar-img" src="assets/images/icons/avatar-guest-img.svg" alt="avatar_img">
+        <img class="main-header__avatar-chevron" src="assets/images/icons/chevron.svg" alt="chevron">
+
+        <div class="main-header__avatar-score-block">
+            <img class="main-header__avatar-score" src="assets/images/icons/score.svg" alt="score">
+            <span class="main-header__avatar-score-count">
+                15
+            </span>
+        </div>
+
+        <div class="main-header__avatar-menu" [ngClass]="{'main-header__avatar-menu_show': showMenu}">
+            <ul class="main-header__avatar-menu-list">
+                <li class="main-header__avatar-menu-item">
+                    <a class="main-header__avatar-menu-link" routerLink="#">Профиль</a>
+                </li>
+                <li class="main-header__avatar-menu-item">
+                    <a class="main-header__avatar-menu-link" routerLink="#">Мои проекты</a>
+                </li>
+                <li class="main-header__avatar-menu-item">
+                    <!--TODO: Скорее всего здесь нужно будет сделать кнопку вместо ссылки-->
+                    <a class="main-header__avatar-menu-link_logout" routerLink="#">Выйти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

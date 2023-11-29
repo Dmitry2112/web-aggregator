@@ -6,4 +6,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     styleUrls: ['./styles/main-header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainHeaderComponent { }
+export class MainHeaderComponent {
+    public showMenu: boolean = false;
+
+    public show(): void {
+        this.showMenu = !this.showMenu;
+    }
+}
