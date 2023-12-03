@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainHeaderComponent } from './main-header.component';
+import { screen } from '@testing-library/angular';
 
 describe('MainHeaderComponent', () => {
   let component: MainHeaderComponent;
