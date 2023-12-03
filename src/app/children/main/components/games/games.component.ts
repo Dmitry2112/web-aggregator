@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { GameDataService } from '../../data/services/game-data.service';
 import { Observable } from 'rxjs';
+import { IGameResponseModel } from '../../data/response-models/game.response-model.interface';
 
 @Component({
     selector: 'games',
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GamesComponent implements OnInit {
-    public games$: Observable<any> = new Observable<any>();
+    public games$: Observable<IGameResponseModel[]> = new Observable<IGameResponseModel[]>();
     constructor(private _gameDataService: GameDataService) {
     }
 

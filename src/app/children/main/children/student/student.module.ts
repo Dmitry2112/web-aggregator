@@ -5,10 +5,12 @@ import { LoadGameComponent } from './components/load-game/load-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainModule } from '../../main.module';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 @NgModule({
     declarations: [
         LoadGameComponent,
+        ProfilePageComponent,
     ],
     imports: [
         CommonModule,

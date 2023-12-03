@@ -1,39 +1,73 @@
-<form
-    class="add-game-form"
-    [formGroup]="loadGameForm"
-    (ngSubmit)="onSubmit()"
->
-    <div class="add-game-form__container">
+<div class="add-game">
+    <form
+        class="add-game-form"
+        [formGroup]="loadGameForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <label class="add-game-form__label" for="name">Название проекта</label>
         <input
             class="add-game-form__data"
+            id="name"
+            type="text"
+            formControlName="name"
+        >
+
+        <label class="add-game-form__label" for="shortDescription">Короткое описание</label>
+        <input
+            class="add-game-form__data"
+            id="shortDescription"
+            type="text"
+            formControlName="shortDescription"
+        >
+
+        <label class="add-game-form__label" for="playDescription">Как играть</label>
+        <input
+            class="add-game-form__data"
+            id="playDescription"
+            type="text"
+            formControlName="playDescription"
+        >
+
+        <label class="add-game-form__label" for="categoryId">Категория проекта</label>
+        <input
+            class="add-game-form__data"
+            id="categoryId"
+            type="number"
+            formControlName="categoryId"
+        >
+
+        <label class="add-game-form__label" for="theme">Тема проекта</label>
+        <input
+            class="add-game-form__data"
+            id="theme"
+            type="number"
+            formControlName="theme"
+        >
+
+        <label class="add-game-form__label" for="gitHubLink">Ссылка на репозиторий</label>
+        <input
+            class="add-game-form__data"
+            id="gitHubLink"
+            type="text"
+            formControlName="gitHubLink"
+        >
+
+        <label class="add-game-form__label" for="file">Архив с проектом</label>
+        <input
+            class="add-game-form__data"
+            id="file"
             type="file"
             accept=".zip"
             formControlName="file"
             (change)="onFileSelected($event)"
         >
-    </div>
-    <div class="add-game-form__action">
-        <button
-            class="add-game-form__submit-button"
-            type="submit"
-        >
-            Сохранить
-        </button>
-    </div>
-</form>
-
-<!--<ng-container *ngIf="games$ | async as games">-->
-<!--    <div *ngFor="let game of games">-->
-<!--        <div (click)="play(game.id)">{{ game }}</div>-->
-<!--        <hr>-->
-<!--    </div>-->
-<!--</ng-container>-->
-
-<ng-container *ngIf="gameId !== ''">
-    <iframe
-        width="800"
-        height="600"
-        src="{{ backendUrl }}/api/games/{{ gameId }}/index.html"
-    >
-    </iframe>
-</ng-container>
+        <div class="add-game-form__action">
+            <button
+                class="add-game-form__submit-button"
+                type="submit"
+            >
+                Опубликовать
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IGame } from '../../data/interfaces/game.interface';
+import { IGameResponseModel } from '../../data/response-models/game.response-model.interface';
 
 @Component({
     selector: 'game-card',
@@ -9,5 +9,5 @@ import { IGame } from '../../data/interfaces/game.interface';
 })
 export class GameCardComponent {
     @Input()
-    public game?: IGame;
+    public game?: IGameResponseModel;
 }
