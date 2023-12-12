@@ -18,7 +18,7 @@ import { StudentModule } from './children/main/children/student/student.module';
     providers: [
         {
             provide: BACKEND_URL_TOKEN,
-            useValue: 'http://localhost:3000' //TODO: на норм бэке 5000 порт
+            useValue: 'http://localhost:5000' //TODO: на норм бэке 5000 порт
         }
     ],
     bootstrap: [AppComponent]

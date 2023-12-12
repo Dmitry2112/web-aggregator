@@ -54,17 +54,17 @@ export class LoadGameComponent {
 
         const newGame: FormData = new FormData();
 
-        newGame.append('teamId', '0');
+        newGame.append('team_id', '1234');
         newGame.append('name', this.loadGameForm.controls['name'].value);
-        newGame.append('semesterId', '0');
+        newGame.append('semesterId', '1');
         newGame.append('categoryId', this.loadGameForm.controls['categoryId'].value);
         newGame.append('theme', this.loadGameForm.controls['theme'].value);
         newGame.append('rating', '0');
-        newGame.append('statusId', '0');
+        newGame.append('statusId', '1');
         newGame.append('shortDescription', this.loadGameForm.controls['shortDescription'].value);
         newGame.append('playDescription', this.loadGameForm.controls['playDescription'].value);
         newGame.append('gitHubLink', this.loadGameForm.controls['gitHubLink'].value);
-        newGame.append('file', this._game);
+        newGame.append('file_name', this._game);
 
         this._gameDataService.addGame(newGame).subscribe();
     }
