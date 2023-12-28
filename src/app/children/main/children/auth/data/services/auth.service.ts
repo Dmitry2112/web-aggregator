@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { IUserRegisterRequestModel } from '../request-models/user-register.request-model.interface';
 import { BACKEND_URL_TOKEN } from '../../../../../../data/tokens/backend-url.token';
 import { IUserLoginRequestModel } from '../request-models/user-login.request-model.interface';
+import { UserRegisterModel } from '../models/user-register.model';
+import { UserLoginModel } from '../models/user-login.model';
 
 @Injectable({
     providedIn: 'root'
@@ -21,12 +23,17 @@ export class AuthService {
     ) {
     }
 
-    public register(user: IUserRegisterRequestModel): Observable<IAuthUserResponseModel> {
-        return this._http.post<IAuthUserResponseModel>(`${this._backendUrl}/auth/register`, user);
+    public register(newUser: UserRegisterModel): Observable<IAuthUserResponseModel> {
+        return this._http.post<IAuthUserResponseModel>(`${this._backendUrl}/auth/register`, newUser.toDto())
+            .pipe(
+                tap((response: IAuthUserResponseModel) => {
+                    this.setToken(response.token);
+                })
+            );
     }
 
-    public login(user: IUserLoginRequestModel): Observable<IAuthUserResponseModel> {
-        return this._http.post<IAuthUserResponseModel>(`${this._backendUrl}/auth/login`, user)
+    public login(user: UserLoginModel): Observable<IAuthUserResponseModel> {
+        return this._http.post<IAuthUserResponseModel>(`${this._backendUrl}/auth/login`, user.toDto())
             .pipe(
                 tap((response: IAuthUserResponseModel) => {
                     this.setToken(response.token);

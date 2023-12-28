@@ -1,6 +1,6 @@
 export interface IUserRegisterRequestModel {
-    lastName: string;
-    firstName: string;
+    surname: string;
+    name: string;
     email: string;
     password: string;
     academicGroup: string;

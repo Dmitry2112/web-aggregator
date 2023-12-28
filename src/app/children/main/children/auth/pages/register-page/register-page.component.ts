@@ -1,11 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { IRegisterForm } from '../../data/interfaces/register-form.interface';
-import { Subscription } from 'rxjs';
 import { AuthService } from '../../data/services/auth.service';
 import { Router } from '@angular/router';
-import { IUserRegisterRequestModel } from '../../data/request-models/user-register.request-model.interface';
-import { passwordValidator } from '../../validators/password.validator';
+import { UserRegisterViewModel } from '../../view-models/user-register.view-model';
 
 @Component({
     selector: 'register-page',
@@ -13,45 +11,14 @@ import { passwordValidator } from '../../validators/password.validator';
     styleUrls: ['./styles/register-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegisterPageComponent implements OnDestroy {
-    public registerForm!: FormGroup<IRegisterForm>;
+export class RegisterPageComponent {
+    public userRegisterViewModel: UserRegisterViewModel = new UserRegisterViewModel();
+    public registerForm: FormGroup<IRegisterForm> = this.userRegisterViewModel.registerForm;
 
-    private _registerSubscription!: Subscription;
-
-    constructor(private _auth: AuthService, private _router: Router) {
-        this.registerForm = new FormGroup<IRegisterForm>({
-            lastName: new FormControl('', {
-                nonNullable: true,
-                validators: [Validators.required]
-            }),
-            firstName: new FormControl('', {
-                nonNullable: true,
-                validators: [Validators.required]
-            }),
-            email: new FormControl('', {
-                nonNullable: true,
-                validators: [Validators.required, Validators.email]
-            }),
-            password: new FormControl('', {
-                nonNullable: true,
-                validators: [
-                    Validators.required,
-                    Validators.minLength(6),
-                    passwordValidator
-                ]
-            }),
-            academicGroup: new FormControl('', {
-                nonNullable: true,
-                validators: [Validators.required]
-            })
-        });
-    }
-
-    public ngOnDestroy(): void {
-        if (this._registerSubscription) {
-            this._registerSubscription.unsubscribe();
-        }
-    }
+    constructor(
+        private _authService: AuthService,
+        private _router: Router
+    ) { }
 
     public onSubmit(): void {
         if (this.registerForm.invalid) {
@@ -59,17 +26,11 @@ export class RegisterPageComponent implements OnDestroy {
 
             return;
         }
-        const user: IUserRegisterRequestModel = {
-            lastName: this.registerForm.controls.lastName.value,
-            firstName: this.registerForm.controls.firstName.value,
-            email: this.registerForm.controls.email.value,
-            password: this.registerForm.controls.password.value,
-            academicGroup: this.registerForm.controls.academicGroup.value
-        };
 
         this.registerForm.disable();
-        this._registerSubscription = this._auth
-            .register(user)
+        //TODO: реализовать отписку
+        this._authService
+            .register(this.userRegisterViewModel.toModel())
             .subscribe(
                 () => {
                     alert('Вы успешно зарегистрированы!');
