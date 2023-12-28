@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './component/app.component';
 import { BACKEND_URL_TOKEN } from './data/tokens/backend-url.token';
 import { StudentModule } from './children/main/children/student/student.module';
+import { AuthModule } from './children/main/children/auth/auth.module';
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import { StudentModule } from './children/main/children/student/student.module';
         BrowserModule,
         AppRoutingModule,
         StudentModule,
+        AuthModule,
     ],
     providers: [
         {
