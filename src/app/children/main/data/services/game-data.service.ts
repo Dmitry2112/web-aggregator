@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { BACKEND_URL_TOKEN } from '../../../../data/tokens/backend-url.token';
 import { IGameResponseModel } from '../response-models/game.response-model.interface';
-import { IGameRequestModel } from '../request-models/game.request-model.interface';
+import { GameModel } from '../models/game.model';
 
 @Injectable()
 export class GameDataService {
-    public games$: BehaviorSubject<IGameResponseModel[]> = new BehaviorSubject<IGameResponseModel[]>([]);
+    public games$: BehaviorSubject<GameModel[]> = new BehaviorSubject<GameModel[]>([]);
 
     constructor(
         private _http: HttpClient,
@@ -15,16 +15,24 @@ export class GameDataService {
     ) {
     }
 
-    public getAllGames(): Observable<IGameResponseModel[]> {
+    public getAllGames(): Observable<GameModel[]> {
         return this._http.get<IGameResponseModel[]>(`${this._backendUrl}/api/games`)
             .pipe(
-                tap((games: IGameResponseModel[]) => {
+                map((games: IGameResponseModel[]) => {
+                    return games.map((game: IGameResponseModel) => {
+                        const gameModel: GameModel = new GameModel();
+                        gameModel.fromDto(game);
+
+                        return gameModel;
+                    });
+                }),
+                tap((games: GameModel[]) => {
                     this.games$.next(games);
                 })
             );
     }
 
-    public addGame(newGame: IGameRequestModel): Observable<IGameResponseModel> {
-        return this._http.post<IGameResponseModel>(`${this._backendUrl}/api/games`, newGame);
+    public addGame(newGame: GameModel): Observable<IGameResponseModel> {
+        return this._http.post<IGameResponseModel>(`${this._backendUrl}/api/games`, newGame.toDto());
     }
 }

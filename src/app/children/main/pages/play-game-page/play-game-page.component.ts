@@ -7,8 +7,6 @@ import {
     Signal,
     signal
 } from '@angular/core';
-import { Observable } from 'rxjs';
-import { GameDataService } from '../../data/services/game-data.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BACKEND_URL_TOKEN } from '../../../../data/tokens/backend-url.token';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -20,10 +18,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayGamePageComponent implements OnInit {
-    public games$: Observable<any> = new Observable<any>();
     public gameUrl: Signal<SafeResourceUrl> = signal('');
     constructor(
-        private _gameDataService: GameDataService,
         private _route: ActivatedRoute,
         @Inject(BACKEND_URL_TOKEN) public readonly backendUrl: string,
         private _sanitizer: DomSanitizer
@@ -31,8 +27,6 @@ export class PlayGamePageComponent implements OnInit {
 
     //TODO: реализовать отписку
     public ngOnInit(): void {
-        this.games$ = this._gameDataService.games$.asObservable();
-        this._gameDataService.getAllGames().subscribe();
         this._route.params
             .subscribe((params: Params) => {
                 this.gameUrl = computed(() =>

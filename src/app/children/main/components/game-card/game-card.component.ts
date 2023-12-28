@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IGameResponseModel } from '../../data/response-models/game.response-model.interface';
+import { GameModel } from '../../data/models/game.model';
 
 @Component({
     selector: 'game-card',
@@ -8,6 +8,6 @@ import { IGameResponseModel } from '../../data/response-models/game.response-mod
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GameCardComponent {
-    @Input()
-    public game?: IGameResponseModel;
+    @Input({ required: true })
+    public game!: GameModel;
 }
