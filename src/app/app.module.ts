@@ -8,6 +8,8 @@ import { StudentModule } from './children/main/children/student/student.module';
 import { AuthModule } from './children/main/children/auth/auth.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './data/interceptors/auth.interceptor';
+import { environment } from '../environments/environment';
+import { BackendUrlInterceptor } from './data/interceptors/backendUrl.interceptor';
 
 @NgModule({
     declarations: [
@@ -22,11 +24,16 @@ import { AuthInterceptor } from './data/interceptors/auth.interceptor';
     providers: [
         {
             provide: BACKEND_URL_TOKEN,
-            useValue: 'http://localhost:5000' //TODO: на норм бэке 5000 порт
+            useValue: environment.apiUrl
         },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: BackendUrlInterceptor,
             multi: true
         }
     ],

@@ -2,13 +2,11 @@ import {
     ChangeDetectionStrategy,
     Component,
     computed,
-    Inject,
     OnInit,
     Signal,
     signal
 } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { BACKEND_URL_TOKEN } from '../../../../data/tokens/backend-url.token';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -21,7 +19,6 @@ export class PlayGamePageComponent implements OnInit {
     public gameUrl: Signal<SafeResourceUrl> = signal('');
     constructor(
         private _route: ActivatedRoute,
-        @Inject(BACKEND_URL_TOKEN) public readonly backendUrl: string,
         private _sanitizer: DomSanitizer
     ) { }
 

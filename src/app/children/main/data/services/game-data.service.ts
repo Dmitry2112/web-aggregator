@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
-import { BACKEND_URL_TOKEN } from '../../../../data/tokens/backend-url.token';
 import { IGameResponseModel } from '../response-models/game.response-model.interface';
 import { GameModel } from '../models/game.model';
 
@@ -9,14 +8,10 @@ import { GameModel } from '../models/game.model';
 export class GameDataService {
     public games$: BehaviorSubject<GameModel[]> = new BehaviorSubject<GameModel[]>([]);
 
-    constructor(
-        private _http: HttpClient,
-        @Inject(BACKEND_URL_TOKEN) private readonly _backendUrl: string
-    ) {
-    }
+    constructor(private _http: HttpClient) {}
 
     public getAllGames(): Observable<GameModel[]> {
-        return this._http.get<IGameResponseModel[]>(`${this._backendUrl}/api/games`)
+        return this._http.get<IGameResponseModel[]>('api/games')
             .pipe(
                 map((games: IGameResponseModel[]) => {
                     return games.map((game: IGameResponseModel) => {
@@ -33,6 +28,6 @@ export class GameDataService {
     }
 
     public addGame(newGame: GameModel): Observable<IGameResponseModel> {
-        return this._http.post<IGameResponseModel>(`${this._backendUrl}/api/games`, newGame.toDto());
+        return this._http.post<IGameResponseModel>('api/games', newGame.toDto());
     }
 }
