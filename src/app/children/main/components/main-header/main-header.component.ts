@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, Signal } from '@angular/core';
+import { AuthService } from '../../children/auth/data/services/auth.service';
 
 @Component({
     selector: 'main-header',
@@ -8,8 +9,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class MainHeaderComponent {
     public showMenu: boolean = false;
+    public isLogin: Signal<boolean> = computed(() => this._authService.isAuthenticated());
+
+    constructor(private _authService: AuthService) {
+    }
 
     public show(): void {
         this.showMenu = !this.showMenu;
+    }
+
+    public logout(): void {
+        this._authService.logout();
     }
 }

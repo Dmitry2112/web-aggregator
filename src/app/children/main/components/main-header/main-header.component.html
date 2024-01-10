@@ -1,5 +1,12 @@
 <header class="main-header">
-    <img class="main-header__logo" src="assets/images/icons/logo.svg" alt="logo" height="27" width="147">
+    <img
+        class="main-header__logo"
+        src="assets/images/icons/logo.svg"
+        alt="logo"
+        height="27"
+        width="147"
+        routerLink="/"
+    >
     <nav class="main-header__nav">
         <ul class="main-header__nav-list">
             <li class="main-header__nav-item main-header__nav-item_active">
@@ -16,7 +23,12 @@
 
     <div class="main-header__avatar" (click)="show()">
         <span class="main-header__avatar-text">
-            Гость
+            <ng-container *ngIf="isLogin(); else notLogin">
+                Профиль
+            </ng-container>
+            <ng-template #notLogin>
+                Гость
+            </ng-template>
         </span>
         <img class="main-header__avatar-img" src="assets/images/icons/avatar-guest-img.svg" alt="avatar_img">
         <img class="main-header__avatar-chevron" src="assets/images/icons/chevron.svg" alt="chevron">
@@ -31,14 +43,18 @@
         <div class="main-header__avatar-menu" [ngClass]="{'main-header__avatar-menu_show': showMenu}">
             <ul class="main-header__avatar-menu-list">
                 <li class="main-header__avatar-menu-item">
-                    <a class="main-header__avatar-menu-link" routerLink="#">Профиль</a>
+                    <a class="main-header__avatar-menu-link" routerLink="student/profile">Профиль</a>
                 </li>
                 <li class="main-header__avatar-menu-item">
-                    <a class="main-header__avatar-menu-link" routerLink="#">Мои проекты</a>
+                    <a class="main-header__avatar-menu-link" routerLink="student/projects">Мои проекты</a>
                 </li>
                 <li class="main-header__avatar-menu-item">
-                    <!--TODO: Скорее всего здесь нужно будет сделать кнопку вместо ссылки-->
-                    <a class="main-header__avatar-menu-link_logout" routerLink="#">Выйти</a>
+                    <ng-container *ngIf="isLogin(); else notLoginMenu">
+                        <a class="main-header__avatar-menu-link_logout" (click)="logout()">Выйти</a>
+                    </ng-container>
+                    <ng-template #notLoginMenu>
+                        <a class="main-header__avatar-menu-link" routerLink="auth/login">Войти</a>
+                    </ng-template>
                 </li>
             </ul>
         </div>

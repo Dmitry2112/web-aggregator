@@ -6,6 +6,10 @@
     align-items: center;
     background-color: var(--secondary-bg-color);
 
+    &__logo {
+        cursor: pointer;
+    }
+
     &__nav {
         width: 50%;
     }
@@ -70,5 +74,6 @@
         color: var(--error-color);
         font: var(--font-m);
         text-decoration: none;
+        cursor: pointer;
     }
 }
