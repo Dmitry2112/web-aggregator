@@ -1,8 +1,25 @@
-<div *ngIf="game">
-    <p>{{ game.name }}</p>
-    <button routerLink="../about-game/{{ game.id }}">О проекте</button>
-    <p>{{ category() }}</p>
-    <p>{{ theme() }}</p>
-    <p>{{ game.shortDescription }}</p>
+<div
+    class="game-card"
+    *ngIf="game"
+>
+    <div class="game-card__content">
+        <div class="game-card__info">
+            <img
+                class="game-card__img"
+                src="assets/images/test-game-img.png"
+                alt="Фото игры"
+            >
+            <div class="game-card__description">
+                <p class="game-card__theme-category">{{ theme() }} - {{ category() }}</p>
+                <p class="game-card__name">{{ game.name }}</p>
+                <p class="game-card__short-description">{{ game.shortDescription }}</p>
+            </div>
+        </div>
+        <button
+            class="game-card__action"
+            routerLink="../about-game/{{ game.id }}"
+        >
+            О проекте
+        </button>
+    </div>
 </div>
-

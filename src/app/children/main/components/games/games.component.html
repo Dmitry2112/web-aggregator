@@ -1,6 +1,10 @@
-<ng-container *ngIf="games$ | async as games">
-    <div *ngFor="let game of games">
-        <game-card [game]="game"></game-card>
-        <hr>
-    </div>
-</ng-container>
+<div class="games-container">
+    <ng-container *ngIf="games$ | async as games">
+        <div
+            *ngFor="let game of games"
+        >
+            <game-card [game]="game"></game-card>
+        </div>
+    </ng-container>
+</div>
+

@@ -1,0 +1,27 @@
+.game-card {
+    width: 100%;
+    padding: 1rem 2rem 1rem 4rem;
+    background-color: var(--secondary-bg-color);
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__name {
+        font: var(--font-m);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    &__short-description {
+        color: var(--base-color-01);
+    }
+}
