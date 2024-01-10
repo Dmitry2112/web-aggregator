@@ -10,6 +10,7 @@ import { GamesComponent } from './components/games/games.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { AboutGamePageComponent } from './pages/about-game-page/about-game-page.component';
 import { PlayGamePageComponent } from './pages/play-game-page/play-game-page.component';
+import { CategoryDataService } from './data/services/category-data.service';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { PlayGamePageComponent } from './pages/play-game-page/play-game-page.com
         MainLayoutComponent
     ],
     providers: [
-        GameDataService
+        GameDataService,
+        CategoryDataService
     ]
 })
 export class MainModule { }
