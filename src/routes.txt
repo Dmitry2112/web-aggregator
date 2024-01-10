@@ -9,6 +9,8 @@
         '/register'
     '/student'
         '/profile'
+        '/projects'
+        '/add-project'
     '/admin'
 
 

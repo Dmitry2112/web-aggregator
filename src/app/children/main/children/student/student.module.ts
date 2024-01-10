@@ -6,11 +6,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainModule } from '../../main.module';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
+import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 
 @NgModule({
     declarations: [
         LoadGameComponent,
         ProfilePageComponent,
+        ProjectsPageComponent,
+        AddProjectPageComponent,
     ],
     imports: [
         CommonModule,
