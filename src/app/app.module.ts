@@ -10,10 +10,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './data/interceptors/auth.interceptor';
 import { environment } from '../environments/environment';
 import { BackendUrlInterceptor } from './data/interceptors/backendUrl.interceptor';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
     declarations: [
         AppComponent,
+        NotFoundPageComponent,
     ],
     imports: [
         BrowserModule,

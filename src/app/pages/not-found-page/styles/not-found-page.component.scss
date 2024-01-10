@@ -1,0 +1,11 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-page-link {
+    text-decoration: none;
+    color: var(--active-link-color);
+}
