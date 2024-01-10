@@ -3,6 +3,8 @@ import { GameModel } from '../../data/models/game.model';
 import { CategoryDataService } from '../../data/services/category-data.service';
 import { filter, map, Observable, take } from 'rxjs';
 import { CategoryModel } from '../../data/models/category.model';
+import { ThemeDataService } from '../../data/services/theme-data.service';
+import { ThemeModel } from '../../data/models/theme.model';
 
 @Component({
     selector: 'game-card',
@@ -15,11 +17,12 @@ export class GameCardComponent implements OnInit {
     public game!: GameModel;
 
     public category: WritableSignal<string> = signal('');
+    public theme: WritableSignal<string> = signal('');
 
-    constructor(private _categoryDataService: CategoryDataService) {
-    }
-
-    //тема, категория, название, краткое описание, id
+    constructor(
+        private _categoryDataService: CategoryDataService,
+        private _themeDataService: ThemeDataService
+    ) { }
 
     public ngOnInit(): void {
         this._categoryDataService.getAllCategories()
@@ -31,5 +34,15 @@ export class GameCardComponent implements OnInit {
                 })
             )
             .subscribe((category: CategoryModel) => this.category.set(category.name));
+
+        this._themeDataService.getAllThemes()
+            .pipe(
+                map((themes: ThemeModel[]) => {
+                    themes.filter((theme: ThemeModel) => theme.id === this.game.theme);
+
+                    return themes[0];
+                })
+            )
+            .subscribe((theme: ThemeModel) => this.theme.set(theme.name));
     }
 }
