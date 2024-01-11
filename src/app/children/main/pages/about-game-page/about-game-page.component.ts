@@ -38,8 +38,6 @@ export class AboutGamePageComponent implements OnInit {
             .pipe(
                 map((games: GameModel[]) => {
                     const filteredGames: GameModel[] = games.filter((game: GameModel) => game.id === this.gameId());
-                    console.log(filteredGames);
-                    console.log(filteredGames[0]);
 
                     return filteredGames[0];
                 })

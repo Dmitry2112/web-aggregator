@@ -28,9 +28,9 @@ export class GameCardComponent implements OnInit {
         this._categoryDataService.getAllCategories()
             .pipe(
                 map((categories: CategoryModel[]) => {
-                    categories.filter((category: CategoryModel) => category.id === this.game.categoryId);
+                    const filteredCategories: CategoryModel[] = categories.filter((category: CategoryModel) => category.id === this.game.categoryId);
 
-                    return categories[0];
+                    return filteredCategories[0];
                 })
             )
             .subscribe((category: CategoryModel) => this.category.set(category.name));
@@ -38,9 +38,9 @@ export class GameCardComponent implements OnInit {
         this._themeDataService.getAllThemes()
             .pipe(
                 map((themes: ThemeModel[]) => {
-                    themes.filter((theme: ThemeModel) => theme.id === this.game.theme);
+                    const filteredThemes: ThemeModel[] = themes.filter((theme: ThemeModel) => theme.id === this.game.theme);
 
-                    return themes[0];
+                    return filteredThemes[0];
                 })
             )
             .subscribe((theme: ThemeModel) => this.theme.set(theme.name));
