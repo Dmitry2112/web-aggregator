@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileNavComponent } from '../profile-nav/profile-nav.component';
 
@@ -10,4 +10,7 @@ import { ProfileNavComponent } from '../profile-nav/profile-nav.component';
     styleUrls: ['./styles/profile-side-bar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProfileSideBarComponent { }
+export class ProfileSideBarComponent {
+    @Input({ required: true })
+    public actionName!: string;
+}
