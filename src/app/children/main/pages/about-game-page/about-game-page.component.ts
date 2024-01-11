@@ -32,7 +32,7 @@ export class AboutGamePageComponent implements OnInit {
                     this.gameId.set(params['gameId'])
                 )
             )
-            .subscribe(() => console.log(this.gameId()));
+            .subscribe();
 
         this._gameDataService.getAllGames()
             .pipe(
@@ -43,10 +43,7 @@ export class AboutGamePageComponent implements OnInit {
                 })
             )
             .subscribe((game: GameModel) => {
-                console.log(this.name());
                 this.name.set(game.name);
-                console.log(this.name());
-
                 this.shortDescription.set(game.shortDescription);
                 this.playDescription.set(game.playDescription);
                 this.gitHubLink.set(game.gitHubLink);

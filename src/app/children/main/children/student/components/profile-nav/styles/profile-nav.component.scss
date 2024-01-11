@@ -1,7 +1,33 @@
 .profile-nav-container {
     background-color: var(--secondary-bg-color);
+    padding: 1.5rem;
+    font: var(--font-m)
+}
+
+.profile-nav {
+    margin-bottom: 2rem;
+
+    &__item {
+        margin-bottom: 1rem;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: var(--secondary-color);
+        opacity: 0.5;
+    }
+
+    &__link_active {
+        opacity: 1;
+    }
 }
 
 .logout {
+    display: flex;
+    gap: 0.5rem;
     cursor: pointer;
+
+    &__text {
+        color: var(--error-color);
+    }
 }

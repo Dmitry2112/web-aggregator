@@ -9,6 +9,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
+import { ProfileSideBarComponent } from './components/profile-side-bar/profile-side-bar.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,7 @@ import { ProfileNavComponent } from './components/profile-nav/profile-nav.compon
         ReactiveFormsModule,
         HttpClientModule,
         MainModule,
-        ProfileNavComponent
+        ProfileSideBarComponent
     ],
     providers: []
 })
