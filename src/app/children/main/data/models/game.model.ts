@@ -39,5 +39,6 @@ export class GameModel {
         this.categoryId = dto.categoryId;
         this.theme = dto.theme;
         this.shortDescription = dto.shortDescription;
+        this.gitHubLink = dto.gitHubLink;
     }
 }

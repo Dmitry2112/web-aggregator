@@ -1,5 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { GameDataService } from '../../data/services/game-data.service';
+import { map, Subject, switchMap, takeUntil, tap } from 'rxjs';
+import { ThemeModel } from '../../data/models/theme.model';
+import { GameModel } from '../../data/models/game.model';
 
 @Component({
     selector: 'about-game-page',
@@ -9,13 +13,45 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class AboutGamePageComponent implements OnInit {
     public gameId: WritableSignal<string> = signal('');
-    constructor(private _route: ActivatedRoute) { }
+
+    public name: WritableSignal<string> = signal('');
+    public shortDescription: WritableSignal<string> = signal('');
+    public playDescription: WritableSignal<string> = signal('');
+    public gitHubLink: WritableSignal<string> = signal('');
+
+    constructor(
+        private _route: ActivatedRoute,
+        private _gameDataService: GameDataService
+    ) { }
 
     //TODO: реализовать отписку
     public ngOnInit(): void {
         this._route.params
-            .subscribe((params: Params) => {
-                this.gameId.set(params['gameId']);
+            .pipe(
+                tap((params: Params) =>
+                    this.gameId.set(params['gameId'])
+                )
+            )
+            .subscribe(() => console.log(this.gameId()));
+
+        this._gameDataService.getAllGames()
+            .pipe(
+                map((games: GameModel[]) => {
+                    const filteredGames: GameModel[] = games.filter((game: GameModel) => game.id === this.gameId());
+                    console.log(filteredGames);
+                    console.log(filteredGames[0]);
+
+                    return filteredGames[0];
+                })
+            )
+            .subscribe((game: GameModel) => {
+                console.log(this.name());
+                this.name.set(game.name);
+                console.log(this.name());
+
+                this.shortDescription.set(game.shortDescription);
+                this.playDescription.set(game.playDescription);
+                this.gitHubLink.set(game.gitHubLink);
             });
     }
 }
