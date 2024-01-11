@@ -1,13 +1,14 @@
 import {
     ChangeDetectionStrategy,
     Component,
-    computed,
+    computed, Inject,
     OnInit,
     Signal,
     signal
 } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { BACKEND_URL_TOKEN } from '../../../../data/tokens/backend-url.token';
 
 @Component({
     selector: 'play-game-page',
@@ -19,6 +20,7 @@ export class PlayGamePageComponent implements OnInit {
     public gameUrl: Signal<SafeResourceUrl> = signal('');
     constructor(
         private _route: ActivatedRoute,
+        @Inject(BACKEND_URL_TOKEN) private readonly _backendUrl: string,
         private _sanitizer: DomSanitizer
     ) { }
 
@@ -27,7 +29,8 @@ export class PlayGamePageComponent implements OnInit {
         this._route.params
             .subscribe((params: Params) => {
                 this.gameUrl = computed(() =>
-                    this._sanitizer.bypassSecurityTrustResourceUrl(`http://localhost:5000/games/${params['gameId']}/index.html`)
+                    // this._sanitizer.bypassSecurityTrustResourceUrl(`http://localhost:5000/games/${params['gameId']}/index.html`)
+                    this._sanitizer.bypassSecurityTrustResourceUrl(`${this._backendUrl}/games/${params['gameId']}/index.html`)
                 );
             });
     }
