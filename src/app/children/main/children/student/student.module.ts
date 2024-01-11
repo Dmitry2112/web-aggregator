@@ -8,6 +8,7 @@ import { MainModule } from '../../main.module';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
+import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { AddProjectPageComponent } from './pages/add-project-page/add-project-pa
         ReactiveFormsModule,
         HttpClientModule,
         MainModule,
+        ProfileNavComponent
     ],
     providers: []
 })

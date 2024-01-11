@@ -1,0 +1,19 @@
+<div class="profile-nav-container">
+    <nav class="profile-nav">
+        <ul class="profile-nav__list">
+            <li class="profile-nav__item">
+                <a class="profile-nav__link" routerLink="../projects">Мои проекты</a>
+            </li>
+            <li class="profile-nav__item">
+                <a class="profile-nav__link" routerLink="../profile">Данные пользователя</a>
+            </li>
+        </ul>
+    </nav>
+    <div
+        class="logout"
+        (click)="logout()"
+    >
+        <img class="logout__icon" src="assets/images/icons/logout.svg" alt="Выход">
+        <p class="logout__text">Выход</p>
+    </div>
+</div>
