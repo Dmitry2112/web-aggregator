@@ -1,3 +1,9 @@
 <h2 class="title">Редактирование</h2>
 <profile-nav></profile-nav>
-<button class="action">{{ actionName }}</button>
+<ng-container *ngIf="actionName === 'Создать проект'; else actionSave">
+    <button class="action" routerLink="../add-project">{{ actionName }}</button>
+</ng-container>
+<ng-template #actionSave>
+    <button class="action">{{ actionName }}</button>
+</ng-template>
+

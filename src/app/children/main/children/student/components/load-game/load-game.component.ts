@@ -25,7 +25,7 @@ export class LoadGameComponent {
 
             return;
         }
-
-        this._gameDataService.addGame(this.loadGameViewModel.toModel()).subscribe();
+        alert('Игра отправлена');
+        this._gameDataService.addGame(this.loadGameViewModel.toModel()).subscribe(() => alert('Игра загружена'));
     }
 }

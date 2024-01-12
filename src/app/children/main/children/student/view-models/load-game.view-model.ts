@@ -12,10 +12,10 @@ export class LoadGameViewModel {
         playDescription: new FormControl('', [
             Validators.required
         ]),
-        categoryId: new FormControl('182a911a-51a4-4cfd-bb09-21ce69235435', [
+        categoryId: new FormControl('Развлекательные',[
             Validators.required
         ]),
-        theme: new FormControl('80251835-18e4-4d7e-8af4-dd20d558f7e8', [
+        theme: new FormControl('Аркады', [
             Validators.required
         ]),
         gitHubLink: new FormControl('', [
@@ -32,11 +32,13 @@ export class LoadGameViewModel {
 
         game.teamId = '123';
         game.name = this.loadGameForm.controls['name'].value;
-        game.semesterId = 'a785e7f4-c551-489f-945b-d4b15c98cc2b';
-        game.categoryId = this.loadGameForm.controls['categoryId'].value;
-        game.theme = this.loadGameForm.controls['theme'].value;
+        game.semesterId = 'a08544b6-5af3-45ba-85cb-85c3d93d2b6b';
+        // game.categoryId = this.loadGameForm.controls['categoryId'].value;
+        game.categoryId = '89b1cedd-4ad7-4b1f-94ba-51b8d3d06c2a';
+        // game.theme = this.loadGameForm.controls['theme'].value;
+        game.theme = '562e6375-5a27-46ae-bc64-19f4ebe86356';
         game.rating = '0';
-        game.statusId = '93741186-1255-49d4-b33b-d63c3a708d17';
+        game.statusId = 'a0f0260a-3278-4464-8f10-0da38eddbc65';
         game.shortDescription = this.loadGameForm.controls['shortDescription'].value;
         game.playDescription = this.loadGameForm.controls['playDescription'].value;
         game.gitHubLink = this.loadGameForm.controls['gitHubLink'].value;
