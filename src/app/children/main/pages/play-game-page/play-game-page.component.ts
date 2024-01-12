@@ -29,7 +29,6 @@ export class PlayGamePageComponent implements OnInit {
         this._route.params
             .subscribe((params: Params) => {
                 this.gameUrl = computed(() =>
-                    // this._sanitizer.bypassSecurityTrustResourceUrl(`http://localhost:5000/games/${params['gameId']}/index.html`)
                     this._sanitizer.bypassSecurityTrustResourceUrl(`${this._backendUrl}/games/${params['gameId']}/index.html`)
                 );
             });
