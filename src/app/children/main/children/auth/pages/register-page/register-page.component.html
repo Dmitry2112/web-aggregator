@@ -4,80 +4,197 @@
     (ngSubmit)="onSubmit()"
 >
     <div class="register-form__content">
-        <span class="register-form__title">Регистрация</span>
-        <div class="login-form__inputs-div">
-            <div class="register-form-field">
-                <validation-message [control]="registerForm.controls.lastName">
-                </validation-message>
-                <input
-                    class="register-form-field__input"
-                    id="lastName"
-                    type="text"
+        <h2 class="register-form__title">Регистрация</h2>
+        <div class="register-form__inputs-div">
+            <div class="tui-form__row">
+                <tui-input
                     formControlName="lastName"
-                    placeholder="Фамилия"
                 >
+                    Фамилия
+                    <input
+                        placeholder="Фамилия"
+                        tuiTextfield
+                        type="text"
+                    />
+                    <span class="tui-required"></span>
+                </tui-input>
+                <tui-error
+                    formControlName="lastName"
+                    [error]="[] | tuiFieldError | async"
+                ></tui-error>
             </div>
-            <div class="register-form-field">
-                <validation-message [control]="registerForm.controls.firstName">
-                </validation-message>
-                <input
-                    class="register-form-field__input"
-                    id="firstName"
-                    type="text"
+            <div class="tui-form__row">
+                <tui-input
                     formControlName="firstName"
-                    placeholder="Имя"
                 >
+                    Имя
+                    <input
+                        placeholder="Имя"
+                        tuiTextfield
+                        type="text"
+                    />
+                    <span class="tui-required"></span>
+                </tui-input>
+                <tui-error
+                    formControlName="firstName"
+                    [error]="[] | tuiFieldError | async"
+                ></tui-error>
             </div>
-            <div class="register-form-field">
-                <validation-message [control]="registerForm.controls.email">
-                </validation-message>
-                <input
-                    class="register-form-field__input"
-                    id="email"
-                    type="email"
+            <div class="tui-form__row">
+                <tui-input
                     formControlName="email"
-                    placeholder="Логин"
+                    tuiHintContent="Ваша почта обязательно должна быть в домене urfu.me"
                 >
+                    Почта УрФУ
+                    <input
+                        placeholder="example@urfu.me"
+                        tuiTextfield
+                        type="email"
+                    />
+                    <span class="tui-required"></span>
+                </tui-input>
+                <tui-error
+                    formControlName="email"
+                    [error]="[] | tuiFieldError | async"
+                ></tui-error>
             </div>
-            <div class="register-form-field">
-                <validation-message [control]="registerForm.controls.password">
-                </validation-message>
-                <input
-                    class="register-form-field__input"
-                    id="password"
-                    type="password"
+            <div class="tui-form__row">
+                <tui-input-password
                     formControlName="password"
-                    placeholder="Пароль"
+                    tuiHintContent="Ваш пароль должен быть длиннее 6 символов, а также содержать хотя бы одну цифру, одну заглавную и строчную буквы"
                 >
+                    Пароль
+                    <input
+                        placeholder="Пароль"
+                        tuiTextfield
+                    />
+                    <span class="tui-required"></span>
+                </tui-input-password>
+                <tui-error
+                    formControlName="password"
+                    [error]="[] | tuiFieldError | async"
+                ></tui-error>
             </div>
-            <div class="register-form-field">
-                <validation-message [control]="registerForm.controls.academicGroup">
-                </validation-message>
-                <input
-                    class="register-form-field__input"
-                    id="academicGroup"
-                    type="text"
+            <div class="tui-form__row">
+                <tui-input
                     formControlName="academicGroup"
-                    placeholder="Академическая группа"
                 >
+                    Академическая группа
+                    <input
+                        placeholder="Академическая группа"
+                        tuiTextfield
+                        type="text"
+                    />
+                    <span class="tui-required"></span>
+                </tui-input>
+                <tui-error
+                    formControlName="academicGroup"
+                    [error]="[] | tuiFieldError | async"
+                ></tui-error>
             </div>
         </div>
     </div>
     <div class="register-form-action">
         <button
-            class="register-form-action__button"
+            appearance="auth-button"
+            tuiButton
             type="submit"
         >
             Зарегистрироваться
         </button>
-        <button
-            class="register-form-action__button"
-            type="button"
+        <a
+            class="register-form-action__link"
             routerLink="../login"
+            tuiLink
         >
             Войти
-        </button>
+        </a>
     </div>
 </form>
+
+
+
+
+<!--<form-->
+<!--    class="register-form"-->
+<!--    [formGroup]="registerForm"-->
+<!--    (ngSubmit)="onSubmit()"-->
+<!--&gt;-->
+<!--    <div class="register-form__content">-->
+<!--        <span class="register-form__title">Регистрация</span>-->
+<!--        <div class="login-form__inputs-div">-->
+<!--            <div class="register-form-field">-->
+<!--                <validation-message [control]="registerForm.controls.lastName">-->
+<!--                </validation-message>-->
+<!--                <input-->
+<!--                    class="register-form-field__input"-->
+<!--                    id="lastName"-->
+<!--                    type="text"-->
+<!--                    formControlName="lastName"-->
+<!--                    placeholder="Фамилия"-->
+<!--                >-->
+<!--            </div>-->
+<!--            <div class="register-form-field">-->
+<!--                <validation-message [control]="registerForm.controls.firstName">-->
+<!--                </validation-message>-->
+<!--                <input-->
+<!--                    class="register-form-field__input"-->
+<!--                    id="firstName"-->
+<!--                    type="text"-->
+<!--                    formControlName="firstName"-->
+<!--                    placeholder="Имя"-->
+<!--                >-->
+<!--            </div>-->
+<!--            <div class="register-form-field">-->
+<!--                <validation-message [control]="registerForm.controls.email">-->
+<!--                </validation-message>-->
+<!--                <input-->
+<!--                    class="register-form-field__input"-->
+<!--                    id="email"-->
+<!--                    type="email"-->
+<!--                    formControlName="email"-->
+<!--                    placeholder="Логин"-->
+<!--                >-->
+<!--            </div>-->
+<!--            <div class="register-form-field">-->
+<!--                <validation-message [control]="registerForm.controls.password">-->
+<!--                </validation-message>-->
+<!--                <input-->
+<!--                    class="register-form-field__input"-->
+<!--                    id="password"-->
+<!--                    type="password"-->
+<!--                    formControlName="password"-->
+<!--                    placeholder="Пароль"-->
+<!--                >-->
+<!--            </div>-->
+<!--            <div class="register-form-field">-->
+<!--                <validation-message [control]="registerForm.controls.academicGroup">-->
+<!--                </validation-message>-->
+<!--                <input-->
+<!--                    class="register-form-field__input"-->
+<!--                    id="academicGroup"-->
+<!--                    type="text"-->
+<!--                    formControlName="academicGroup"-->
+<!--                    placeholder="Академическая группа"-->
+<!--                >-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="register-form-action">-->
+<!--        <button-->
+<!--            class="register-form-action__button"-->
+<!--            type="submit"-->
+<!--        >-->
+<!--            Зарегистрироваться-->
+<!--        </button>-->
+<!--        <button-->
+<!--            class="register-form-action__button"-->
+<!--            type="button"-->
+<!--            routerLink="../login"-->
+<!--        >-->
+<!--            Войти-->
+<!--        </button>-->
+<!--    </div>-->
+<!--</form>-->
 
 
