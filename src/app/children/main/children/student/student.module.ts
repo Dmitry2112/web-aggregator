@@ -11,7 +11,15 @@ import { AddProjectPageComponent } from './pages/add-project-page/add-project-pa
 import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
 import { ProfileSideBarComponent } from './components/profile-side-bar/profile-side-bar.component';
 import { UserDataService } from './data/services/user-data.service';
-import { TuiButtonModule } from '@taiga-ui/core';
+import { TuiButtonModule, TuiErrorModule, TuiSvgModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import {
+    TuiDataListWrapperModule,
+    TuiFieldErrorPipeModule,
+    TuiInputFilesModule,
+    TuiInputModule,
+    TuiInputMonthModule, TuiSelectModule,
+    TuiTextareaModule
+} from '@taiga-ui/kit';
 
 @NgModule({
     declarations: [
@@ -27,7 +35,17 @@ import { TuiButtonModule } from '@taiga-ui/core';
         HttpClientModule,
         MainModule,
         ProfileSideBarComponent,
-        TuiButtonModule
+        TuiButtonModule,
+        TuiErrorModule,
+        TuiFieldErrorPipeModule,
+        TuiInputModule,
+        TuiInputMonthModule,
+        TuiTextareaModule,
+        TuiInputFilesModule,
+        TuiSvgModule,
+        TuiDataListWrapperModule,
+        TuiSelectModule,
+        TuiTextfieldControllerModule
     ],
     providers: [
         UserDataService
