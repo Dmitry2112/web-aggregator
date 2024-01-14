@@ -10,6 +10,7 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
 import { ProfileSideBarComponent } from './components/profile-side-bar/profile-side-bar.component';
+import { UserDataService } from './data/services/user-data.service';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,8 @@ import { ProfileSideBarComponent } from './components/profile-side-bar/profile-s
         MainModule,
         ProfileSideBarComponent
     ],
-    providers: []
+    providers: [
+        UserDataService
+    ]
 })
 export class StudentModule { }
