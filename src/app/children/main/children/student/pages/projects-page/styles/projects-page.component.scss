@@ -1,7 +1,43 @@
 .projects {
     display: flex;
+
+    &__semester-button {
+        margin-bottom: 2rem;
+    }
+
+    &__info {
+
+    }
 }
 
 .side-bar {
     margin-right: 6rem;
+}
+
+.project {
+    display: flex;
+    gap: 3rem;
+
+    &__main-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__player-count-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__player-count-container {
+        display: flex;
+        gap: 0.5rem;
+    }
 }
