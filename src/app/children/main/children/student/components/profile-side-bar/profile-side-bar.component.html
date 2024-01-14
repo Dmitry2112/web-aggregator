@@ -1,4 +1,11 @@
 <profile-nav></profile-nav>
 <ng-container *ngIf="actionName">
-    <button class="action" routerLink="../add-project">{{ actionName }}</button>
+    <button
+        class="action"
+        appearance="add-project-button"
+        tuiButton
+        routerLink="../add-project"
+    >
+        {{ actionName }}
+    </button>
 </ng-container>

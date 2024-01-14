@@ -11,6 +11,7 @@ import { AddProjectPageComponent } from './pages/add-project-page/add-project-pa
 import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
 import { ProfileSideBarComponent } from './components/profile-side-bar/profile-side-bar.component';
 import { UserDataService } from './data/services/user-data.service';
+import { TuiButtonModule } from '@taiga-ui/core';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { UserDataService } from './data/services/user-data.service';
         ReactiveFormsModule,
         HttpClientModule,
         MainModule,
-        ProfileSideBarComponent
+        ProfileSideBarComponent,
+        TuiButtonModule
     ],
     providers: [
         UserDataService
