@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { GameDataService } from '../../../../data/services/game-data.service';
 import { LoadGameViewModel } from '../../view-models/load-game.view-model';
 import { finalize, map, Observable, of, Subject, switchMap, timer } from 'rxjs';
 import { TuiFileLike } from '@taiga-ui/kit';
+import { TuiAlertService } from '@taiga-ui/core';
 
 @Component({
     selector: 'load-game',
@@ -35,7 +36,10 @@ export class LoadGameComponent {
     public loadGameViewModel: LoadGameViewModel = new LoadGameViewModel();
     public loadGameForm: FormGroup = this.loadGameViewModel.loadGameForm;
 
-    constructor(private _gameDataService: GameDataService) { }
+    constructor(
+        private _gameDataService: GameDataService,
+        @Inject(TuiAlertService) private readonly _alerts: TuiAlertService
+    ) { }
 
     // public onFileSelected(event: any): void {
     //     this.loadGameViewModel.gameFile = event.target.files[0];
@@ -71,6 +75,18 @@ export class LoadGameComponent {
         );
     }
 
+    public showSubmitGameNotification(): void {
+        this._alerts
+            .open('', { label: 'Игра отправлена' })
+            .subscribe();
+    }
+
+    public showLoadGameSuccess(): void {
+        this._alerts
+            .open('', { label: 'Игра успешно загружена!', status: 'success' })
+            .subscribe();
+    }
+
     public onSubmit(): void {
         if (this.loadGameForm.invalid && !this.control.value) {
             this.loadGameForm.markAllAsTouched();
@@ -78,7 +94,7 @@ export class LoadGameComponent {
             return;
         }
         this.loadGameViewModel.gameFile = this.control.value;
-        alert('Игра отправлена');
-        //this._gameDataService.addGame(this.loadGameViewModel.toModel()).subscribe(() => alert('Игра загружена'));
+        this.showSubmitGameNotification();
+        this._gameDataService.addGame(this.loadGameViewModel.toModel()).subscribe(() => this.showLoadGameSuccess());
     }
 }
