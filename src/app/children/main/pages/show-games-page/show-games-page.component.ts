@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'show-games-page',
@@ -6,4 +7,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     styleUrls: ['./styles/show-projects-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShowGamesPageComponent { }
+export class ShowGamesPageComponent {
+    public events: string[] = [
+        'Осень 2023',
+    ];
+
+    public chooseEvent: FormControl<string> = new FormControl();
+}
