@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { IRegisterForm } from '../../data/interfaces/register-form.interface';
 import { AuthService } from '../../data/services/auth.service';
 import { Router } from '@angular/router';
 import { UserRegisterViewModel } from '../../view-models/user-register.view-model';
+import { TuiAlertService } from '@taiga-ui/core';
 
 @Component({
     selector: 'register-page',
@@ -17,8 +18,15 @@ export class RegisterPageComponent {
 
     constructor(
         private _authService: AuthService,
-        private _router: Router
+        private _router: Router,
+        @Inject(TuiAlertService) private readonly _alerts: TuiAlertService
     ) { }
+
+    public showRegisterSuccess(): void {
+        this._alerts
+            .open('', { label: 'Вы успешно зарегистрированы!', status: 'success' })
+            .subscribe();
+    }
 
     public onSubmit(): void {
         if (this.registerForm.invalid) {
@@ -33,7 +41,7 @@ export class RegisterPageComponent {
             .register(this.userRegisterViewModel.toModel())
             .subscribe(
                 () => {
-                    alert('Вы успешно зарегистрированы!');
+                    this.showRegisterSuccess();
                     this._router.navigate(['cabinet']);
                 }
             );

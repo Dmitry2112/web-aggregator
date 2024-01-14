@@ -2,6 +2,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IRegisterForm } from '../data/interfaces/register-form.interface';
 import { passwordValidator } from '../validators/password.validator';
 import { UserRegisterModel } from '../data/models/user-register.model';
+import { emailValidator } from '../validators/email.validator';
 
 export class UserRegisterViewModel {
     public registerForm: FormGroup<IRegisterForm> = new FormGroup<IRegisterForm>({
@@ -15,7 +16,11 @@ export class UserRegisterViewModel {
         }),
         email: new FormControl('', {
             nonNullable: true,
-            validators: [Validators.required, Validators.email]
+            validators: [
+                Validators.required,
+                Validators.email,
+                emailValidator
+            ]
         }),
         password: new FormControl('', {
             nonNullable: true,

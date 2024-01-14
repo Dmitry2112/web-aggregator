@@ -2,12 +2,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ILoginForm } from '../data/interfaces/login-form.interface';
 import { passwordValidator } from '../validators/password.validator';
 import { UserLoginModel } from '../data/models/user-login.model';
+import { emailValidator } from '../validators/email.validator';
 
 export class UserLoginViewModel {
     public loginForm: FormGroup<ILoginForm> = new FormGroup<ILoginForm>({
         email: new FormControl('', {
             nonNullable: true,
-            validators: [Validators.required, Validators.email]
+            validators: [
+                Validators.required,
+                Validators.email,
+                emailValidator
+            ]
         }),
         password: new FormControl('', {
             nonNullable: true,

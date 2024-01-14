@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { ValidationMessageComponent } from './components/validation-message/validation-message.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
+import { TuiButtonModule, TuiErrorModule, TuiHintModule, TuiLinkModule } from '@taiga-ui/core';
 
 
 @NgModule({
@@ -19,7 +21,14 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
         HttpClientModule,
         CommonModule,
         RouterModule,
-        ValidationMessageComponent
+        ValidationMessageComponent,
+        TuiInputModule,
+        TuiErrorModule,
+        TuiFieldErrorPipeModule,
+        TuiHintModule,
+        TuiInputPasswordModule,
+        TuiButtonModule,
+        TuiLinkModule
     ],
     providers: [],
 })

@@ -4,47 +4,59 @@
     (ngSubmit)="onSubmit()"
 >
     <div class="login-form__content">
-        <span class="login-form__title">Войти в личный кабинет</span>
+        <h2 class="login-form__title">Вход</h2>
         <div class="login-form__inputs-div">
-            <div class="login-form-field">
-                <validation-message [control]="loginForm.controls.email">
-                </validation-message>
-                <input
-                    class="login-form-field__input"
-                    id="email"
-                    type="email"
+            <div class="tui-form__row">
+                <tui-input
                     formControlName="email"
-                    placeholder="Логин"
+                    tuiHintContent="Ваша почта обязательно должна быть в домене urfu.me"
                 >
+                    Почта УрФУ
+                    <input
+                        placeholder="example@urfu.me"
+                        tuiTextfield
+                        type="email"
+                    />
+                    <span class="tui-required"></span>
+                </tui-input>
+                <tui-error
+                    formControlName="email"
+                    [error]="[] | tuiFieldError | async"
+                ></tui-error>
             </div>
-            <div class="login-form-field">
-                <validation-message [control]="loginForm.controls.password">
-                </validation-message>
-                <input
-                    class="login-form-field__input"
-                    id="password"
-                    type="password"
+            <div class="tui-form__row">
+                <tui-input-password
                     formControlName="password"
-                    placeholder="Пароль"
+                    tuiHintContent="Ваш пароль должен быть длиннее 6 символов, а также содержать хотя бы одну цифру, одну заглавную и строчную буквы"
                 >
+                    Пароль
+                    <input
+                        placeholder="Пароль"
+                        tuiTextfield
+                    />
+                    <span class="tui-required"></span>
+                </tui-input-password>
+                <tui-error
+                    formControlName="password"
+                    [error]="[] | tuiFieldError | async"
+                ></tui-error>
             </div>
         </div>
     </div>
     <div class="login-form-action">
         <button
-            class="login-form-action__button"
+            appearance="auth-button"
+            tuiButton
             type="submit"
         >
             Войти
         </button>
-        <button
-            class="login-form-action__button"
-            type="button"
+        <a
+            class="login-form-action__link"
             routerLink="../register"
+            tuiLink
         >
             Регистрация
-        </button>
+        </a>
     </div>
 </form>
-
-

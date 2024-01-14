@@ -1,5 +1,11 @@
 .profile {
     display: flex;
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
 .side-bar {

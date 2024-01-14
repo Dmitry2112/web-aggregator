@@ -1,3 +1,6 @@
+import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
+import { TuiRootModule, TuiAlertModule, TUI_SANITIZER } from '@taiga-ui/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,6 +25,9 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
         AppRoutingModule,
         StudentModule,
         AuthModule,
+        BrowserAnimationsModule,
+        TuiRootModule,
+        TuiAlertModule
     ],
     providers: [
         {
@@ -37,6 +43,10 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
             provide: HTTP_INTERCEPTORS,
             useClass: BackendUrlInterceptor,
             multi: true
+        },
+        {
+            provide: TUI_SANITIZER,
+            useClass: NgDompurifySanitizer
         }
     ],
     bootstrap: [AppComponent]

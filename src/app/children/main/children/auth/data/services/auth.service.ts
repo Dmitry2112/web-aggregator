@@ -12,6 +12,7 @@ import { UserLoginModel } from '../models/user-login.model';
 })
 export class AuthService {
     private _token: WritableSignal<string> = signal('');
+    private _userId: WritableSignal<string> = signal('');
 
     constructor(
         private _http: HttpClient,
@@ -24,6 +25,7 @@ export class AuthService {
             .pipe(
                 tap((response: IAuthUserResponseModel) => {
                     this.setToken(response.token);
+                    this.setUserId(response.user.id);
                 })
             );
     }
@@ -33,12 +35,14 @@ export class AuthService {
             .pipe(
                 tap((response: IAuthUserResponseModel) => {
                     this.setToken(response.token);
+                    this.setUserId(response.user.id);
                 })
             );
     }
 
     public logout(): void {
         this.removeToken();
+        this.removeUserId();
         localStorage.clear();
         this._router.navigate(['cabinet']);
     }
@@ -48,8 +52,13 @@ export class AuthService {
     }
 
     //TODO: использовать, чтобы передавать токен в запросах
-    public getToken(): string | undefined {
+    public getToken(): string {
         return this._token();
+    }
+
+    public getUserId(): string {
+        return localStorage.getItem('userId') as string;
+        // return this._userId();
     }
 
     private setToken(token: string): void {
@@ -60,5 +69,15 @@ export class AuthService {
     private removeToken(): void {
         localStorage.removeItem('token');
         this._token.set('');
+    }
+
+    private setUserId(userId: string): void {
+        localStorage.setItem('userId', userId);
+        this._userId.set(userId);
+    }
+
+    private removeUserId(): void {
+        localStorage.removeItem('userId');
+        this._userId.set('');
     }
 }

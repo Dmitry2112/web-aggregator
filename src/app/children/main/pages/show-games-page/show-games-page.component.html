@@ -4,11 +4,24 @@
             Выбор события
         </h2>
         <div class="main-side-bar__chose-block">
-            <select>
-                <option>Осень 2023</option>
-                <option>Весна 2023</option>
-                <option>Осень 2022</option>
-            </select>
+            <form class="event__form">
+                <tui-select
+                    tuiTextfieldSize="m"
+                    class="tui-space_vertical-4"
+                    [formControl]="chooseEvent"
+                    [tuiTextfieldLabelOutside]="true"
+                >
+                    Осень 2023
+                    <input
+                        placeholder="Выберите событие"
+                        tuiTextfield
+                    />
+                    <tui-data-list-wrapper
+                        *tuiDataList
+                        [items]="events"
+                    ></tui-data-list-wrapper>
+                </tui-select>
+            </form>
         </div>
     </aside>
     <div class="main__content">
@@ -29,4 +42,3 @@
         <games></games>
     </div>
 </div>
-

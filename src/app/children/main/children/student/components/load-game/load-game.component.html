@@ -4,66 +4,124 @@
         [formGroup]="loadGameForm"
         (ngSubmit)="onSubmit()"
     >
-        <label class="add-game-form__label" for="name">Название проекта</label>
-        <input
-            class="add-game-form__data"
-            id="name"
-            type="text"
-            formControlName="name"
-        >
+        <div class="tui-form__row">
+            <tui-input
+                formControlName="name"
+            >
+                Название проекта
+                <input
+                    placeholder="Название проекта"
+                    tuiTextfield
+                    type="text"
+                />
+                <span class="tui-required"></span>
+            </tui-input>
+            <tui-error
+                formControlName="name"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
 
-        <label class="add-game-form__label" for="shortDescription">Короткое описание</label>
-        <input
-            class="add-game-form__data"
-            id="shortDescription"
-            type="text"
+        <tui-textarea
             formControlName="shortDescription"
+            [expandable]="true"
+            [maxLength]="90"
         >
+            Короткое описание
+        </tui-textarea>
 
-        <label class="add-game-form__label" for="playDescription">Как играть</label>
-        <input
-            class="add-game-form__data"
-            id="playDescription"
-            type="text"
+        <tui-textarea
             formControlName="playDescription"
+            [expandable]="true"
+            [maxLength]="350"
         >
+            Как играть
+        </tui-textarea>
 
-        <label class="add-game-form__label" for="categoryId">Категория проекта</label>
-        <input
-            class="add-game-form__data"
-            id="categoryId"
-            type="text"
-            formControlName="categoryId"
+        <tui-select
+            [formControl]="chooseCategory"
+            [tuiTextfieldLabelOutside]="true"
         >
+            Категория проекта
+            <input
+                placeholder="Выберите категорию проекта"
+                tuiTextfield
+            />
+            <tui-data-list-wrapper
+                *tuiDataList
+                [items]="categories"
+            ></tui-data-list-wrapper>
+        </tui-select>
 
-        <label class="add-game-form__label" for="theme">Тема проекта</label>
-        <input
-            class="add-game-form__data"
-            id="theme"
-            type="text"
-            formControlName="theme"
+        <tui-select
+            [formControl]="chooseTheme"
+            [tuiTextfieldLabelOutside]="true"
         >
+            Тема проекта
+            <input
+                placeholder="Выберите тему проекта"
+                tuiTextfield
+            />
+            <tui-data-list-wrapper
+                *tuiDataList
+                [items]="themes"
+            ></tui-data-list-wrapper>
+        </tui-select>
 
-        <label class="add-game-form__label" for="gitHubLink">Ссылка на репозиторий</label>
-        <input
-            class="add-game-form__data"
-            id="gitHubLink"
-            type="text"
-            formControlName="gitHubLink"
-        >
+        <div>
+            <tui-input
+                formControlName="gitHubLink"
+            >
+                Ссылка на репозиторий
+                <input
+                    placeholder="Ссылка на репозиторий"
+                    tuiTextfield
+                    type="text"
+                />
+                <span class="tui-required"></span>
+            </tui-input>
+            <tui-error
+                formControlName="gitHubLink"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
 
-        <label class="add-game-form__label" for="file">Архив с проектом</label>
-        <input
-            class="add-game-form__data"
-            id="file"
-            type="file"
+        <tui-input-files
+            *ngIf="!control.value"
             accept=".zip"
-            formControlName="file"
-            (change)="onFileSelected($event)"
-        >
+            [formControl]="control"
+            (reject)="onReject($event)"
+        ></tui-input-files>
+
+        <tui-files class="tui-space_top-1">
+            <tui-file
+                *ngIf="loadedFiles$ | async as file"
+                [file]="file"
+                [showDelete]="control.enabled"
+                (removed)="removeFile()"
+            ></tui-file>
+
+            <tui-file
+                *ngIf="rejectedFiles$ | async as file"
+                state="error"
+                [file]="file"
+                [showDelete]="control.enabled"
+                (removed)="clearRejected()"
+            ></tui-file>
+
+            <tui-file
+                *ngIf="loadingFiles$ | async as file"
+                state="loading"
+                [file]="file"
+                [showDelete]="control.enabled"
+            ></tui-file>
+        </tui-files>
+
         <div class="add-game-form__action">
             <button
                 class="add-game-form__submit-button"
+                appearance="auth-button"
+                tuiButton
                 type="submit"
             >
                 Опубликовать

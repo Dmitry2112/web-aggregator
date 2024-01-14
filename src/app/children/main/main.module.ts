@@ -12,6 +12,9 @@ import { AboutGamePageComponent } from './pages/about-game-page/about-game-page.
 import { PlayGamePageComponent } from './pages/play-game-page/play-game-page.component';
 import { CategoryDataService } from './data/services/category-data.service';
 import { ThemeDataService } from './data/services/theme-data.service';
+import { TuiButtonModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import { TuiComboBoxModule, TuiDataListWrapperModule, TuiSelectModule } from '@taiga-ui/kit';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -27,6 +30,12 @@ import { ThemeDataService } from './data/services/theme-data.service';
     imports: [
         CommonModule,
         RouterModule,
+        TuiButtonModule,
+        TuiDataListWrapperModule,
+        TuiComboBoxModule,
+        ReactiveFormsModule,
+        TuiTextfieldControllerModule,
+        TuiSelectModule
     ],
     exports: [
         MainLayoutComponent
