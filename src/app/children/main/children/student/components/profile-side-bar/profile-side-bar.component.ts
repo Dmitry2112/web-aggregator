@@ -12,6 +12,6 @@ import { RouterLink } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileSideBarComponent {
-    @Input({ required: true })
+    @Input()
     public actionName!: string;
 }
