@@ -31,10 +31,6 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     ],
     providers: [
         {
-            provide: BACKEND_URL_TOKEN,
-            useValue: environment.apiUrl
-        },
-        {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
             multi: true
