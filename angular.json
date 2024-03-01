@@ -18,6 +18,19 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:application",
                     "options": {
+                        "allowedCommonJsDependencies": [
+                            "dompurify",
+                            "@taiga-ui/core/interfaces",
+                            "@taiga-ui/core/mask",
+                            "@taiga-ui/core/types",
+                            "@taiga-ui/kit/interfaces",
+                            "@taiga-ui/kit/types",
+                            "@taiga-ui/cdk/interfaces",
+                            "@taiga-ui/cdk/types",
+                            "@taiga-ui/i18n/interfaces",
+                            "@taiga-ui/i18n/types",
+                            "text-mask-core"
+                        ],
                         "outputPath": "dist/web-aggregator",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
