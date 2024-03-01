@@ -1,8 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Params, RouterLink } from '@angular/router';
 import { GameDataService } from '../../data/services/game-data.service';
-import { map, Subject, switchMap, takeUntil, tap } from 'rxjs';
-import { ThemeModel } from '../../data/models/theme.model';
+import { map, tap } from 'rxjs';
 import { GameModel } from '../../data/models/game.model';
 import { TuiButtonModule } from '@taiga-ui/core';
 

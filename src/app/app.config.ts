@@ -8,7 +8,7 @@ import { BackendUrlInterceptor } from './data/interceptors/backendUrl.intercepto
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
+import { APP_ROUTES } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -28,6 +28,6 @@ export const appConfig: ApplicationConfig = {
             useClass: NgDompurifySanitizer
         },
         provideAnimations(),
-        provideRouter(routes)
+        provideRouter(APP_ROUTES)
     ]
 };

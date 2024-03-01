@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { GameDataService } from '../../data/services/game-data.service';
 import { Observable } from 'rxjs';
-import { IGameResponseModel } from '../../data/response-models/game.response-model.interface';
 import { GameModel } from '../../data/models/game.model';
 import { GameCardComponent } from '../game-card/game-card.component';
 import { NgIf, NgFor, AsyncPipe } from '@angular/common';

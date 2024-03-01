@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, signal, WritableSignal } from '@angular/core';
 import { GameModel } from '../../data/models/game.model';
 import { CategoryDataService } from '../../data/services/category-data.service';
-import { filter, map, Observable, take } from 'rxjs';
+import { map } from 'rxjs';
 import { CategoryModel } from '../../data/models/category.model';
 import { ThemeDataService } from '../../data/services/theme-data.service';
 import { ThemeModel } from '../../data/models/theme.model';

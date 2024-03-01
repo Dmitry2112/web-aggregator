@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
-export const routes: Routes = [
+export const APP_ROUTES: Routes = [
     {
         path: '',
         redirectTo: 'cabinet',
@@ -9,7 +9,7 @@ export const routes: Routes = [
     },
     {
         path: 'cabinet',
-        loadChildren: () => import('./children/main/main-routing.module').then(module => module.MainRoutingModule),
+        loadChildren: () => import('./children/main/main.routes').then(m => m.MAIN_ROUTES),
     },
     {
         path: '**',
