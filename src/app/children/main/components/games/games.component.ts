@@ -3,12 +3,16 @@ import { GameDataService } from '../../data/services/game-data.service';
 import { Observable } from 'rxjs';
 import { IGameResponseModel } from '../../data/response-models/game.response-model.interface';
 import { GameModel } from '../../data/models/game.model';
+import { GameCardComponent } from '../game-card/game-card.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'games',
     templateUrl: './games.component.html',
     styleUrls: ['./styles/games.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf, NgFor, GameCardComponent, AsyncPipe]
 })
 export class GamesComponent implements OnInit {
     public games$: Observable<GameModel[]> = new Observable<GameModel[]>();

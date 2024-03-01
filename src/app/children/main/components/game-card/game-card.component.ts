@@ -5,12 +5,17 @@ import { filter, map, Observable, take } from 'rxjs';
 import { CategoryModel } from '../../data/models/category.model';
 import { ThemeDataService } from '../../data/services/theme-data.service';
 import { ThemeModel } from '../../data/models/theme.model';
+import { RouterLink } from '@angular/router';
+import { TuiButtonModule } from '@taiga-ui/core';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'game-card',
     templateUrl: './game-card.component.html',
     styleUrls: ['./styles/game-card.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf, TuiButtonModule, RouterLink]
 })
 export class GameCardComponent implements OnInit {
     @Input({ required: true })

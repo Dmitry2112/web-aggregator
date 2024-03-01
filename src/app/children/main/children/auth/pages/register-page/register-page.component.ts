@@ -1,16 +1,21 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IRegisterForm } from '../../data/interfaces/register-form.interface';
 import { AuthService } from '../../data/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserRegisterViewModel } from '../../view-models/user-register.view-model';
-import { TuiAlertService } from '@taiga-ui/core';
+import { TuiAlertService, TuiPrimitiveTextfieldModule, TuiErrorModule, TuiButtonModule, TuiLinkModule } from '@taiga-ui/core';
+import { AsyncPipe } from '@angular/common';
+import { TuiHintModule } from '@taiga-ui/core/directives/hint';
+import { TuiInputModule, TuiInputPasswordModule, TuiFieldErrorPipeModule } from '@taiga-ui/kit';
 
 @Component({
     selector: 'register-page',
     templateUrl: './register-page.component.html',
     styleUrls: ['./styles/register-page.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiErrorModule, TuiHintModule, TuiInputPasswordModule, TuiButtonModule, TuiLinkModule, RouterLink, AsyncPipe, TuiFieldErrorPipeModule]
 })
 export class RegisterPageComponent {
     public userRegisterViewModel: UserRegisterViewModel = new UserRegisterViewModel();

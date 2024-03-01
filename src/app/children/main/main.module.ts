@@ -17,16 +17,6 @@ import { TuiComboBoxModule, TuiDataListWrapperModule, TuiSelectModule } from '@t
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-    declarations: [
-        MainLayoutComponent,
-        MainHeaderComponent,
-        MainFooterComponent,
-        ShowGamesPageComponent,
-        GamesComponent,
-        GameCardComponent,
-        AboutGamePageComponent,
-        PlayGamePageComponent,
-    ],
     imports: [
         CommonModule,
         RouterModule,
@@ -35,7 +25,15 @@ import { ReactiveFormsModule } from '@angular/forms';
         TuiComboBoxModule,
         ReactiveFormsModule,
         TuiTextfieldControllerModule,
-        TuiSelectModule
+        TuiSelectModule,
+        MainLayoutComponent,
+        MainHeaderComponent,
+        MainFooterComponent,
+        ShowGamesPageComponent,
+        GamesComponent,
+        GameCardComponent,
+        AboutGamePageComponent,
+        PlayGamePageComponent
     ],
     exports: [
         MainLayoutComponent

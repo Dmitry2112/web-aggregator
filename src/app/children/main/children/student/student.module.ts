@@ -22,12 +22,6 @@ import {
 } from '@taiga-ui/kit';
 
 @NgModule({
-    declarations: [
-        LoadGameComponent,
-        ProfilePageComponent,
-        ProjectsPageComponent,
-        AddProjectPageComponent,
-    ],
     imports: [
         CommonModule,
         RouterModule,
@@ -45,7 +39,11 @@ import {
         TuiSvgModule,
         TuiDataListWrapperModule,
         TuiSelectModule,
-        TuiTextfieldControllerModule
+        TuiTextfieldControllerModule,
+        LoadGameComponent,
+        ProfilePageComponent,
+        ProjectsPageComponent,
+        AddProjectPageComponent
     ],
     providers: [
         UserDataService

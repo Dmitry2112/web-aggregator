@@ -14,7 +14,8 @@ import { BACKEND_URL_TOKEN } from '../../../../data/tokens/backend-url.token';
     selector: 'play-game-page',
     templateUrl: './play-game-page.component.html',
     styleUrls: ['./styles/play-game-page.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true
 })
 export class PlayGamePageComponent implements OnInit {
     public gameUrl: Signal<SafeResourceUrl> = signal('');
