@@ -14,7 +14,24 @@ import { NgIf, AsyncPipe } from '@angular/common';
     styleUrls: ['./styles/load-game.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiErrorModule, TuiTextareaModule, TuiSelectModule, TuiTextfieldControllerModule, TuiDataListModule, TuiDataListWrapperModule, NgIf, TuiInputFilesModule, TuiFilesModule, TuiButtonModule, AsyncPipe, TuiFieldErrorPipeModule]
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        TuiInputModule,
+        TuiPrimitiveTextfieldModule,
+        TuiErrorModule,
+        TuiTextareaModule,
+        TuiSelectModule,
+        TuiTextfieldControllerModule,
+        TuiDataListModule,
+        TuiDataListWrapperModule,
+        NgIf,
+        TuiInputFilesModule,
+        TuiFilesModule,
+        TuiButtonModule,
+        AsyncPipe,
+        TuiFieldErrorPipeModule
+    ]
 })
 export class LoadGameComponent {
     public readonly control: FormControl = new FormControl();
@@ -44,10 +61,6 @@ export class LoadGameComponent {
         private _gameDataService: GameDataService,
         @Inject(TuiAlertService) private readonly _alerts: TuiAlertService
     ) { }
-
-    // public onFileSelected(event: any): void {
-    //     this.loadGameViewModel.gameFile = event.target.files[0];
-    // }
 
     public onReject(file: TuiFileLike | readonly TuiFileLike[]): void {
         this.rejectedFiles$.next(file as TuiFileLike);

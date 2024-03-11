@@ -15,7 +15,20 @@ import { TuiInputModule, TuiInputPasswordModule, TuiFieldErrorPipeModule } from 
     styleUrls: ['./styles/register-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiPrimitiveTextfieldModule, TuiErrorModule, TuiHintModule, TuiInputPasswordModule, TuiButtonModule, TuiLinkModule, RouterLink, AsyncPipe, TuiFieldErrorPipeModule]
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        TuiInputModule,
+        TuiPrimitiveTextfieldModule,
+        TuiErrorModule,
+        TuiHintModule,
+        TuiInputPasswordModule,
+        TuiButtonModule,
+        TuiLinkModule,
+        RouterLink,
+        AsyncPipe,
+        TuiFieldErrorPipeModule
+    ]
 })
 export class RegisterPageComponent {
     public userRegisterViewModel: UserRegisterViewModel = new UserRegisterViewModel();

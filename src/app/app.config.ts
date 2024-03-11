@@ -1,8 +1,7 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { StudentModule } from './children/main/children/student/student.module';
 import { TUI_SANITIZER, TuiAlertModule, TuiRootModule } from '@taiga-ui/core';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AuthInterceptor } from './data/interceptors/auth.interceptor';
 import { BackendUrlInterceptor } from './data/interceptors/backendUrl.interceptor';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
@@ -12,7 +11,10 @@ import { APP_ROUTES } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        importProvidersFrom(BrowserModule, StudentModule, TuiRootModule, TuiAlertModule),
+        importProvidersFrom(BrowserModule, TuiRootModule, TuiAlertModule),
+        provideHttpClient(
+            withInterceptorsFromDi(),
+        ),
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,

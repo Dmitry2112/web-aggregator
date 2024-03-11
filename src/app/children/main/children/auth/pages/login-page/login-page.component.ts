@@ -16,7 +16,20 @@ import { TuiInputModule, TuiInputPasswordModule, TuiFieldErrorPipeModule } from 
     styleUrls: ['./styles/login-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, TuiInputModule, TuiHintModule, TuiPrimitiveTextfieldModule, TuiErrorModule, TuiInputPasswordModule, TuiButtonModule, TuiLinkModule, RouterLink, AsyncPipe, TuiFieldErrorPipeModule]
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        TuiInputModule,
+        TuiHintModule,
+        TuiPrimitiveTextfieldModule,
+        TuiErrorModule,
+        TuiInputPasswordModule,
+        TuiButtonModule,
+        TuiLinkModule,
+        RouterLink,
+        AsyncPipe,
+        TuiFieldErrorPipeModule
+    ]
 })
 export class LoginPageComponent {
     public userLoginViewModel: UserLoginViewModel = new UserLoginViewModel();
