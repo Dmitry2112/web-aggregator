@@ -5,7 +5,6 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { ShowGamesPageComponent } from './pages/show-games-page/show-games-page.component';
-import { GameDataService } from './data/services/game-data.service';
 import { GamesComponent } from './components/games/games.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { AboutGamePageComponent } from './pages/about-game-page/about-game-page.component';
@@ -39,7 +38,6 @@ import { ReactiveFormsModule } from '@angular/forms';
         MainLayoutComponent
     ],
     providers: [
-        GameDataService,
         CategoryDataService,
         ThemeDataService
     ]
