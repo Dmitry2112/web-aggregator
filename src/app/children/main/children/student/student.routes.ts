@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
 
-const routes: Routes = [
+export const STUDENT_ROUTES: Routes = [
     {
         path: '',
         redirectTo: 'profile',
@@ -23,9 +22,3 @@ const routes: Routes = [
         component: AddProjectPageComponent
     }
 ];
-
-@NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
-})
-export class StudentRoutingModule { }

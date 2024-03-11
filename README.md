@@ -1,27 +1,45 @@
 # WebAggregator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+Фронтенд часть проекта представляющего собой платформу для публикации игровых проектов в рамках проектного практикума в УрФУ.
+
+Проект использует [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+
+## Start development
+
+1) Для начала клонируйте себе репозиторий `git clone https://github.com/Dmitry2112/web-aggregator.git`
+2) Перейдите в директорию с проектом `cd web-aggregator`
+3) Установите зависимости `npm i`
+4) Перейдите в ветку **dev** `git checkout dev`
+5) **Желательно** выполните `git pull`, чтобы обновить ветку dev
+6) Теперь создайте **свою** ветку для работы `git checkout -b <name-your-branch>` 
+
+Поздравляю! Вы готовы начать работу над web-aggregator. 
+
+Далее будет описан процесс вашей работы.
+
+### Process development
+
+**ОЧЕНЬ ВАЖНО!!! не вносите какие-либо изменения в ветке main**
+
+1) Вносите изменения в **своей** ветке, используя [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/) для описания коммитов
+2) После делаете `git push` ваших измений в удаленный репозиторий
+3) Перейдите в ветку **dev** `git checkout dev`
+4) **ВАЖНО!** выполните `git pull`, чтобы обновить ветку dev
+5) Выполните слияние ветки dev и вашей ветки **находясь в ветке dev** `git merge <name-your-branch>`
+6) Если возникли конфликты, то пишите мне в лс (или в чат по ПП)
+7) Если же слияние прошло без конфликтов, то делаете `git push` в удаленный репозиторий
+8) переходите обратно в свою ветку `git checkout <name-your-branch>` и продолжаете работу
+
+Удачи! по всем вопросам также в лс или чат ПП.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Запустите `ng serve` для дев-сервера. Перейдите на `http://localhost:4200/`. Приложение автоматически перезагрузится, если вы измените какой-либо из исходных файлов.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Запустите "ng build", чтобы сделать сборку проекта. Артефакты сборки будут храниться в каталоге `dist/`.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Jest](https://jestjs.io/).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Запустите `ng test", чтобы выполнить модульные тесты с помощью [Jest](https://jestjs.io/).

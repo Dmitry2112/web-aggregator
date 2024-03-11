@@ -3,12 +3,15 @@ import { AuthService } from '../../../auth/data/services/auth.service';
 import { UserDataService } from '../../data/services/user-data.service';
 import { map } from 'rxjs';
 import { UserModel } from '../../data/models/user.model';
+import { ProfileSideBarComponent } from '../../components/profile-side-bar/profile-side-bar.component';
 
 @Component({
     selector: 'profile-page',
     templateUrl: './profile-page.component.html',
     styleUrls: ['./styles/profile-page.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [ProfileSideBarComponent]
 })
 export class ProfilePageComponent implements OnInit {
     public userId: Signal<string> = computed(() => this._authService.getUserId());

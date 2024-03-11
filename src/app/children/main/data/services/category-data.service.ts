@@ -4,7 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { CategoryModel } from '../models/category.model';
 import { ICategoryResponseModel } from '../response-models/category.response-model.interface';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class CategoryDataService {
     public categories$: BehaviorSubject<CategoryModel[]> = new BehaviorSubject<CategoryModel[]>([]);
 

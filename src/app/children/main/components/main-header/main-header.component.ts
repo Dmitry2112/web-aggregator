@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, Signal } from '@angular/core';
 import { AuthService } from '../../children/auth/data/services/auth.service';
+import { NgIf, NgClass } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'main-header',
     templateUrl: './main-header.component.html',
     styleUrls: ['./styles/main-header.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [RouterLink, NgIf, NgClass]
 })
 export class MainHeaderComponent {
     public showMenu: boolean = false;

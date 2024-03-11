@@ -1,15 +1,17 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { ActivatedRoute, Params, RouterLink } from '@angular/router';
 import { GameDataService } from '../../data/services/game-data.service';
-import { map, Subject, switchMap, takeUntil, tap } from 'rxjs';
-import { ThemeModel } from '../../data/models/theme.model';
+import { map, tap } from 'rxjs';
 import { GameModel } from '../../data/models/game.model';
+import { TuiButtonModule } from '@taiga-ui/core';
 
 @Component({
     selector: 'about-game-page',
     templateUrl: './about-game-page.component.html',
     styleUrls: ['./styles/about-game-page.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [RouterLink, TuiButtonModule]
 })
 export class AboutGamePageComponent implements OnInit {
     public gameId: WritableSignal<string> = signal('');

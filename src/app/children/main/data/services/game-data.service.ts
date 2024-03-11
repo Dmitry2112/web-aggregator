@@ -4,7 +4,9 @@ import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { IGameResponseModel } from '../response-models/game.response-model.interface';
 import { GameModel } from '../models/game.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class GameDataService {
     public games$: BehaviorSubject<GameModel[]> = new BehaviorSubject<GameModel[]>([]);
 

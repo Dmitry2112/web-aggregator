@@ -16,11 +16,24 @@
             "prefix": "",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
+                    "builder": "@angular-devkit/build-angular:application",
                     "options": {
+                        "allowedCommonJsDependencies": [
+                            "dompurify",
+                            "@taiga-ui/core/interfaces",
+                            "@taiga-ui/core/mask",
+                            "@taiga-ui/core/types",
+                            "@taiga-ui/kit/interfaces",
+                            "@taiga-ui/kit/types",
+                            "@taiga-ui/cdk/interfaces",
+                            "@taiga-ui/cdk/types",
+                            "@taiga-ui/i18n/interfaces",
+                            "@taiga-ui/i18n/types",
+                            "text-mask-core"
+                        ],
                         "outputPath": "dist/web-aggregator",
                         "index": "src/index.html",
-                        "main": "src/main.ts",
+                        "browser": "src/main.ts",
                         "polyfills": [
                             "zone.js"
                         ],
@@ -61,9 +74,7 @@
                             "outputHashing": "all"
                         },
                         "development": {
-                            "buildOptimizer": false,
                             "optimization": false,
-                            "vendorChunk": true,
                             "extractLicenses": false,
                             "sourceMap": true,
                             "namedChunks": true,
@@ -81,10 +92,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "web-aggregator:build:production"
+                          "buildTarget": "web-aggregator:build:production"
                         },
                         "development": {
-                            "browserTarget": "web-aggregator:build:development"
+                          "buildTarget": "web-aggregator:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -92,7 +103,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "web-aggregator:build"
+                      "buildTarget": "web-aggregator:build"
                     }
                 },
                 "lint": {
