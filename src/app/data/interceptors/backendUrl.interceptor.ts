@@ -1,15 +1,11 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { BACKEND_URL_TOKEN } from '../tokens/backend-url.token';
+import { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import { BACKEND_URL_TOKEN } from '../tokens/backend-url.token';
 
-@Injectable()
-export class BackendUrlInterceptor implements HttpInterceptor {
-    constructor(@Inject(BACKEND_URL_TOKEN) private readonly _backendUrl: string) {}
+export function backendUrlInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
+    const backendUrl: string = inject(BACKEND_URL_TOKEN);
+    const apiReq: HttpRequest<any> = req.clone({ url: `${backendUrl}/${req.url}` });
 
-    public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const apiReq: HttpRequest<any> = request.clone({ url: `${this._backendUrl}/${request.url}` });
-
-        return next.handle(apiReq);
-    }
+    return next(apiReq);
 }
