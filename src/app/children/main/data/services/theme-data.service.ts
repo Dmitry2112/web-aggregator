@@ -4,7 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { ThemeModel } from '../models/theme.model';
 import { IThemeResponseModel } from '../response-models/theme.response-model.interface';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ThemeDataService {
     public themes$: BehaviorSubject<ThemeModel[]> = new BehaviorSubject<ThemeModel[]>([]);
 

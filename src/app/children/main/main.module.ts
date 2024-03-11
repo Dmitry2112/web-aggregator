@@ -9,7 +9,6 @@ import { GamesComponent } from './components/games/games.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { AboutGamePageComponent } from './pages/about-game-page/about-game-page.component';
 import { PlayGamePageComponent } from './pages/play-game-page/play-game-page.component';
-import { ThemeDataService } from './data/services/theme-data.service';
 import { TuiButtonModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { TuiComboBoxModule, TuiDataListWrapperModule, TuiSelectModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -35,9 +34,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
     exports: [
         MainLayoutComponent
-    ],
-    providers: [
-        ThemeDataService
     ]
 })
 export class MainModule { }
