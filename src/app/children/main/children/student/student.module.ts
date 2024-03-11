@@ -8,9 +8,7 @@ import { MainModule } from '../../main.module';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { AddProjectPageComponent } from './pages/add-project-page/add-project-page.component';
-import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
 import { ProfileSideBarComponent } from './components/profile-side-bar/profile-side-bar.component';
-import { UserDataService } from './data/services/user-data.service';
 import { TuiButtonModule, TuiErrorModule, TuiSvgModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import {
     TuiDataListWrapperModule,
@@ -44,9 +42,6 @@ import {
         ProfilePageComponent,
         ProjectsPageComponent,
         AddProjectPageComponent
-    ],
-    providers: [
-        UserDataService
     ]
 })
 export class StudentModule { }

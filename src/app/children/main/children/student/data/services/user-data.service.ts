@@ -4,7 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../models/user.model';
 import { IUserResponseModel } from '../response-models/user.response-model.interface';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class UserDataService {
     public users$: BehaviorSubject<UserModel[]> = new BehaviorSubject<UserModel[]>([]);
 
