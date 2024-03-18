@@ -3,6 +3,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GamesComponent } from '../../components/games/games.component';
 import { TuiTextfieldControllerModule, TuiPrimitiveTextfieldModule, TuiDataListModule } from '@taiga-ui/core';
 import { TuiSelectModule, TuiDataListWrapperModule, TuiCheckboxLabeledModule } from '@taiga-ui/kit';
+import { FilterFormComponent } from '../../components/filter-form/filter-form.component';
 
 @Component({
     selector: 'show-games-page',
@@ -10,7 +11,18 @@ import { TuiSelectModule, TuiDataListWrapperModule, TuiCheckboxLabeledModule } f
     styleUrls: ['./styles/show-projects-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [FormsModule, TuiSelectModule, TuiCheckboxLabeledModule,TuiTextfieldControllerModule, ReactiveFormsModule, TuiPrimitiveTextfieldModule, TuiDataListModule, TuiDataListWrapperModule, GamesComponent]
+    imports: [
+        FormsModule,
+        TuiSelectModule,
+        TuiCheckboxLabeledModule,
+        TuiTextfieldControllerModule,
+        ReactiveFormsModule,
+        TuiPrimitiveTextfieldModule,
+        TuiDataListModule,
+        TuiDataListWrapperModule,
+        GamesComponent,
+        FilterFormComponent
+    ]
 })
 export class ShowGamesPageComponent {
     public events: string[] = [

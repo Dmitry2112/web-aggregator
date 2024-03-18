@@ -36,21 +36,6 @@
     }
 }
 
-.categories-form {
-    &__title {
-        font-size: var(--font-size-m);
-        font-weight: var(--font-weight-m);
-        color: var(--base-color-01);
-        margin-bottom: 0.75rem;
-    }
-
-    &__text {
-        font-size: var(--font-size-m);
-        font-weight: var(--font-weight-m);
-        color: var(--base-color-01);
-    }
-}
-
 .event {
     &__status {
         text-align: right;
