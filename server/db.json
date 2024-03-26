@@ -19,7 +19,7 @@
             "name": "Prey",
             "semesterId": "2",
             "categoryId": "2",
-            "theme": "2",
+            "theme": "3",
             "rating": "2",
             "statusId": "2",
             "shortDescription": "Короткое описание2",
@@ -32,7 +32,7 @@
             "name": "DOOM",
             "semesterId": "3",
             "categoryId": "3",
-            "theme": "3",
+            "theme": "4",
             "rating": "3",
             "statusId": "3",
             "shortDescription": "Короткое описание3",
@@ -44,8 +44,8 @@
             "teamId": "4",
             "name": "Mafia",
             "semesterId": "4",
-            "categoryId": "4",
-            "theme": "4",
+            "categoryId": "1",
+            "theme": "2",
             "rating": "4",
             "statusId": "4",
             "shortDescription": "Короткое описание4",
@@ -54,10 +54,10 @@
         },
         {
             "id": "5",
-            "teamId": "5",
+            "teamId": "3",
             "name": "FarCry",
             "semesterId": "5",
-            "categoryId": "5",
+            "categoryId": "3",
             "theme": "5",
             "rating": "5",
             "statusId": "5",
@@ -69,45 +69,37 @@
     "themes": [
         {
             "id": "1",
-            "name": "Тема1"
+            "name": "Математика"
         },
         {
             "id": "2",
-            "name": "Тема2"
+            "name": "Медицина"
         },
         {
             "id": "3",
-            "name": "Тема3"
+            "name": "Физика"
         },
         {
             "id": "4",
-            "name": "Тема4"
+            "name": "Аркады"
         },
         {
             "id": "5",
-            "name": "Тема5"
+            "name": "Боевики"
         }
     ],
     "categories": [
         {
             "id": "1",
-            "name": "Категория1"
+            "name": "Образовательные"
         },
         {
             "id": "2",
-            "name": "Категория2"
+            "name": "Симуляторы"
         },
         {
             "id": "3",
-            "name": "Категория3"
-        },
-        {
-            "id": "4",
-            "name": "Категория4"
-        },
-        {
-            "id": "5",
-            "name": "Категория5"
+            "name": "Развлекательные"
         }
     ]
 }
