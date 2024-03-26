@@ -27,22 +27,98 @@
         <div class="main-side-bar__categories">
             <filter-form></filter-form>
         </div>
+        <h2 class="main-side-bar__title">История</h2>
+        <div class="main-side-bar__history">
+            <div class="history-object">
+                <p class="history-object__type">Ролевые</p>
+                <p class="history-object__name">Mafia</p>
+                <img class="history-object__img" src="assets/images/icons/play.svg" alt="">
+            </div>
+            <div class="history-object">
+                <p class="history-object__type">Ролевые</p>
+                <p class="history-object__name">Mafia</p>
+                <img class="history-object__img" src="assets/images/icons/play.svg" alt="">
+            </div>
+            <div class="history-object">
+                <p class="history-object__type">Ролевые</p>
+                <p class="history-object__name">Mafia</p>
+                <img class="history-object__img" src="assets/images/icons/play.svg" alt="">
+            </div>
+        </div>
     </aside>
     <div class="main__content">
         <div class="main__info">
             <div class="main__welcome-info">
-                <h1 class="main__title">Студенческие проекты</h1>
-                <p class="main-description">Вы попали на страницу студенческих игровых проектов, которые создаются в рамках проектного обучения студентами 2-3 курса института ИРИТ-РтФ УрФУ.</p>
+                <!-- <h1 class="main__title">Студенческие проекты</h1> -->
+                <h1 class="main__title">Голосование за лучший проект</h1>
+                <p class="main-description">Вы попали на страницу студенческих игровых проектов, которые создаются в рамках <span style="font-weight: 500;color: #fff">проектного обучения</span> студентами <span style="font-weight: 500;color: #e4e4e4">2-3 курса института ИРИТ-РтФ УрФУ</span>. Если вы <span style="color: #79d4f1">студент</span>, то вы можете отдать свой голос за понравившийся вам проект и поддержать команду.</p>
+                <p class="main-description">Если вы эксперт из <span style="font-weight: 500;color: #fff">IT-сферы</span>, то приглашаем вас поучаствовать в защитах проектов в составе экспертной комиссии. Подробнее на странице <span style="font-weight: 500;text-decoration: underline;color: #79d4f1;">Защиты проектов</span></p>
+                <h2 class="main__second-title">До завершения голосования осталось:</h2>
+                <div class="clock">
+                    <div class="clock-section">
+                        <div class="clock-section-numbers">
+                            <div class="clock-section-numbers__number">0</div>
+                            <div class="clock-section-numbers__number">0</div>
+                        </div>
+                        <p class="clock-section__text">дней</p>
+                    </div>
+                    <div class="clock__colon">:</div>
+                    <div class="clock-section">
+                        <div class="clock-section-numbers">
+                            <div class="clock-section-numbers__number">0</div>
+                            <div class="clock-section-numbers__number">0</div>
+                        </div>
+                        <p class="clock-section__text">часов</p>
+                    </div>
+                    <div class="clock__colon">:</div>
+                    <div class="clock-section">
+                        <div class="clock-section-numbers">
+                            <div class="clock-section-numbers__number">0</div>
+                            <div class="clock-section-numbers__number">0</div>
+                        </div>
+                        <p class="clock-section__text">минут</p>
+                    </div>
+                  </div>
             </div>
             <div class="event">
                 <h2 class="event__title">
                     Событие: Осень 2023
                 </h2>
                 <p class="event__status">
-                    Началось
+                    Завершено
                 </p>
+                <p class="event__votes-title">В наличии:</p>
+                <div class="event__votes">
+                    <div class="event__votes-count">
+                        <img class="event__votes-count__img" src="assets/images/fire.svg" alt="">
+                        <p class="event__votes-count__text">0</p>
+                    </div>
+                    <p class="event__votes-text">голосов</p>
+                </div>
+                <p class="event__gifts-title">Призы первых мест:</p>
+                <div class="event__gifts">
+                    <div class="event__gifts-item">
+                        <img class="event__gifts-item__img" src="assets/images/first-place.svg" alt="">
+                        <p class="event__gifts-item__scores">15 баллов + мерч</p>
+                        <p class="event__gifts-item__text">Проектного практикума</p>
+                    </div>
+                    <div class="event__gifts-item">
+                        <img class="event__gifts-item__img" src="assets/images/second-place.svg" alt="">
+                        <p class="event__gifts-item__scores">10 баллов + мерч</p>
+                        <p class="event__gifts-item__text">Проектного практикума</p>
+                    </div>
+                    <div class="event__gifts-item">
+                        <img class="event__gifts-item__img" src="assets/images/third-place.svg" alt="">
+                        <p class="event__gifts-item__scores">5 баллов + мерч</p>
+                        <p class="event__gifts-item__text">Проектного практикума</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="popular">
+            <h2 class="popular-title">Популярные проекты</h2>
+        </div>
+        <h2 class="popular-title">Лидеры рейтинга</h2>
         <games></games>
     </div>
 </div>

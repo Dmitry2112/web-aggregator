@@ -1,12 +1,14 @@
 .categories-form {
     &__title {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
         font-size: var(--font-size-m);
         font-weight: var(--font-weight-m);
         color: var(--base-color-01);
-        margin-bottom: 0.75rem;
     }
 
     &__text {
+        margin-bottom: 0.15rem;
         font-size: var(--font-size-m);
         font-weight: var(--font-weight-m);
         color: var(--base-color-02);
