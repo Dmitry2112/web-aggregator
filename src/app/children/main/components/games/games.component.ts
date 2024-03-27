@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { GameDataService } from '../../data/services/game-data.service';
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { GameModel } from '../../data/models/game.model';
 import { GameCardComponent } from '../game-card/game-card.component';
 import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
     selector: 'games',
@@ -14,12 +14,10 @@ import { NgIf, NgFor, AsyncPipe } from '@angular/common';
     imports: [NgIf, NgFor, GameCardComponent, AsyncPipe]
 })
 export class GamesComponent implements OnInit {
-    public games$: Observable<GameModel[]> = new Observable<GameModel[]>();
-    constructor(private _gameDataService: GameDataService) {
-    }
+    public games$: BehaviorSubject<GameModel[]> = new BehaviorSubject<GameModel[]>([]);
+    constructor(private _filterService: FilterService) {}
 
     public ngOnInit(): void {
-        this.games$ = this._gameDataService.games$.asObservable();
-        this._gameDataService.getAllGames().subscribe();
+        this.games$ = this._filterService.filteredGames$;
     }
 }
