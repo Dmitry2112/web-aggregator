@@ -7,20 +7,29 @@
             <form class="event__form">
                 <tui-select
                     tuiTextfieldSize="m"
-                    class="tui-space_vertical-4"
+                    class="tui-space_vertical-4 event__form-select"
                     [formControl]="chooseEvent"
                     [tuiTextfieldLabelOutside]="true"
                 >
-                    Осень 2023
+                    <p class="event__form-test">Осень 2023</p>
                     <input
+                        class="event__form-input"
                         placeholder="Выберите событие"
                         tuiTextfield
                     />
                     <tui-data-list-wrapper
                         *tuiDataList
                         [items]="events"
+                        class="event__form-list"
+                        [itemContent]="cardContent"
                     ></tui-data-list-wrapper>
                 </tui-select>
+                <ng-template
+                    #cardContent
+                    let-event
+                >
+                    <div class="event__form-list-text">{{event}}</div>
+                </ng-template>
             </form>
         </div>
         <h2 class="main-side-bar__title">Категории</h2>
@@ -49,7 +58,6 @@
     <div class="main__content">
         <div class="main__info">
             <div class="main__welcome-info">
-                <!-- <h1 class="main__title">Студенческие проекты</h1> -->
                 <h1 class="main__title">Голосование за лучший проект</h1>
                 <p class="main-description">Вы попали на страницу студенческих игровых проектов, которые создаются в рамках <span style="font-weight: 500;color: #fff">проектного обучения</span> студентами <span style="font-weight: 500;color: #e4e4e4">2-3 курса института ИРИТ-РтФ УрФУ</span>. Если вы <span style="color: #79d4f1">студент</span>, то вы можете отдать свой голос за понравившийся вам проект и поддержать команду.</p>
                 <p class="main-description">Если вы эксперт из <span style="font-weight: 500;color: #fff">IT-сферы</span>, то приглашаем вас поучаствовать в защитах проектов в составе экспертной комиссии. Подробнее на странице <span style="font-weight: 500;text-decoration: underline;color: #79d4f1;">Защиты проектов</span></p>
@@ -115,10 +123,72 @@
                 </div>
             </div>
         </div>
-        <div class="popular">
-            <h2 class="popular-title">Популярные проекты</h2>
+        <h2 class="popular-title">Популярные проекты</h2>
+        <!-- <div class="popular">
+            <div class="wrapper">
+                <button class="button" (click)="carousel.prev()">
+                    <img src="assets/images/arrow.svg" alt="">
+                </button>
+                <tui-carousel
+                    #carousel
+                    class="carousel"
+                >
+                    <tui-island *tuiItem>
+                        <img src="assets/images/test-game-big-img.png" alt="">
+                    </tui-island>
+                    <tui-island *tuiItem>
+                        <img src="assets/images/test-game-big-img.png" alt="">
+                    </tui-island>
+                    <tui-island *tuiItem>
+                        <img src="assets/images/test-game-big-img.png" alt="">
+                    </tui-island>
+                </tui-carousel>
+                <button class="button" (click)="carousel.next()">
+                    <img src="assets/images/arrow.svg" alt="">
+                </button>
+            </div>
+        </div> -->
+        <div class="rating">
+            <h2 class="popular-title">Лидеры рейтинга</h2>
+            <div class="rating__property">
+                <p class="rating__property-find">Найдено 5 проектов</p>
+                <div class="rating__property-filters">
+                    <div>
+                        <img src="" alt="">
+                        1 из 1
+                        <img src="" alt="">
+                    </div>
+                    <form class="event__form">
+                        <tui-select
+                            tuiTextfieldSize="m"
+                            class="tui-space_vertical-4 event__form-select"
+                            [formControl]="chooseEvent"
+                            [tuiTextfieldLabelOutside]="true"
+                        >
+                            <p class="event__form-test">По возрастанию рейтинга</p>
+                            <input
+                                class="event__form-input"
+                                placeholder="Выберите событие"
+                                tuiTextfield
+                            />
+                            <tui-data-list-wrapper
+                                *tuiDataList
+                                [items]="ratingFilters"
+                                class="event__form-list"
+                                [itemContent]="cardContent"
+                            ></tui-data-list-wrapper>
+                        </tui-select>
+                        <ng-template
+                            #cardContent
+                            let-filters
+                        >
+                            <div class="event__form-list-text">{{ filters }}</div>
+                        </ng-template>
+                    </form>
+                    <img class="loupe" src="assets/images/icons/loupe.svg" alt="">
+                </div>
+            </div>
+            <games></games>
         </div>
-        <h2 class="popular-title">Лидеры рейтинга</h2>
-        <games></games>
     </div>
 </div>

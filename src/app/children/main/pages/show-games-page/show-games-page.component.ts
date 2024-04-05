@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GamesComponent } from '../../components/games/games.component';
 import { TuiTextfieldControllerModule, TuiPrimitiveTextfieldModule, TuiDataListModule } from '@taiga-ui/core';
-import { TuiSelectModule, TuiDataListWrapperModule, TuiCheckboxLabeledModule } from '@taiga-ui/kit';
+import { TuiSelectModule, TuiDataListWrapperModule, TuiCheckboxLabeledModule, TuiCarouselModule, TuiIslandModule } from '@taiga-ui/kit';
 import { FilterFormComponent } from '../../components/filter-form/filter-form.component';
 
 @Component({
@@ -21,12 +21,20 @@ import { FilterFormComponent } from '../../components/filter-form/filter-form.co
         TuiDataListModule,
         TuiDataListWrapperModule,
         GamesComponent,
-        FilterFormComponent
+        FilterFormComponent,
+        TuiCarouselModule,
+        TuiIslandModule
     ]
 })
 export class ShowGamesPageComponent {
     public events: string[] = [
-        'Осень 2023',
+        'Весна 2024',
+        'Осень 2023'
+    ];
+
+    public ratingFilters: string[] = [
+        'По возрастанию рейтинга',
+        'По убыванию рейтнга'
     ];
 
     public chooseEvent: FormControl<string> = new FormControl();
