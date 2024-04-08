@@ -1,0 +1,17 @@
+<div class="pagination">
+    <img
+        class="pagination__img pagination__img_disabled"
+        src="assets/images/icons/pagination-left.svg"
+        alt=""
+        (click)="moveLeft()"
+    >
+    <span class="pagination__count">
+        {{ currentPage() }} из {{ pagesCount() }}
+    </span>
+    <img
+        class="pagination__img"
+        src="assets/images/icons/pagination-right.svg"
+        alt=""
+        (click)="moveRight()"
+    >
+</div>

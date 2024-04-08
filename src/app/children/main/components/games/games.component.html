@@ -1,10 +1,25 @@
-<div class="games-container">
-    <ng-container *ngIf="games$ | async as games">
-        <div
+<section
+    class="games"
+    *ngIf="games$ | async as games"
+>
+    <div class="games__container">
+        <span class="games__count">
+            Найдено {{ games.length }} проектов
+        </span>
+        <pagination
+            [gamesCount]="games.length"
+            [gamesOnPage]="5"
+        >
+        </pagination>
+    </div>
+    <ul class="games__list">
+        <li
+            class="games__item"
             *ngFor="let game of games"
         >
             <game-card [game]="game"></game-card>
-        </div>
-    </ng-container>
-</div>
+        </li>
+    </ul>
+</section>
+
 
