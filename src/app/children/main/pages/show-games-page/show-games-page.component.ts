@@ -38,4 +38,5 @@ export class ShowGamesPageComponent {
     ];
 
     public chooseEvent: FormControl<string> = new FormControl();
+    public chooseRatingFilter: FormControl<string> = new FormControl();
 }

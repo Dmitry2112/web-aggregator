@@ -44,6 +44,39 @@
     }
 }
 
+:host {
+    --tui-radius-m: 0;
+    --tui-height-m: 3.7rem;
+}
+
+.event__form {
+    &-select {
+        // border-radius: 0;
+    }
+
+    &-input {
+        padding: 120px;
+        background-color: var(--secondary-bg-color);
+    }
+
+    &-test {
+        padding: 0.4rem 0.6rem;
+        max-width: 12rem;
+        max-height: 3rem;
+        border-radius: 4px;
+        color: rgba(255, 255, 255, 0.65);
+        background: rgba(200, 200, 200, 0.1);
+    }
+
+    &-list {
+        background-color: var(--secondary-bg-color);
+    }
+
+    &-list-text {
+        color: rgba(255, 255, 255, 0.65);
+    }
+}
+
 .main-side-bar {
     margin-right: 2rem;
 
@@ -58,32 +91,6 @@
         margin-bottom: 2rem;
         padding: 2rem 1.2rem;
         background-color: var(--secondary-bg-color);
-    }
-}
-
-.event__form {
-    &-select {
-        border-radius: 0;
-    }
-
-    &-input {
-        background-color: var(--secondary-bg-color);
-    }
-
-    &-test {
-        color: rgba(255, 255, 255, 0.65);
-    }
-
-    &-list {
-        color: rgba(255, 255, 255, 0.65);
-        background-color: var(--secondary-bg-color);
-        border: 0;
-    }
-
-    &-list-text {
-        color: rgba(255, 255, 255, 0.65);
-        border-radius: 0;
-        border: none;
     }
 }
 
@@ -221,14 +228,11 @@
             margin-bottom: 0.65rem;
         }
     }
-
-
 }
 
 .popular {
     width: 52rem;
-    // width: 10%;
-    // display: block;
+
     &-title {
         margin-bottom: 1.5rem;
         font-size: var(--font-size-l);
@@ -236,34 +240,10 @@
     }
 }
 
-.wrapper {
-    display: flex;
-    width: 100%;
-}
-
-.tui-island {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: transparent;
-}
-
-.tui-island::before {
-    border: none;
-}
-
-.button {
-    background-color: transparent;
-    border: none;
-}
-
-.loupe {
-    visibility: inherit;
-}
-
 .rating {
     &__property {
         display: flex;
+        align-items: center;
         justify-content: space-between;
 
         &-find {
@@ -272,6 +252,41 @@
 
         &-filters {
             display: flex;
+        }
+
+        &-loupe {
+
+        }
+    }
+
+    &__list-page {
+        margin-right: 1.6rem;
+    }
+
+    &__form {
+        &-select {
+            // border-radius: 0;
+        }
+
+        &-input {
+            padding: 120px;
+            background-color: var(--primary-bg-color);
+        }
+
+        &-test {
+            color: var( --secondary-color);
+        }
+
+        &-list {
+            color: rgba(255, 255, 255, 0.65);
+            background-color: var(--secondary-bg-color);
+            border: 0;
+        }
+
+        &-list-text {
+            color: rgba(255, 255, 255, 0.65);
+            border-radius: 0;
+            border: none;
         }
     }
 }
