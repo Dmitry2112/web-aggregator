@@ -4,7 +4,7 @@
 >
     <div class="games__container">
         <span class="games__count">
-            Найдено {{ games.length }} проектов
+            Найдено {{ gamesCount$ | async }} проектов
         </span>
         <pagination
             [gamesOnPage]="5"

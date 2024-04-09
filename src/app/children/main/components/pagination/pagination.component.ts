@@ -44,7 +44,12 @@ export class PaginationComponent implements OnInit {
     public ngOnInit(): void {
         this.gamesCount$
             .pipe(
-                tap((count: number) => this.pagesCount.set(Math.ceil(this.gamesCount$.value / this.gamesOnPage()))),
+                distinctUntilChanged(),
+                tap(() => {
+                    this.curPage.set(1);
+                    this.currentPage$.next(1);
+                }),
+                tap((count: number) => this.pagesCount.set(Math.ceil(count / this.gamesOnPage()))),
                 takeUntil(this._destroy$)
             )
             .subscribe();
