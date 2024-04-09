@@ -6,7 +6,7 @@
         (click)="moveLeft()"
     >
     <span class="pagination__count">
-        {{ currentPage() }} из {{ pagesCount() }}
+        {{ currentPage$ | async }} из {{ pagesCount() }}
     </span>
     <img
         class="pagination__img"

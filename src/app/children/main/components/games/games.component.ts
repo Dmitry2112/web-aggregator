@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { GameModel } from '../../data/models/game.model';
 import { GameCardComponent } from '../game-card/game-card.component';
 import { NgIf, NgFor, AsyncPipe } from '@angular/common';
-import { FilterService } from '../../services/filter.service';
 import { PaginationComponent } from '../pagination/pagination.component';
+import { PaginationService } from '../../services/pagination.service';
 
 @Component({
     selector: 'games',
@@ -15,10 +15,11 @@ import { PaginationComponent } from '../pagination/pagination.component';
     imports: [NgIf, NgFor, GameCardComponent, AsyncPipe, PaginationComponent]
 })
 export class GamesComponent implements OnInit {
-    public games$: BehaviorSubject<GameModel[]> = new BehaviorSubject<GameModel[]>([]);
-    constructor(private _filterService: FilterService) {}
+    public games$: Observable<GameModel[]> = new Observable<GameModel[]>();
+
+    constructor(private _paginationService: PaginationService) {}
 
     public ngOnInit(): void {
-        this.games$ = this._filterService.filteredGames$;
+        this.games$ = this._paginationService.paginateGames();
     }
 }

@@ -68,7 +68,7 @@
         {
             "id": "1",
             "teamId": "1",
-            "name": "CSGO",
+            "name": "Mario",
             "semesterId": "1",
             "categoryId": "1",
             "theme": "1",
@@ -81,7 +81,7 @@
         {
             "id": "2",
             "teamId": "2",
-            "name": "Prey",
+            "name": "Tetris",
             "semesterId": "2",
             "categoryId": "2",
             "theme": "3",
@@ -94,7 +94,7 @@
         {
             "id": "3",
             "teamId": "3",
-            "name": "DOOM",
+            "name": "DOOM 3",
             "semesterId": "3",
             "categoryId": "3",
             "theme": "4",
@@ -107,7 +107,7 @@
         {
             "id": "4",
             "teamId": "4",
-            "name": "Mafia",
+            "name": "Mafia 2",
             "semesterId": "4",
             "categoryId": "1",
             "theme": "2",
@@ -120,7 +120,7 @@
         {
             "id": "5",
             "teamId": "3",
-            "name": "FarCry",
+            "name": "FarCry 6",
             "semesterId": "5",
             "categoryId": "3",
             "theme": "5",
@@ -133,7 +133,7 @@
         {
             "id": "1",
             "teamId": "1",
-            "name": "CSGO",
+            "name": "Civilization 5",
             "semesterId": "1",
             "categoryId": "1",
             "theme": "1",
@@ -146,7 +146,7 @@
         {
             "id": "2",
             "teamId": "2",
-            "name": "Prey",
+            "name": "Outlast 2",
             "semesterId": "2",
             "categoryId": "2",
             "theme": "3",
@@ -159,7 +159,7 @@
         {
             "id": "3",
             "teamId": "3",
-            "name": "DOOM",
+            "name": "Terra",
             "semesterId": "3",
             "categoryId": "3",
             "theme": "4",
@@ -172,7 +172,7 @@
         {
             "id": "4",
             "teamId": "4",
-            "name": "Mafia",
+            "name": "Mafia 3",
             "semesterId": "4",
             "categoryId": "1",
             "theme": "2",
@@ -185,7 +185,7 @@
         {
             "id": "5",
             "teamId": "3",
-            "name": "FarCry",
+            "name": "FarCry 2",
             "semesterId": "5",
             "categoryId": "3",
             "theme": "5",
