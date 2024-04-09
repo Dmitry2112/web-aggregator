@@ -1,15 +1,17 @@
 <div class="pagination">
     <img
-        class="pagination__img pagination__img_disabled"
+        class="pagination__img"
+        [ngClass]="{'pagination__img_disabled': leftDisabled()}"
         src="assets/images/icons/pagination-left.svg"
         alt=""
         (click)="moveLeft()"
     >
     <span class="pagination__count">
-        {{ currentPage$ | async }} из {{ pagesCount() }}
+        {{ curPage() }} из {{ pagesCount() }}
     </span>
     <img
         class="pagination__img"
+        [ngClass]="{'pagination__img_disabled': rightDisabled()}"
         src="assets/images/icons/pagination-right.svg"
         alt=""
         (click)="moveRight()"
