@@ -14,3 +14,103 @@
         gap: 1rem;
     }
 }
+
+.rating {
+    display: flex;
+    flex-direction: column;
+
+    &__property {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        &-find {
+            font-weight: 400;
+            font-size: 20px;
+            color: #b6b6b6;
+        }
+
+        &-filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        &-loupe {
+
+        }
+    }
+
+    &__list-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 115%;
+        margin-right: 1rem;
+    }
+
+    // &__form {
+    //     &-select {
+    //         // border-radius: 0;
+    //     }
+
+    //     &-input {
+    //         padding: 120px;
+    //         background-color: var(--primary-bg-color);
+    //     }
+
+    //     &-test {
+    //         color: var( --secondary-color);
+    //     }
+
+    //     &-list {
+    //         color: rgba(255, 255, 255, 0.65);
+    //         background-color: var(--secondary-bg-color);
+    //         border: 0;
+    //     }
+
+    //     &-list-text {
+    //         color: rgba(255, 255, 255, 0.65);
+    //         border-radius: 0;
+    //         border: none;
+    //     }
+    // }
+
+    &__search {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        width: 100%;
+
+        padding: 0.75rem 1rem;
+        background-color: var(--secondary-bg-color);
+
+        &-input {
+            width: 96%;
+            background: rgba(200, 200, 200, 0.1);
+            padding: 0.75rem;
+            outline: none;
+            border: none;
+        }
+
+        &-input::placeholder {
+            font-weight: 400;
+            font-size: 16px;
+            color: #b6b6b6;
+        }
+    }
+}
+
+.select-second {
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #B6B6B6;
+    cursor: pointer;
+}

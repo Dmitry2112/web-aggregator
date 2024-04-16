@@ -42,7 +42,7 @@
         color: var(--primary-color);
         border: none;
         border-radius: 0.3rem;
-        background: linear-gradient(180deg, #60fb9e 0%, #1efe77 0.01%, #16cd57 48.77%, #0d9834 100%), #16cd57;
+        background: var(--play-button-color);
         cursor: pointer;
     }
 
@@ -60,6 +60,12 @@
 
     &__votes {
         margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--secondary-color);
     }
 
     &__voting-button {
@@ -67,8 +73,8 @@
         padding: 1rem 0rem;
         font-weight: 600;
         font-size: 20px;
-        color: #c1d9e2;
-        border: 1px solid #5a9df5;
+        color: var(--base-color-02);
+        border: 1px solid var(--active-bg-button-color);
         border-radius: 3px;
         background-color: var(--avatar-menu-bg-color);
         cursor: pointer;
@@ -102,21 +108,21 @@
     &__title {
         font-weight: 600;
         font-size: 24px;
-        color: #fff;
+        color: var(--primary-color);
         margin-bottom: 1.6rem;
     }
 
     &__name {
         font-weight: 400;
         font-size: 18px;
-        color: #b6b6b6;
+        color: var(--base-color-01);
         margin-bottom: 0.25rem;
     }
 
     &__count {
         font-weight: 400;
         font-size: 14px;
-        color: #c1d9e2;
+        color: var(--base-color-02);
         margin-bottom: 1.25rem;
     }
 }
@@ -134,7 +140,7 @@
         &__name {
             font-weight: 400;
             font-size: 18px;
-            color: #c1d9e2;
+            color: var(--base-color-02);
         }
 
         &__role {
@@ -148,7 +154,7 @@
             font-size: 14px;
             text-decoration: underline;
             text-decoration-skip-ink: none;
-            color: #c1d9e2;
+            color: var(--base-color-02);
         }
     }
 }
@@ -157,7 +163,7 @@
     &__title {
         font-weight: 500;
         font-size: 24px;
-        color: #fff;
+        color: var(--primary-color);
         margin-bottom: 1.6rem;
     }
 }
@@ -196,7 +202,7 @@
     &__title {
         font-weight: 600;
         font-size: 24px;
-        color: #fff;
+        color: var(--primary-color);
         margin-bottom: 1.6rem;
     }
 
@@ -210,7 +216,7 @@
 
 .other-project {
     width: 100%;
-    background-color: #2d2d2d;
+    background-color: var(--secondary-bg-color);
     border-radius: 0.5rem;
 
     &__img {
@@ -228,13 +234,13 @@
     &__category {
         font-weight: 400;
         font-size: 12px;
-        color: #fff;
+        color: var(--primary-color);
     }
 
     &__name {
         font-weight: 600;
         font-size: 12px;
-        color: #fff;
+        color: var(--primary-color);
     }
 
     &__button {
@@ -247,4 +253,23 @@
         border-radius: 0.25rem;
         color: #BDFFEB;
     }
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+
+    &__img {
+        cursor: pointer;
+
+        &_disabled {
+            opacity: 0.5;
+        }
+    }
+}
+
+.right_img {
+    transform: rotate(180deg);
 }
