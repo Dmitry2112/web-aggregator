@@ -1,0 +1,21 @@
+<form
+    class="chose-event-form b-form"
+    [formGroup]="choseEventForm"
+>
+    <tui-select
+        tuiTextfieldSize="m"
+        class="tui-space_vertical-4"
+        formControlName="event"
+        [tuiTextfieldLabelOutside]="true"
+    >
+        Выберите событие
+        <input
+            placeholder="Choose your hero"
+            tuiTextfield
+        />
+        <tui-data-list-wrapper
+            *tuiDataList
+            [items]="eventsNames"
+        ></tui-data-list-wrapper>
+    </tui-select>
+</form>

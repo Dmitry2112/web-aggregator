@@ -42,7 +42,7 @@ export class FilterFormComponent implements OnInit {
         this.filterForm.valueChanges
             .pipe(
                 tap((values: Partial<FilterFormValues>) => {
-                    this._filterService.changeFilters(values);
+                    this._filterService.changeThemes(values);
                 }),
                 takeUntil(this._destroy$)
             )

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThemesFormComponent } from './filter-form.component';
+import { ChoseEventFormComponent } from './chose-event-form.component';
 
-describe('FilterFormComponent', () => {
-  let component: ThemesFormComponent;
-  let fixture: ComponentFixture<ThemesFormComponent>;
+describe('ChoseEventFormComponent', () => {
+  let component: ChoseEventFormComponent;
+  let fixture: ComponentFixture<ChoseEventFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ThemesFormComponent]
+      imports: [ChoseEventFormComponent]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(ThemesFormComponent);
+    
+    fixture = TestBed.createComponent(ChoseEventFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable, switchMap, tap } from 'rxjs';
 import { GameModel } from '../data/models/game.model';
 import { GameDataService } from '../data/services/game-data.service';
 import { FilterFormValues } from '../components/filter-form/filter-form-values.type';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class FilterService {
-    public filters$: BehaviorSubject<Set<string>> = new BehaviorSubject<Set<string>>(new Set<string>());
+    public event$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+    public themes$: BehaviorSubject<Set<string>> = new BehaviorSubject<Set<string>>(new Set<string>());
+    public filters$: Observable<[string, Set<string>]> = combineLatest([this.event$, this.themes$]);
     public gamesCount$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
     private _themes: Record<string, string> = {
@@ -28,34 +31,47 @@ export class FilterService {
         return this.filters$
             .pipe(
                 switchMap(() => this._gameDataService.getAllGames()),
+                map((games: GameModel[]) => this.filterGamesByEvent(games)),
                 map((games: GameModel[]) => this.filterGamesByThemes(games)),
                 tap((games: GameModel[]) => this.gamesCount$.next(games.length))
             );
     }
 
-    public changeFilters(filterFormValues: Partial<FilterFormValues>): void {
+    public changeEvent(semesterId: string): void {
+        this.event$.next(semesterId);
+    }
+
+    public changeThemes(filterFormValues: Partial<FilterFormValues>): void {
         for (const [key, value] of Object.entries(filterFormValues)) {
             value
-                ? this.addFilter(this._themes[key])
-                : this.deleteFilter(this._themes[key]);
+                ? this.addTheme(this._themes[key])
+                : this.deleteTheme(this._themes[key]);
         }
     }
 
-    private addFilter(filter: string): void {
-        this.filters$.next(this.filters$.value.add(filter));
+    private addTheme(filter: string): void {
+        this.themes$.next(this.themes$.value.add(filter));
     }
 
-    private deleteFilter(filter: string): void {
-        const currentFilters: Set<string> = this.filters$.value;
+    private deleteTheme(filter: string): void {
+        const currentFilters: Set<string> = this.themes$.value;
         currentFilters.delete(filter);
-        this.filters$.next(currentFilters);
+        this.themes$.next(currentFilters);
     }
 
     private filterGamesByThemes(games: GameModel[]): GameModel[] {
-        return this.filters$.value.size === 0 || this.filters$.value.has(this._themes['all'])
+        return this.themes$.value.size === 0 || this.themes$.value.has(this._themes['all'])
             ? games
             : games.filter((game: GameModel) => {
-                return this.filters$.value.has(game.theme);
+                return this.themes$.value.has(game.theme);
+            });
+    }
+
+    private filterGamesByEvent(games: GameModel[]): GameModel[] {
+        return this.event$.value === ''
+            ? games
+            : games.filter((game: GameModel) => {
+                return game.semesterId === this.event$.value;
             });
     }
 }

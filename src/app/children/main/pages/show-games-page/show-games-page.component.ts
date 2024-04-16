@@ -3,6 +3,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GamesComponent } from '../../components/games/games.component';
 import { TuiTextfieldControllerModule, TuiPrimitiveTextfieldModule, TuiDataListModule } from '@taiga-ui/core';
 import { TuiSelectModule, TuiDataListWrapperModule, TuiCheckboxLabeledModule, TuiCarouselModule, TuiIslandModule } from '@taiga-ui/kit';
+import { ChoseEventFormComponent } from '../../components/chose-event-form/chose-event-form.component';
 import { FilterFormComponent } from '../../components/filter-form/filter-form.component';
 
 @Component({
@@ -21,9 +22,10 @@ import { FilterFormComponent } from '../../components/filter-form/filter-form.co
         TuiDataListModule,
         TuiDataListWrapperModule,
         GamesComponent,
-        FilterFormComponent,
         TuiCarouselModule,
-        TuiIslandModule
+        TuiIslandModule,
+        ChoseEventFormComponent,
+        FilterFormComponent
     ]
 })
 export class ShowGamesPageComponent {
