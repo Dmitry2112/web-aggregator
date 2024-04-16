@@ -32,7 +32,7 @@ export class PaginationComponent implements OnInit {
     public currentPage$: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
     public curPage: WritableSignal<number> = signal(1);
-    public leftDisabled: Signal<boolean> = computed(() => this.curPage() === 1);
+    public leftDisabled: Signal<boolean> = computed(() => this.curPage() <= 1);
     public rightDisabled: Signal<boolean> = computed(() => this.curPage() === this.pagesCount());
 
     constructor(
@@ -45,9 +45,14 @@ export class PaginationComponent implements OnInit {
         this.gamesCount$
             .pipe(
                 distinctUntilChanged(),
-                tap(() => {
-                    this.curPage.set(1);
-                    this.currentPage$.next(1);
+                tap((count: number) => {
+                    if (count > 0) {
+                        this.curPage.set(1);
+                        this.currentPage$.next(1);
+                    } else {
+                        this.curPage.set(0);
+                        this.currentPage$.next(0);
+                    }
                 }),
                 tap((count: number) => this.pagesCount.set(Math.ceil(count / this.gamesOnPage()))),
                 takeUntil(this._destroy$)
@@ -64,8 +69,8 @@ export class PaginationComponent implements OnInit {
     }
 
     public moveLeft(): void {
-        this.curPage.update((value: number) => value === 1 ? value : value - 1);
-        this.currentPage$.next(this.currentPage$.value === 1 ? this.currentPage$.value : this.currentPage$.value - 1);
+        this.curPage.update((value: number) => value <= 1 ? value : value - 1);
+        this.currentPage$.next(this.currentPage$.value <= 1 ? this.currentPage$.value : this.currentPage$.value - 1);
     }
 
     public moveRight(): void {
