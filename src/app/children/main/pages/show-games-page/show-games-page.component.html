@@ -95,7 +95,12 @@
             </div>
             <div class="event">
                 <h2 class="event__title">
-                    Событие: Осень 2023
+                    Событие:
+                    @if (this.event()) {
+                        {{ this.event() }}
+                    } @else {
+                        Не выбрано
+                    }
                 </h2>
                 <p class="event__status">
                     Завершено
