@@ -48,4 +48,8 @@
         display: flex;
         gap: 0.5rem;
     }
+
+    &__status {
+        color: var(--good-status-color);
+    }
 }

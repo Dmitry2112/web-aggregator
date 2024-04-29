@@ -39,6 +39,9 @@
                         >
                         <p>10,2k</p>
                     </div>
+                    @if (projectStatus$ | async; as projectStatus) {
+                        <p class="project__status">{{ projectStatus.name }}</p>
+                    }
                 </div>
             </div>
         </div>
