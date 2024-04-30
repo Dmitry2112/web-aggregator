@@ -14,7 +14,7 @@
     &__center {
         width: 100%;
         min-width: 77rem;
-        max-width: 110rem;
+        max-width: 90rem;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -45,6 +45,7 @@
         align-items: center;
         gap: 0.5rem;
         position: relative;
+        cursor: pointer;
     }
 
     &__avatar-text {

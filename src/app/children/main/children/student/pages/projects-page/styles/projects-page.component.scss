@@ -1,35 +1,127 @@
 .projects {
-    display: flex;
-
-    &__semester-button {
-        margin-bottom: 2rem;
-    }
-
-    &__info {
-
-    }
+    display: grid;
+    grid-template-columns: 3fr 8fr;
+    gap: 7rem;
 
     &__title {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.825rem;
+        font-weight: 600;
+        font-size: 26px;
+        color: #fff;
     }
 
-    &__choose-semester-button {
-        margin-bottom: 1rem;
+    &__text {
+        margin-bottom: 4.1rem;
+        font-weight: 400;
+        font-size: 20px;
+        color: #b6b6b6;
     }
 }
 
 .side-bar {
-    margin-right: 6rem;
+    &__title {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    &__status {
+        margin-bottom: 2rem;
+        font-weight: 400;
+        font-size: 18px;
+        color: #47bdff;
+    }
+
+    &__save-btn {
+        width: 100%;
+        padding:  1rem 0;
+        font-weight: 600;
+        font-size: 20px;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        background: #16CD57;
+        cursor: pointer;
+    }
+}
+
+.choose-project {
+    &__title {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    &__text {
+        margin-bottom: 1.8rem;
+        font-weight: 400;
+        font-size: 18px;
+        color: #b6b6b6;
+    }
+
+    &__buttons-div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 3.125rem;
+    }
+
+    &__button {
+        padding: 0.7rem;
+        border: none;
+        border-radius: 3px;
+
+        &-selected {
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+            color: #fff;
+            background-color: #5A9DF5;
+            cursor: pointer;
+        }
+
+        &-active {
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+            color: #d0e6ee;
+            background-color: transparent;
+            outline: 1px solid #5A9DF5;
+            cursor: pointer;
+        }
+
+        &-inactive {
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            color: rgba(208, 230, 238, 0.5);
+            background-color: transparent;
+            outline: 1px solid rgba(208, 230, 238, 0.5);
+        }
+    }
 }
 
 .project {
     display: flex;
     gap: 3rem;
+    margin-bottom: 3rem;
 
     &__main-info {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
+
+        &__name {
+            font-weight: 500;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        &__img {
+
+        }
     }
 
     &__description {
@@ -38,14 +130,155 @@
         gap: 0.5rem;
     }
 
-    &__player-count-block {
+    &__pub-date {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        font-size: 18px;
+        color: #c1d9e2;
+
+        &__text {
+            opacity: 0.5;
+        }
+    }
+
+    &__rating {
+        &-title {
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        &-count {
+            font-weight: 700;
+            font-size: 36px;
+            color: #fff;
+        }
+
+        &-stars {
+            display: flex;
+            gap: 0.8rem;
+        }
+    }
+
+    &__player-count {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+
+        &__title {
+            font-weight: 400;
+            font-size: 18px;
+            color: #b6b6b6;
+        }
+
+        &__container {
+            display: flex;
+            gap: 0.625rem;
+        }
+
+        &__text {
+            font-weight: 700;
+            font-size: 24px;
+            color: #fff;
+        }
+    }
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 
-    &__player-count-container {
+    &__role-container {
         display: flex;
-        gap: 0.5rem;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__role-title {
+        font-weight: 500;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    &__role-devoleper-role {
+        padding: 1.25rem 2.3rem;
+        font-weight: 300;
+        font-size: 16px;
+        color: #c1d9e2;
+        background: #2d2d2d;
+    }
+
+    &__devoleper-team-container {
+
+    }
+
+    &__devoleper-team-title {
+        font-weight: 500;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    &__devoleper-team-count {
+        position: relative;
+        bottom: 0.6rem;
+        margin-bottom: 0.4rem;
+        font-weight: 400;
+        font-size: 18px;
+        text-align: right;
+        color: rgba(208, 230, 238, 0.5);
+    }
+
+    &__devoleper-team-name {
+        padding: 1.25rem 2.3rem;
+        font-weight: 300;
+        font-size: 16px;
+        color: #c1d9e2;
+        background: #2d2d2d;
+    }
+}
+
+.developer {
+    &__count {
+        margin-bottom: 1.6rem;
+        font-weight: 500;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    &__name {
+        margin-bottom: 1rem;
+        padding: 1.25rem 2.3rem;
+        font-weight: 300;
+        font-size: 16px;
+        color: #c1d9e2;
+        background: #2d2d2d;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__role {
+        font-weight: 400;
+        font-size: 18px;
+        color: #b6b6b6;
+    }
+
+    &__contacts {
+        font-weight: 400;
+        font-size: 18px;
+        text-decoration-skip-ink: none;
+        color: #c1d9e2;
     }
 }

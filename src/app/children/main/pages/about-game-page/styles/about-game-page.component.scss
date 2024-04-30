@@ -4,15 +4,6 @@
     grid-column-gap: 6rem;
     margin-bottom: 1.8rem;
 
-    &__container {
-        min-width: 63rem;
-        max-width: 90rem;
-        margin-left: auto;
-        margin-right: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
     &__navigation {
         display: flex;
         gap: 0.75rem;

@@ -1,44 +1,95 @@
-<h1>Мои проекты</h1>
+<h1 class="projects__title">Мои проекты</h1>
+<p class="projects__text">Профиль</p>
+
 <div class="projects">
     <aside class="side-bar">
+        <h2 class="side-bar__title">Редактирование</h2>
+        <p class="side-bar__status">Изменений нет</p>
         <profile-side-bar [actionName]="'Создать проект'"></profile-side-bar>
+        <button class="side-bar__save-btn">Открыть проект</button>
     </aside>
 
-    <div class="projects__info">
-        <h2 class="projects__title">Выбор проекта</h2>
-        <p>Выберите учебный семестр</p>
-        <button
+    <div class="choose-project__info">
+        <h2 class="choose-project__title">Выбор проекта</h2>
+        <p class="choose-project__text">Выберите учебный семестр</p>
+        <div class="choose-project__buttons-div">
+            <button class="choose-project__button choose-project__button-selected">Осень 2023</button>
+            <button class="choose-project__button choose-project__button-active">Весна 2024</button>
+            <button class="choose-project__button choose-project__button-inactive" disabled>Осень 2024</button>
+        </div>
+        <!-- <button
             class="projects__choose-semester-button"
             appearance="choose-semester-button"
             tuiButton
         >
             Осень 2023
-        </button>
+        </button> -->
         <div class="project">
             <div class="project__main-info">
-                <h3 class="project__name">
+                <h3 class="project__main-info__name">
                     Merge Комбинаторика
                 </h3>
                 <img
-                    class="project__img"
+                    class="project__main-info__img"
                     src="assets/images/test-game-img.png"
                     alt="Фото игры"
                 >
             </div>
             <div class="project__description">
-                <p class="project__pub-date">
-                    Проект опубликован: 24.03.2022
-                </p>
-                <div class="project__player-count-block">
-                    <p class="project__player-count-title">Количество игроков</p>
-                    <div class="project__player-count-container">
+                <div class="project__pub-date">
+                    <p class="project__pub-date__text">Проект опубликован</p>
+                    <p class="project__pub-date__date">24.03.2022</p>
+                </div>
+                <div class="project__rating">
+                    <p class="project__rating-title">Рейтинг проекта</p>
+                    <div class="project__rating-stars">
+                        <p class="project__rating-count">0</p>
+                        <img class="project__rating-star" src="assets/images/icons/star.svg" alt="">
+                        <img class="project__rating-star" src="assets/images/icons/star.svg" alt="">
+                        <img class="project__rating-star" src="assets/images/icons/star.svg" alt="">
+                        <img class="project__rating-star" src="assets/images/icons/star.svg" alt="">
+                        <img class="project__rating-star" src="assets/images/icons/star.svg" alt="">
+                    </div>
+                </div>
+                <div class="project__player-count">
+                    <p class="project__player-count__title">Количество игроков</p>
+                    <div class="project__player-count__container">
                         <img
-                            class="project__player-count-icon"
+                            class="project__player-count__icon"
                              src="assets/images/icons/eye.svg"
                              alt="Глаз"
                         >
-                        <p>10,2k</p>
+                        <p class="project__player-count__text">10,2k</p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="team">
+            <div class="team__container">
+                <div class="team__role-container">
+                    <p class="team__role-title">Роль в команде</p>
+                    <div class="team__role-devoleper-role">Роль</div>
+                </div>
+                <div class="team__devoleper-team-container">
+                    <p class="team__devoleper-team-title">Ваша команда</p>
+                    <p class="team__devoleper-team-count">Участников: 4</p>
+                    <div class="team__devoleper-team-name">Название команды</div>
+                </div>
+            </div>
+            <div class="developer">
+                <p class="developer__count">Участник команды #1</p>
+                <div class="developer__name">Фамилия Имя, Академическая группа</div>
+                <div class="developer__info">
+                    <p class="developer__role">Роль: Роль</p>
+                    <a class="developer__contacts" href="">Контакты</a>
+                </div>
+            </div>
+            <div class="developer">
+                <p class="developer__count">Участник команды #1</p>
+                <div class="developer__name">Фамилия Имя, Академическая группа</div>
+                <div class="developer__info">
+                    <p class="developer__role">Роль: Роль</p>
+                    <a class="developer__contacts" href="">Контакты</a>
                 </div>
             </div>
         </div>

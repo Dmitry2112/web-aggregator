@@ -1,160 +1,158 @@
-<div class="game-info__container">
-    <h1>Страница проекта</h1>
+<h1>Страница проекта</h1>
 
-    <div class="game-info__navigation">
-        <a routerLink="" class="game-info__navigation-link">Проекты </a>
-        <p>> Название проекта</p>
+<div class="game-info__navigation">
+    <a routerLink="" class="game-info__navigation-link">Проекты </a>
+    <p>> Название проекта</p>
+</div>
+
+<div class="game-info">
+    <div class="game-info__right">
+        <p class="game-info__name">{{ name() }}</p>
+        <img
+            class="game-info__img"
+            src="assets/images/test-game-img.png"
+            alt="Фото игры"
+        >
+        <button class="game-info__play-button">
+            Играть
+        </button>
+        <!-- <button
+            appearance="main-page-play-button"
+            tuiButton
+            routerLink="../../play-game/{{ gameId() }}"
+        >
+            Играть
+        </button> -->
+        <div class="game-rating">
+            <h3 class="game-rating__title">Рейтинг проекта</h3>
+            <div class="rating-points">
+                <img class="rating-points__before" src="assets/images/third-place.svg" alt="">
+                <div class="rating-points__all">
+                    <div class="rating-points__has"></div>
+                </div>
+                <img class="rating-points__after" src="assets/images/second-place.svg" alt="">
+                <div class="rating-points__count-div">
+                    <img class="rating-points__fire-img" src="assets/images/icons/fire-icon.svg" alt="">
+                    <p class="rating-points__count">350/1500</p>
+                </div>
+            </div>
+            <p class="game-rating__text">Отдано голосов</p>
+            <div class="game-rating__votes">
+                <img src="assets/images/icons/fire-icon.svg" alt="">
+                <p>0</p>
+            </div>
+            <button class="game-rating__voting-button">Проголосовать</button>
+        </div>
+        <div class="game-developers">
+            <h3 class="game-developers__title">Команда разработчика</h3>
+            <p class="game-developers__name">Название команды</p>
+            <p class="game-developers__count">1 участник</p>
+            <div class="developers">
+                <div class="developers-card">
+                    <p class="developers-card__name">Имя участника</p>
+                    <p class="developers-card__role">Роль</p>
+                    <a
+                        href=""
+                        class="developers-card__contacts">
+                        Контакты
+                    </a>
+                </div>
+            </div>
+            <div class="pagination">
+                <img class="pagination__img_disabled" src="assets/images/icons/inactive-arrow.svg" alt="">
+                <p class="rating__list-page-text">1 из 1</p>
+                <img class="pagination__img_disabled right_img" src="assets/images/icons/inactive-arrow.svg" alt="">
+            </div>
+        </div>
+        <div class="team-projects">
+            <h3 class="team-projects__title">Проекты команды</h3>
+        </div>
     </div>
 
-    <div class="game-info">
-        <div class="game-info__right">
-            <p class="game-info__name">{{ name() }}</p>
+    <div class="game-info__left">
+        <div class="name-and-gh-link">
+            <p class="name-and-gh-link__name">Об игре</p>
+            <a
+                class="name-and-gh-link__gh-link"
+                routerLink="{{ gitHubLink() }}"
+            >
+                Git
+            </a>
+        </div>
+        <div class="game-photos">
             <img
-                class="game-info__img"
-                src="assets/images/test-game-img.png"
+                class="game-photos__main-img"
+                src="assets/images/about-game-img.png"
                 alt="Фото игры"
             >
-            <button class="game-info__play-button">
-                Играть
-            </button>
-            <!-- <button
-                appearance="main-page-play-button"
-                tuiButton
-                routerLink="../../play-game/{{ gameId() }}"
-            >
-                Играть
-            </button> -->
-            <div class="game-rating">
-                <h3 class="game-rating__title">Рейтинг проекта</h3>
-                <div class="rating-points">
-                    <img class="rating-points__before" src="assets/images/third-place.svg" alt="">
-                    <div class="rating-points__all">
-                        <div class="rating-points__has"></div>
-                    </div>
-                    <img class="rating-points__after" src="assets/images/second-place.svg" alt="">
-                    <div class="rating-points__count-div">
-                        <img class="rating-points__fire-img" src="assets/images/icons/fire-icon.svg" alt="">
-                        <p class="rating-points__count">350/1500</p>
-                    </div>
-                </div>
-                <p class="game-rating__text">Отдано голосов</p>
-                <div class="game-rating__votes">
-                    <img src="assets/images/icons/fire-icon.svg" alt="">
-                    <p>0</p>
-                </div>
-                <button class="game-rating__voting-button">Проголосовать</button>
-            </div>
-            <div class="game-developers">
-                <h3 class="game-developers__title">Команда разработчика</h3>
-                <p class="game-developers__name">Название команды</p>
-                <p class="game-developers__count">1 участник</p>
-                <div class="developers">
-                    <div class="developers-card">
-                        <p class="developers-card__name">Имя участника</p>
-                        <p class="developers-card__role">Роль</p>
-                        <a
-                            href=""
-                            class="developers-card__contacts">
-                            Контакты
-                        </a>
-                    </div>
-                </div>
-                <div class="pagination">
-                    <img class="pagination__img_disabled" src="assets/images/icons/inactive-arrow.svg" alt="">
-                    <p class="rating__list-page-text">1 из 1</p>
-                    <img class="pagination__img_disabled right_img" src="assets/images/icons/inactive-arrow.svg" alt="">
-                </div>
-            </div>
-            <div class="team-projects">
-                <h3 class="team-projects__title">Проекты команды</h3>
+            <div class="game-photos__btns">
+                <button class="game-photos__btn game-photos__btn-active">
+                    <img
+                        class="game-photos__img"
+                        src="assets/images/about-game-img.png"
+                        alt="Фото игры"
+                    >
+                </button>
+                <button class="game-photos__btn game-photos__btn-inactive">
+                    <img
+                        class="game-photos__img"
+                        src="assets/images/about-game-img.png"
+                        alt="Фото игры"
+                    >
+                </button>
+                <button class="game-photos__btn game-photos__btn-inactive">
+                    <img
+                        class="game-photos__img"
+                        src="assets/images/about-game-img.png"
+                        alt="Фото игры"
+                    >
+                </button>
+                <button class="game-photos__btn game-photos__btn-inactive">
+                    <img
+                        class="game-photos__img"
+                        src="assets/images/about-game-img.png"
+                        alt="Фото игры"
+                    >
+                </button>
             </div>
         </div>
 
-        <div class="game-info__left">
-            <div class="name-and-gh-link">
-                <p class="name-and-gh-link__name">Об игре</p>
-                <a
-                    class="name-and-gh-link__gh-link"
-                    routerLink="{{ gitHubLink() }}"
-                >
-                    Git
-                </a>
+        <div class="description">
+            <h2 class="description__title">Описание проекта</h2>
+            <div class="description__text-container">
+                <p class="description__text">{{ shortDescription() }}</p>
             </div>
-            <div class="game-photos">
-                <img
-                    class="game-photos__main-img"
-                    src="assets/images/about-game-img.png"
-                    alt="Фото игры"
-                >
-                <div class="game-photos__btns">
-                    <button class="game-photos__btn game-photos__btn-active">
-                        <img
-                            class="game-photos__img"
-                            src="assets/images/about-game-img.png"
-                            alt="Фото игры"
-                        >
-                    </button>
-                    <button class="game-photos__btn game-photos__btn-inactive">
-                        <img
-                            class="game-photos__img"
-                            src="assets/images/about-game-img.png"
-                            alt="Фото игры"
-                        >
-                    </button>
-                    <button class="game-photos__btn game-photos__btn-inactive">
-                        <img
-                            class="game-photos__img"
-                            src="assets/images/about-game-img.png"
-                            alt="Фото игры"
-                        >
-                    </button>
-                    <button class="game-photos__btn game-photos__btn-inactive">
-                        <img
-                            class="game-photos__img"
-                            src="assets/images/about-game-img.png"
-                            alt="Фото игры"
-                        >
-                    </button>
-                </div>
-            </div>
-
-            <div class="description">
-                <h2 class="description__title">Описание проекта</h2>
-                <div class="description__text-container">
-                    <p class="description__text">{{ shortDescription() }}</p>
-                </div>
-            </div>
-            <div class="play-description">
-                <h2 class="play-description__title">Как играть</h2>
-                <div class="play-description__text-container">
-                    <p class="play-description__text">{{ playDescription() }}</p>
-                </div>
+        </div>
+        <div class="play-description">
+            <h2 class="play-description__title">Как играть</h2>
+            <div class="play-description__text-container">
+                <p class="play-description__text">{{ playDescription() }}</p>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="other-projects">
-        <h2 class="other-projects__title">Другие проекты</h2>
-        <div class="other-projects__container">
-            <div class="other-project">
-                <img class="other-project__img" src="assets/images/test-game-2-img.png" alt="">
-                <div class="other-project__info">
-                    <div>
-                        <p class="other-project__category">Категория</p>
-                        <p class="other-project__name">Название</p>
-                    </div>
-                    <button class="other-project__button">Играть</button>
+<div class="other-projects">
+    <h2 class="other-projects__title">Другие проекты</h2>
+    <div class="other-projects__container">
+        <div class="other-project">
+            <img class="other-project__img" src="assets/images/test-game-2-img.png" alt="">
+            <div class="other-project__info">
+                <div>
+                    <p class="other-project__category">Категория</p>
+                    <p class="other-project__name">Название</p>
                 </div>
+                <button class="other-project__button">Играть</button>
             </div>
-            <div class="other-project">
-                <img class="other-project__img" src="assets/images/test-game-2-img.png" alt="">
-                <div class="other-project__info">
-                    <div>
-                        <p class="other-project__category">Категория</p>
-                        <p class="other-project__name">Название</p>
-                    </div>
-                    <button class="other-project__button">Играть</button>
+        </div>
+        <div class="other-project">
+            <img class="other-project__img" src="assets/images/test-game-2-img.png" alt="">
+            <div class="other-project__info">
+                <div>
+                    <p class="other-project__category">Категория</p>
+                    <p class="other-project__name">Название</p>
                 </div>
+                <button class="other-project__button">Играть</button>
             </div>
         </div>
     </div>

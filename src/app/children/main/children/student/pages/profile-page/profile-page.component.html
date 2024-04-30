@@ -1,11 +1,16 @@
-<h1>Данные пользователя</h1>
+<h1 class="profile__title">Данные пользователя</h1>
+<p class="profile__text">Профиль</p>
+
 <div class="profile">
     <aside class="side-bar">
+        <h2 class="side-bar__title">Редактирование</h2>
+        <p class="side-bar__status">Изменений нет</p>
         <profile-side-bar></profile-side-bar>
+        <button class="side-bar__save-btn">Сохранить</button>
     </aside>
 
     <div class="profile__info">
-        <div class="user-data">
+        <!-- <div class="user-data">
             <b>Фамилия:</b> {{ name() }}
         </div>
         <div class="user-data">
@@ -13,6 +18,58 @@
         </div>
         <div class="user-data">
             <b>Академическая группа:</b> {{ academicGroup() }}
+        </div> -->
+        <div class="profile__info-name">
+            <p class="profile__info-title">Фамилия</p>
+            <div class="profile__info-input__bg">
+                <input class="profile__info-input" type="text" placeholder="Введите фамилию">
+            </div>
+        </div>
+        <div class="profile__info-name">
+            <p class="profile__info-title">Имя</p>
+            <div class="profile__info-input__bg">
+                <input class="profile__info-input" type="text" placeholder="Введите имя">
+            </div>
+        </div>
+        <div class="profile__info-name">
+            <p class="profile__info-title">Отчество</p>
+            <div class="profile__info-input__bg">
+                <input class="profile__info-input" type="text" placeholder="Введите отчество">
+            </div>
+        </div>
+        <div class="profile__info-data">
+            <div class="user-data">
+                <p class="profile__info-title">Направление обучения</p>
+                <div class="profile__info-input__bg">
+                    <select class="profile__info-select" name="" id="" aria-placeholder="Выберите из списка">
+                        <option value="">Выберите из списка</option>
+                    </select>
+                </div>
+            </div>
+            <div class="user-data">
+                <p class="profile__info-title">Курс</p>
+                <div class="profile__info-input__bg">
+                    <select class="profile__info-select" name="" id="">
+                        <option value="">Выберите из списка</option>
+                        <option value="">1 курс</option>
+                        <option value="">2 курс</option>
+                        <option value="">3 курс</option>
+                        <option value="">4 курс</option>
+                    </select>
+                </div>
+            </div>
+            <div class="user-data">
+                <p class="profile__info-title">Академ. граппа</p>
+                <div class="profile__info-input__bg">
+                    <input class="profile__info-input" type="text" placeholder="Введите группу">
+                </div>
+            </div>
+            <div class="user-data">
+                <p class="profile__info-title">Контакты</p>
+                <div class="profile__info-input__bg">
+                    <input class="profile__info-input" type="text" placeholder="Ссылка на Telegramm или ВК">
+                </div>
+            </div>
         </div>
     </div>
 </div>
