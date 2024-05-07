@@ -1,0 +1,67 @@
+<h1>Данные пользователя</h1>
+<div class="profile">
+    <aside class="side-bar">
+        <profile-side-bar></profile-side-bar>
+    </aside>
+
+    <form
+        class="profile-form"
+        [formGroup]="profileForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <div class="tui-form__row">
+            <tui-input
+                formControlName="surname"
+            >
+                Фамилия
+                <input
+                    tuiTextfield
+                    type="text"
+                />
+                <span class="tui-required"></span>
+            </tui-input>
+            <tui-error
+                formControlName="surname"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+        <div class="tui-form__row">
+            <tui-input
+                formControlName="name"
+            >
+                Имя
+                <input
+                    tuiTextfield
+                    type="text"
+                />
+                <span class="tui-required"></span>
+            </tui-input>
+            <tui-error
+                formControlName="name"
+                [error]="[] | tuiFieldError | async"
+            ></tui-error>
+        </div>
+
+        <div class="profile-form__action">
+            <button
+                class="profile-form__submit-button"
+                appearance="auth-button"
+                tuiButton
+                type="submit"
+            >
+                Сохранить
+            </button>
+        </div>
+    </form>
+<!--    <div class="profile__info">-->
+<!--        <div class="user-data">-->
+<!--            <b>Фамилия:</b> {{ name() }}-->
+<!--        </div>-->
+<!--        <div class="user-data">-->
+<!--            <b>Имя:</b> {{ surname() }}-->
+<!--        </div>-->
+<!--        <div class="user-data">-->
+<!--            <b>Академическая группа:</b> {{ academicGroup() }}-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
