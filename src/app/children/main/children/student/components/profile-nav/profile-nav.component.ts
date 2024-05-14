@@ -13,6 +13,7 @@ import { AuthService } from '../../../auth/data/services/auth.service';
 export class ProfileNavComponent implements OnInit {
     public profileActive: WritableSignal<boolean> = signal(false);
     public projectsActive: WritableSignal<boolean> = signal(false);
+    public securityActive: WritableSignal<boolean> = signal(false);
 
     constructor(
         private _authService: AuthService,
@@ -20,7 +21,15 @@ export class ProfileNavComponent implements OnInit {
     ) { }
 
     public ngOnInit(): void {
-        this._route.snapshot.url[0].path === 'profile' ? this.profileActive.set(true) : this.projectsActive.set(true);
+        if (this._route.snapshot.url[0].path === 'profile') {
+            this.profileActive.set(true);
+        } else if (this._route.snapshot.url[0].path === 'projects') {
+            this.projectsActive.set(true);
+        } else {
+            this.securityActive.set(true);
+        }
+
+        // this._route.snapshot.url[0].path === 'profile' ? this.profileActive.set(true) : this.projectsActive.set(true);
     }
 
     public logout(): void {

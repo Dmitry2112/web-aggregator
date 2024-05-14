@@ -53,32 +53,78 @@
     }
 }
 
-.profile {
+.security {
     display: grid;
     grid-template-columns: 3fr 8fr;
     gap: 7rem;
-}
 
-.profile__info {
-    &-name {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 3rem;
-    }
-
-    &-title {
-        margin-bottom: 1.5rem;
+    &__title {
+        margin-bottom: 1rem;
         font-weight: 500;
         font-size: 24px;
         color: #fff;
     }
 
-    &-input__bg {
+    &__change-title {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    &__email {
+        margin-bottom: 1rem;
+        padding: 1.25rem 2.3rem;
+        font-weight: 300;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.65);
+        background: #2d2d2d;
+    }
+
+    &__span {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 3.125rem;
+        font-weight: 400;
+        font-size: 18px;
+        text-align: right;
+        color: rgba(208, 230, 238, 0.5);
+    }
+
+    &__text {
+        margin-bottom: 3.125rem;
+        font-weight: 400;
+        font-size: 18px;
+        color: #b6b6b6;
+    }
+}
+
+.password-change {
+    // :not(:last-child) {
+    //     margin-bottom: 3.5rem;
+    // }
+
+    &__title {
+        margin-bottom: 1.4rem;
+        font-weight: 500;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    &__title-star {
+        color: rgba(208, 230, 238, 0.3);
+    }
+
+    &__input-bg {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
         padding: 0.6rem 1rem;
         background: #2d2d2d;
     }
 
-    &-input {
+    &__input {
         width: 100%;
         padding: 0.625rem 1.375rem;
         outline: none;
@@ -93,20 +139,19 @@
         color: rgba(255, 255, 255, 0.65);
     }
 
-    &-select {
-        width: 100%;
-        padding: 0.625rem 1.375rem;
-        outline: none;
+    &__btn {
+        padding: 0;
         border: none;
-        border-radius: 0.25rem;
-        border: 1px solid #99a2ad;
-        background: rgba(200, 200, 200, 0.1);
+        color: inherit;
+        background-color: transparent;
+        cursor: pointer;
     }
 
-    &-data {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-row-gap: 3rem;
-        grid-column-gap: 1.5rem;
+    &__btn-img {
+        display: block
     }
+}
+
+.password-change:not(:last-child) {
+    margin-bottom: 3.5rem;
 }

@@ -1,21 +1,15 @@
-.projects {
-    display: grid;
-    grid-template-columns: 3fr 8fr;
-    gap: 7rem;
+.title {
+    margin-bottom: 0.825rem;
+    font-weight: 600;
+    font-size: 26px;
+    color: #fff;
+}
 
-    &__title {
-        margin-bottom: 0.825rem;
-        font-weight: 600;
-        font-size: 26px;
-        color: #fff;
-    }
-
-    &__text {
-        margin-bottom: 4.1rem;
-        font-weight: 400;
-        font-size: 20px;
-        color: #b6b6b6;
-    }
+.text {
+    margin-bottom: 4.1rem;
+    font-weight: 400;
+    font-size: 20px;
+    color: #b6b6b6;
 }
 
 .side-bar {
@@ -33,7 +27,15 @@
         color: #47bdff;
     }
 
-    &__save-btn {
+    &__status-changed {
+        color: #fbff47;
+    }
+
+    &__status-save {
+        color: #47ffa7;
+    }
+
+    &__open-game-btn {
         width: 100%;
         padding:  1rem 0;
         font-weight: 600;
@@ -44,6 +46,12 @@
         background: #16CD57;
         cursor: pointer;
     }
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 3fr 8fr;
+    gap: 7rem;
 }
 
 .choose-project {
