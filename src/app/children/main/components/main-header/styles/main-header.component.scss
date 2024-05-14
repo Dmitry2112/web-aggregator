@@ -35,6 +35,10 @@
         gap: 10%;
     }
 
+    &__nav-item {
+        cursor: pointer;
+    }
+
     &__nav-item_active {
         color: var(--active-nav-link-color);
     }

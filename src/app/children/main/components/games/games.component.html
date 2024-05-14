@@ -55,6 +55,15 @@
                 class="games__item"
                 *ngFor="let game of games"
             >
+                <div class="games__item-score">
+                    <span class="games__item-place">
+                        <!-- <img class="games__item-place__flag" src="assets/images/icons/flag.svg" alt="">
+                        <span class="games__item-place__count">99</span> -->
+                        99
+                        </span>
+                    <img src="assets/images/icons/score.svg" alt="">
+                    0
+                </div>
                 <game-card [game]="game"></game-card>
             </li>
         </ul>

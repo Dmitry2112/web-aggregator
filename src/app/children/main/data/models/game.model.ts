@@ -39,6 +39,7 @@ export class GameModel {
         this.semesterId = dto.semesterId;
         this.categoryId = dto.categoryId;
         this.theme = dto.theme;
+        this.statusId = dto.statusId;
         this.shortDescription = dto.shortDescription;
         this.playDescription = dto.playDescription;
         this.gitHubLink = dto.gitHubLink;

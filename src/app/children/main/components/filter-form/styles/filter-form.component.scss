@@ -7,6 +7,10 @@
         color: var(--base-color-01);
     }
 
+    &__checkbox {
+        padding-left: 0.5rem;
+    }
+
     &__text {
         margin-bottom: 0.15rem;
         font-size: var(--font-size-m);

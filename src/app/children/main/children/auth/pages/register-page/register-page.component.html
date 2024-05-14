@@ -5,11 +5,15 @@
 >
     <div class="register-form__content">
         <h2 class="register-form__title">Регистрация</h2>
+        <div class="registration-parts">
+            <button class="registration-parts__btn registration-parts__btn-active">1</button>
+            <div class="registration-parts__between-line"></div>
+            <button class="registration-parts__btn">2</button>
+        </div>
         <div class="register-form__inputs-div">
-            <div class="tui-form__row wrapper_dark">
+            <div class="tui-form__row">
                 <tui-input
                     formControlName="lastName"
-                    class="wrapper_dark"
                 >
                     Фамилия
                     <input
@@ -97,10 +101,17 @@
         </div>
     </div>
     <div class="register-form-action">
-        <button
+        <!-- <button
             appearance="auth-button"
             tuiButton
             type="submit"
+        >
+            Зарегистрироваться
+        </button> -->
+        <button
+            tuiButton
+            type="submit"
+            class="register-form-action__btn"
         >
             Зарегистрироваться
         </button>

@@ -3,6 +3,7 @@ import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../models/user.model';
 import { IUserResponseModel } from '../response-models/user.response-model.interface';
+import { IUserUpdateRequestModel } from '../request-models/user-update.request-model.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -25,6 +26,18 @@ export class UserDataService {
                 }),
                 tap((users: UserModel[]) => {
                     this.users$.next(users);
+                })
+            );
+    }
+
+    public updateUser(id: string, newUser: IUserUpdateRequestModel): Observable<UserModel> {
+        return this._http.put<IUserResponseModel>(`users/${id}`, newUser)
+            .pipe(
+                map((user: IUserResponseModel) => {
+                    const userModel: UserModel = new UserModel();
+                    userModel.fromDto(user);
+
+                    return userModel;
                 })
             );
     }
