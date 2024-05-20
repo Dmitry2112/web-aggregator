@@ -12,47 +12,6 @@
     color: #b6b6b6;
 }
 
-.side-bar {
-    &__title {
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        font-size: 24px;
-        color: #fff;
-    }
-
-    &__status {
-        margin-bottom: 2rem;
-        font-weight: 400;
-        font-size: 18px;
-        color: #47bdff;
-    }
-
-    &__status-changed {
-        color: #fbff47;
-    }
-
-    &__status-save {
-        color: #47ffa7;
-    }
-
-    &__save-btn {
-        width: 100%;
-        padding:  1rem 0;
-        font-weight: 600;
-        font-size: 20px;
-        color: #656567;
-        border: none;
-        border-radius: 3px;
-        background: #37383a;
-    }
-
-    &__save-btn-active {
-        color: #fff;
-        background: #16CD57;
-        cursor: pointer;
-    }
-}
-
 .security {
     display: grid;
     grid-template-columns: 3fr 8fr;

@@ -33,7 +33,7 @@ export const MAIN_ROUTES: Routes = [
             },
             {
                 path: 'student',
-                canActivate: [authGuard],
+                // canActivate: [authGuard],
                 loadChildren: () => import('./children/student/student.routes').then(m => m.STUDENT_ROUTES)
             }
         ]

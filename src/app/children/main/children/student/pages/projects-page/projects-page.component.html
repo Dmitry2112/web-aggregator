@@ -3,10 +3,7 @@
 
 <div class="projects">
     <aside class="side-bar">
-        <h2 class="side-bar__title">Редактирование</h2>
-        <p class="side-bar__status">Изменений нет</p>
         <profile-side-bar [actionName]="'Создать проект'"></profile-side-bar>
-        <button class="side-bar__open-game-btn">Открыть проект</button>
     </aside>
 
     <div class="choose-project__info">
@@ -90,5 +87,53 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- <div>
+            <div class="choose-project__role">
+                <p class="choose-project__role-title">Роль в команде<span class="choose-project__role-title-star">*</span></p>
+                <div class="choose-project__role-input__bg">
+                    <select class="choose-project__role-select" name="" id="">
+                        <option value="">Выберите из списка</option>
+                        <option value="">1 курс</option>
+                        <option value="">2 курс</option>
+                        <option value="">3 курс</option>
+                        <option value="">4 курс</option>
+                    </select>
+                </div>
+                <span class="choose-project__role-span">Создать команду может только Team Lead</span>
+            </div>
+            <ul class="team-member__list">
+                <li class="team-member">
+                    <p class="inputs__title">Название команды<span class="choose-project__role-title-star">*</span></p>
+                    <div class="inputs__input-bg inputs__input-bg__inactive">
+                        Название команды
+                    </div>
+                </li>
+                <li class="team-member">
+                    <p class="inputs__title">Участник команды №1</p>
+                    <div class="inputs__input-bg inputs__input-bg__inactive">
+                        Фамилия, Имя, Академ. группа
+                    </div>
+                    <div class="team-member__info">
+                        <p class="team-member__info-role">Роль:</p>
+                        <p class="team-member__info-contact">Контакты</p>
+                    </div>
+                </li>
+                <li class="team-member">
+                    <p class="inputs__title">Участник команды №2</p>
+                    <button class="team-member__delete-btn">Удалить</button>
+                    <div class="inputs__input-bg">
+                        <input class="inputs__input" type="text" placeholder="Фамилия, Имя, Академ. группа">
+                    </div>
+                    <div class="team-member__info">
+                        <p class="team-member__info-role">Роль:</p>
+                        <p class="team-member__info-contact">Контакты</p>
+                    </div>
+                </li>
+            </ul>
+            <button class="add-member-btn">Добавить участника</button>
+            <button class="leave-team-btn">Выйти из команды</button>
+        </div> -->
     </div>
 </div>

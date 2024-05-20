@@ -1,11 +1,20 @@
+<h2 class="side-bar__title">Редактирование</h2>
+<p class="side-bar__status">Изменений нет</p>
+
 <profile-nav></profile-nav>
+
 <ng-container *ngIf="actionName">
-    <!-- <button
+    <button
         class="action"
         appearance="add-project-button"
         tuiButton
         routerLink="../add-project"
     >
         {{ actionName }}
-    </button> -->
+    </button>
+    <span class="side-bar__span">Выберите роль в команде</span>
 </ng-container>
+
+<!-- <button class="save-btn">Сохранить</button>
+<button class="game-btn" disabled>Открыть проект</button>
+<button class="game-btn">Создать проект</button> -->
