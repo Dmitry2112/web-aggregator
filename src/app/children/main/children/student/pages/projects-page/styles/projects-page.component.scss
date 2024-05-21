@@ -3,6 +3,26 @@
     font-weight: 600;
     font-size: 26px;
     color: #fff;
+
+.projects {
+    display: flex;
+
+    &__semester-button {
+        margin-bottom: 2rem;
+    }
+
+    &__info {
+
+    }
+
+    &__title {
+        margin-bottom: 0.5rem;
+    }
+
+    &__choose-semester-button {
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+    }
 }
 
 .text {

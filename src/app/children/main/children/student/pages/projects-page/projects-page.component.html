@@ -3,7 +3,7 @@
 
 <div class="projects">
     <aside class="side-bar">
-        <profile-side-bar [actionName]="'Создать проект'"></profile-side-bar>
+        <profile-side-bar [actionName]="'Создать проект'" [isTeamLead]="role() === 'Team Lead'"></profile-side-bar>
     </aside>
 
     <div class="choose-project__info">
@@ -18,8 +18,10 @@
             class="projects__choose-semester-button"
             appearance="choose-semester-button"
             tuiButton
+            (click)="viewProject()"
         >
             Осень 2023
+<<<<<<< HEAD
         </button> -->
         <div class="project">
             <div class="project__main-info">
@@ -135,5 +137,144 @@
             <button class="add-member-btn">Добавить участника</button>
             <button class="leave-team-btn">Выйти из команды</button>
         </div> -->
+        <button
+            class="projects__choose-semester-button"
+            appearance="choose-semester-button"
+            tuiButton
+            (click)="createNewTeam()"
+        >
+            Весна 2024
+        </button>
+        @if (createTeam()) {
+            <div class="team">
+                <h3 class="team__role">
+                    Роль в команде
+                </h3>
+                <form
+                    class="chose-role-form b-form"
+                    [formGroup]="choseRoleForm"
+                >
+                    <tui-select
+                        tuiTextfieldSize="m"
+                        class="tui-space_vertical-4"
+                        formControlName="role"
+                        [tuiTextfieldLabelOutside]="true"
+                    >
+                        Выберите роль
+                        <input
+                            placeholder="Выберите свою роль"
+                            tuiTextfield
+                        />
+                        <tui-data-list-wrapper
+                            *tuiDataList
+                            [items]="rolesNames"
+                        ></tui-data-list-wrapper>
+                    </tui-select>
+                </form>
+                <span class="team_warn">Создать команду может только Team Lead</span>
+                @if (role() === 'Team Lead') {
+                    <h3 class="team__name">
+                        Название команды
+                    </h3>
+                    <form
+                        class="team-name-form"
+                        [formGroup]="teamNameForm"
+                    >
+                        <div class="tui-form__row">
+                            <tui-input
+                                formControlName="name"
+                            >
+                                Название команды
+                                <input
+                                    tuiTextfield
+                                    type="text"
+                                />
+                                <span class="tui-required"></span>
+                            </tui-input>
+                            <tui-error
+                                formControlName="name"
+                                [error]="[] | tuiFieldError | async"
+                            ></tui-error>
+                        </div>
+                    </form>
+
+                    <div class="team-member__container">
+                        @for (member of team; track member.name) {
+                            <p class="team-member__info">
+                                {{member.name}} {{member.surname}}, {{member.academicGroup}}
+                            </p>
+                        }
+                    </div>
+
+                    <h3 class="team__member">
+                        Участник команды #1
+                    </h3>
+                    <form
+                        class="team-member-form"
+                        [formGroup]="teamMemberInfoForm"
+                    >
+                        <div class="tui-form__row">
+                            <tui-input
+                                formControlName="info"
+                            >
+                                Информация об участнике
+                                <input
+                                    tuiTextfield
+                                    type="text"
+                                />
+                                <span class="tui-required"></span>
+                            </tui-input>
+                            <tui-error
+                                formControlName="info"
+                                [error]="[] | tuiFieldError | async"
+                            ></tui-error>
+                        </div>
+
+                        <div class="team-member-form__action">
+                            <button
+                                class="add-game-form__submit-button"
+                                appearance="auth-button"
+                                tuiButton
+                                (click)="addTeamMember()"
+                            >
+                                Добавить участника
+                            </button>
+                        </div>
+                    </form>
+                }
+            </div>
+        } @else {
+            <div class="project">
+                <div class="project__main-info">
+                    <h3 class="project__name">
+                        Merge Комбинаторика
+                    </h3>
+                    <img
+                        class="project__img"
+                        src="assets/images/test-game-img.png"
+                        alt="Фото игры"
+                    >
+                </div>
+                <div class="project__description">
+                    <p class="project__pub-date">
+                        Проект опубликован: 24.03.2022
+                    </p>
+                    <div class="project__player-count-block">
+                        <p class="project__player-count-title">Количество игроков</p>
+                        <div class="project__player-count-container">
+                            <img
+                                class="project__player-count-icon"
+                                src="assets/images/icons/eye.svg"
+                                alt="Глаз"
+                            >
+                            <p>10,2k</p>
+                        </div>
+                        @if (projectStatus$ | async; as projectStatus) {
+                            <p class="project__status">{{ projectStatus.name }}</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
