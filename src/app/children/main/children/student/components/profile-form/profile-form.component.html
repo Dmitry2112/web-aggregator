@@ -1,57 +1,19 @@
-<!-- <h1>Данные пользователя</h1> -->
 <div class="profile">
-    <!-- <aside class="side-bar">
-        <profile-side-bar></profile-side-bar>
-    </aside> -->
-
     <form
         class="profile-form"
         [formGroup]="profileForm"
         (ngSubmit)="onSubmit()"
     >
-        <div class="tui-form__row">
-            <tui-input
-                formControlName="surname"
-            >
-                Фамилия
-                <input
-                    tuiTextfield
-                    type="text"
-                />
-                <span class="tui-required"></span>
-            </tui-input>
-            <tui-error
-                formControlName="surname"
-                [error]="[] | tuiFieldError | async"
-            ></tui-error>
-        </div>
-        <div class="tui-form__row">
-            <tui-input
-                formControlName="name"
-            >
-                Имя
-                <input
-                    tuiTextfield
-                    type="text"
-                />
-                <span class="tui-required"></span>
-            </tui-input>
-            <tui-error
-                formControlName="name"
-                [error]="[] | tuiFieldError | async"
-            ></tui-error>
-        </div>
-
         <div class="profile__info-name">
             <p class="profile__info-title">Фамилия <span class="profile__info-title-star">*</span></p>
             <div class="profile__info-input__bg">
-                <input class="profile__info-input" type="text" placeholder="Введите фамилию">
+                <input class="profile__info-input" type="text" placeholder="Введите фамилию" formControlName="surname">
             </div>
         </div>
         <div class="profile__info-name">
             <p class="profile__info-title">Имя <span class="profile__info-title-star">*</span></p>
             <div class="profile__info-input__bg">
-                <input class="profile__info-input" type="text" placeholder="Введите имя">
+                <input class="profile__info-input" type="text" placeholder="Введите имя" formControlName="name">
             </div>
         </div>
         <div class="profile__info-name">
@@ -72,25 +34,25 @@
             <div class="user-data">
                 <p class="profile__info-title">Курс <span class="profile__info-title-star">*</span></p>
                 <div class="profile__info-input__bg">
-                    <select class="profile__info-select" name="" id="">
-                        <option value="">Выберите из списка</option>
-                        <option value="">1 курс</option>
-                        <option value="">2 курс</option>
-                        <option value="">3 курс</option>
-                        <option value="">4 курс</option>
+                    <select class="profile__info-select" formControlName="course">
+                        <option [ngValue]="null">Выберите из списка</option>
+                        <option [ngValue]="'1 курс'">1 курс</option>
+                        <option [ngValue]="'2 курс'">2 курс</option>
+                        <option [ngValue]="'3 курс'">3 курс</option>
+                        <option [ngValue]="'4 курс'">4 курс</option>
                     </select>
                 </div>
             </div>
             <div class="user-data">
-                <p class="profile__info-title">Академ. граппа <span class="profile__info-title-star">*</span></p>
+                <p class="profile__info-title">Академ. группа <span class="profile__info-title-star">*</span></p>
                 <div class="profile__info-input__bg">
-                    <input class="profile__info-input" type="text" placeholder="Введите группу">
+                    <input class="profile__info-input" type="text" placeholder="Введите группу" formControlName="academicGroup">
                 </div>
             </div>
             <div class="user-data">
                 <p class="profile__info-title">Контакты <span class="profile__info-title-star">*</span></p>
                 <div class="profile__info-input__bg">
-                    <input class="profile__info-input" type="text" placeholder="Ссылка на Telegramm или ВК">
+                    <input class="profile__info-input" type="text" placeholder="Ссылка на Telegram или ВК">
                 </div>
             </div>
         </div>
@@ -106,15 +68,4 @@
             </button>
         </div>
     </form>
-<!--    <div class="profile__info">-->
-<!--        <div class="user-data">-->
-<!--            <b>Фамилия:</b> {{ name() }}-->
-<!--        </div>-->
-<!--        <div class="user-data">-->
-<!--            <b>Имя:</b> {{ surname() }}-->
-<!--        </div>-->
-<!--        <div class="user-data">-->
-<!--            <b>Академическая группа:</b> {{ academicGroup() }}-->
-<!--        </div>-->
-<!--    </div>-->
 </div>

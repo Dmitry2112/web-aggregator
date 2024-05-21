@@ -29,14 +29,13 @@ import { IUserUpdateRequestModel } from '../../data/request-models/user-update.r
 })
 export class ProfileFormComponent implements OnInit {
     public userId: Signal<string> = computed(() => this._authService.getUserId());
-    public name: WritableSignal<string> = signal('');
-    public surname: WritableSignal<string> = signal('');
-    public academicGroup: WritableSignal<string> = signal('');
     public email: WritableSignal<string> = signal('');
 
     public profileForm: FormGroup = new FormGroup({
         name: new FormControl('', Validators.required),
         surname: new FormControl('', Validators.required),
+        course: new FormControl('', Validators.required),
+        academicGroup: new FormControl('', Validators.required)
     });
 
     constructor(
@@ -54,13 +53,7 @@ export class ProfileFormComponent implements OnInit {
                 })
             )
             .subscribe((user: UserModel) => {
-                this.name.set(user.name);
-                this.surname.set(user.surname);
-                this.academicGroup.set(user.academicGroup);
                 this.email.set(user.email);
-
-                this.profileForm.controls['name'].setValue(user.name);
-                this.profileForm.controls['surname'].setValue(user.surname);
             });
     }
 
@@ -76,7 +69,7 @@ export class ProfileFormComponent implements OnInit {
             name: this.profileForm.controls['name'].value,
             surname: this.profileForm.controls['surname'].value,
             password: 'QWEasd123',
-            academicGroup: this.academicGroup()
+            academicGroup: this.profileForm.controls['academicGroup'].value
         };
 
         console.log(updateUser);
