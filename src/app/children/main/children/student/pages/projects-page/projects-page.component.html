@@ -10,86 +10,10 @@
         <h2 class="choose-project__title">Выбор проекта</h2>
         <p class="choose-project__text">Выберите учебный семестр</p>
         <div class="choose-project__buttons-div">
-            <button class="choose-project__button choose-project__button-selected">Осень 2023</button>
-            <button class="choose-project__button choose-project__button-active">Весна 2024</button>
+            <button class="choose-project__button choose-project__button-selected" (click)="viewProject()">Осень 2023</button>
+            <button class="choose-project__button choose-project__button-active" (click)="createNewTeam()">Весна 2024</button>
             <button class="choose-project__button choose-project__button-inactive" disabled>Осень 2024</button>
         </div>
-        <!-- <button
-            class="projects__choose-semester-button"
-            appearance="choose-semester-button"
-            tuiButton
-            (click)="viewProject()"
-        >
-            Осень 2023
-<<<<<<< HEAD
-        </button> -->
-        <div class="project">
-            <div class="project__main-info">
-                <h3 class="project__main-info__name">
-                    Merge Комбинаторика
-                </h3>
-                <img
-                    class="project__main-info__img"
-                    src="assets/images/test-game-img.png"
-                    alt="Фото игры"
-                >
-            </div>
-            <div class="project__description">
-                <div class="project__pub-date">
-                    <p class="project__pub-date__text">Проект опубликован</p>
-                    <p class="project__pub-date__date">24.03.2022</p>
-                </div>
-                <div class="game-rating">
-                    <h3 class="game-rating__title">Рейтинг проекта</h3>
-                    <div class="rating-points">
-                        <img class="rating-points__before" src="assets/images/third-place.svg" alt="">
-                        <div class="rating-points__all">
-                            <div class="rating-points__has"></div>
-                        </div>
-                        <img class="rating-points__after" src="assets/images/second-place.svg" alt="">
-                        <div class="rating-points__count-div">
-                            <img class="rating-points__fire-img" src="assets/images/icons/fire-icon.svg" alt="">
-                            <p class="rating-points__count">350/1500</p>
-                        </div>
-                    </div>
-                    <p class="game-rating__text">Отдано голосов</p>
-                    <div class="game-rating__votes">
-                        <img src="assets/images/icons/fire-icon.svg" alt="">
-                        <p>0</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="team">
-            <div class="team__container">
-                <div class="team__role-container">
-                    <p class="team__role-title">Роль в команде</p>
-                    <div class="team__role-devoleper-role">Роль</div>
-                </div>
-                <div class="team__devoleper-team-container">
-                    <p class="team__devoleper-team-title">Ваша команда</p>
-                    <p class="team__devoleper-team-count">Участников: 4</p>
-                    <div class="team__devoleper-team-name">Название команды</div>
-                </div>
-            </div>
-            <div class="developer">
-                <p class="developer__count">Участник команды #1</p>
-                <div class="developer__name">Фамилия Имя, Академическая группа</div>
-                <div class="developer__info">
-                    <p class="developer__role">Роль: Роль</p>
-                    <a class="developer__contacts" href="">Контакты</a>
-                </div>
-            </div>
-            <div class="developer">
-                <p class="developer__count">Участник команды #1</p>
-                <div class="developer__name">Фамилия Имя, Академическая группа</div>
-                <div class="developer__info">
-                    <p class="developer__role">Роль: Роль</p>
-                    <a class="developer__contacts" href="">Контакты</a>
-                </div>
-            </div>
-        </div>
-
 
         <!-- <div>
             <div class="choose-project__role">
@@ -137,14 +61,15 @@
             <button class="add-member-btn">Добавить участника</button>
             <button class="leave-team-btn">Выйти из команды</button>
         </div> -->
-        <button
-            class="projects__choose-semester-button"
-            appearance="choose-semester-button"
-            tuiButton
-            (click)="createNewTeam()"
-        >
-            Весна 2024
-        </button>
+
+<!--        <button-->
+<!--            class="projects__choose-semester-button"-->
+<!--            appearance="choose-semester-button"-->
+<!--            tuiButton-->
+<!--            (click)="createNewTeam()"-->
+<!--        >-->
+<!--            Весна 2024-->
+<!--        </button>-->
         @if (createTeam()) {
             <div class="team">
                 <h3 class="team__role">
@@ -246,32 +171,67 @@
         } @else {
             <div class="project">
                 <div class="project__main-info">
-                    <h3 class="project__name">
+                    <h3 class="project__main-info__name">
                         Merge Комбинаторика
                     </h3>
                     <img
-                        class="project__img"
+                        class="project__main-info__img"
                         src="assets/images/test-game-img.png"
                         alt="Фото игры"
                     >
                 </div>
                 <div class="project__description">
-                    <p class="project__pub-date">
-                        Проект опубликован: 24.03.2022
-                    </p>
-                    <div class="project__player-count-block">
-                        <p class="project__player-count-title">Количество игроков</p>
-                        <div class="project__player-count-container">
-                            <img
-                                class="project__player-count-icon"
-                                src="assets/images/icons/eye.svg"
-                                alt="Глаз"
-                            >
-                            <p>10,2k</p>
+                    <div class="project__pub-date">
+                        <p class="project__pub-date__text">Проект опубликован</p>
+                        <p class="project__pub-date__date">24.03.2022</p>
+                    </div>
+                    <div class="game-rating">
+                        <h3 class="game-rating__title">Рейтинг проекта</h3>
+                        <div class="rating-points">
+                            <img class="rating-points__before" src="assets/images/third-place.svg" alt="">
+                            <div class="rating-points__all">
+                                <div class="rating-points__has"></div>
+                            </div>
+                            <img class="rating-points__after" src="assets/images/second-place.svg" alt="">
+                            <div class="rating-points__count-div">
+                                <img class="rating-points__fire-img" src="assets/images/icons/fire-icon.svg" alt="">
+                                <p class="rating-points__count">350/1500</p>
+                            </div>
                         </div>
-                        @if (projectStatus$ | async; as projectStatus) {
-                            <p class="project__status">{{ projectStatus.name }}</p>
-                        }
+                        <p class="game-rating__text">Отдано голосов</p>
+                        <div class="game-rating__votes">
+                            <img src="assets/images/icons/fire-icon.svg" alt="">
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team">
+                <div class="team__container">
+                    <div class="team__role-container">
+                        <p class="team__role-title">Роль в команде</p>
+                        <div class="team__role-devoleper-role">Роль</div>
+                    </div>
+                    <div class="team__devoleper-team-container">
+                        <p class="team__devoleper-team-title">Ваша команда</p>
+                        <p class="team__devoleper-team-count">Участников: 4</p>
+                        <div class="team__devoleper-team-name">Название команды</div>
+                    </div>
+                </div>
+                <div class="developer">
+                    <p class="developer__count">Участник команды #1</p>
+                    <div class="developer__name">Фамилия Имя, Академическая группа</div>
+                    <div class="developer__info">
+                        <p class="developer__role">Роль: Роль</p>
+                        <a class="developer__contacts" href="">Контакты</a>
+                    </div>
+                </div>
+                <div class="developer">
+                    <p class="developer__count">Участник команды #1</p>
+                    <div class="developer__name">Фамилия Имя, Академическая группа</div>
+                    <div class="developer__info">
+                        <p class="developer__role">Роль: Роль</p>
+                        <a class="developer__contacts" href="">Контакты</a>
                     </div>
                 </div>
             </div>
