@@ -1,0 +1,67 @@
+<form
+    class="categories-form"
+    [formGroup]="filterForm"
+>
+    <tui-checkbox-labeled
+        formControlName="all"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Все категории</div>
+    </tui-checkbox-labeled>
+
+    <p class="categories-form__title">Образовательные</p>
+    <tui-checkbox-labeled
+        formControlName="math"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Математика</div>
+    </tui-checkbox-labeled>
+    <tui-checkbox-labeled
+        formControlName="medicine"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Медицина</div>
+    </tui-checkbox-labeled>
+
+    <p class="categories-form__title">Симуляторы</p>
+    <tui-checkbox-labeled
+        formControlName="physics"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Физика</div>
+    </tui-checkbox-labeled>
+    <tui-checkbox-labeled
+        formControlName="biomechanics"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Биомеханика</div>
+    </tui-checkbox-labeled>
+
+    <p class="categories-form__title">Развлетательные</p>
+    <tui-checkbox-labeled
+        formControlName="arcades"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Аркады</div>
+    </tui-checkbox-labeled>
+    <tui-checkbox-labeled
+        formControlName="fighters"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Боевики</div>
+    </tui-checkbox-labeled>
+    <tui-checkbox-labeled
+        formControlName="puzzles"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Головоломки</div>
+    </tui-checkbox-labeled>
+
+    <p class="categories-form__title">Другие проекты</p>
+    <tui-checkbox-labeled
+        formControlName="applications"
+        class="tui-space_bottom-3 categories-form__checkbox"
+    >
+        <div class="categories-form__text">Приложения</div>
+    </tui-checkbox-labeled>
+</form>

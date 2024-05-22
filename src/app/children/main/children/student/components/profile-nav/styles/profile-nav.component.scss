@@ -1,11 +1,12 @@
 .profile-nav-container {
     background-color: var(--secondary-bg-color);
-    padding: 1.5rem;
-    font: var(--font-m)
+    padding: 1.8rem;
+    font: var(--font-m);
+    margin-bottom: 1.5rem;
 }
 
 .profile-nav {
-    margin-bottom: 2rem;
+    margin-bottom: 3.125rem;
 
     &__item {
         margin-bottom: 1rem;

@@ -1,10 +1,24 @@
 .main-header {
-    width: 100%;
+    z-index: 99999;
+    position: fixed;
+    left: 0;
+    top: 0;
     height: 4.5rem;
+    width: 100%;
+    padding: 0 4rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color: var(--secondary-bg-color);
+
+    &__center {
+        width: 100%;
+        min-width: 77rem;
+        max-width: 90rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 
     &__logo {
         cursor: pointer;
@@ -21,6 +35,10 @@
         gap: 10%;
     }
 
+    &__nav-item {
+        cursor: pointer;
+    }
+
     &__nav-item_active {
         color: var(--active-nav-link-color);
     }
@@ -31,6 +49,7 @@
         align-items: center;
         gap: 0.5rem;
         position: relative;
+        cursor: pointer;
     }
 
     &__avatar-text {

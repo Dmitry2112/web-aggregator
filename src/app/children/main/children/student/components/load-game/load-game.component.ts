@@ -3,10 +3,25 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { GameDataService } from '../../../../data/services/game-data.service';
 import { LoadGameViewModel } from '../../view-models/load-game.view-model';
 import { finalize, map, Observable, of, Subject, switchMap, timer } from 'rxjs';
-import { TuiFileLike, TuiInputModule, TuiTextareaModule, TuiSelectModule, TuiDataListWrapperModule, TuiInputFilesModule, TuiFieldErrorPipeModule } from '@taiga-ui/kit';
-import { TuiAlertService, TuiPrimitiveTextfieldModule, TuiErrorModule, TuiTextfieldControllerModule, TuiDataListModule, TuiButtonModule } from '@taiga-ui/core';
+import {
+    TuiDataListWrapperModule,
+    TuiFieldErrorPipeModule,
+    TuiFileLike,
+    TuiInputFilesModule,
+    TuiInputModule,
+    TuiSelectModule,
+    TuiTextareaModule
+} from '@taiga-ui/kit';
+import {
+    TuiAlertService,
+    TuiButtonModule,
+    TuiDataListModule,
+    TuiErrorModule,
+    TuiPrimitiveTextfieldModule,
+    TuiTextfieldControllerModule
+} from '@taiga-ui/core';
 import { TuiFilesModule } from '@taiga-ui/kit/components/files';
-import { NgIf, AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
     selector: 'load-game',
@@ -80,7 +95,7 @@ export class LoadGameComponent {
 
         return timer(1000).pipe(
             map(() => {
-                if (Math.random() > 0.1) {
+                if (Math.random() > 0) {
                     return file;
                 }
 

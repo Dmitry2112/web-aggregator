@@ -1,46 +1,240 @@
-<h1>Мои проекты</h1>
+<h1 class="title">Мои проекты</h1>
+<p class="text">Профиль</p>
+
 <div class="projects">
     <aside class="side-bar">
-        <profile-side-bar [actionName]="'Создать проект'"></profile-side-bar>
+        <profile-side-bar [actionName]="'Создать проект'" [isTeamLead]="role() === 'Team Lead'"></profile-side-bar>
     </aside>
 
-    <div class="projects__info">
-        <h2 class="projects__title">Выбор проекта</h2>
-        <p>Выберите учебный семестр</p>
-        <button
-            class="projects__choose-semester-button"
-            appearance="choose-semester-button"
-            tuiButton
-        >
-            Осень 2023
-        </button>
-        <div class="project">
-            <div class="project__main-info">
-                <h3 class="project__name">
-                    Merge Комбинаторика
-                </h3>
-                <img
-                    class="project__img"
-                    src="assets/images/test-game-img.png"
-                    alt="Фото игры"
-                >
+    <div class="choose-project__info">
+        <h2 class="choose-project__title">Выбор проекта</h2>
+        <p class="choose-project__text">Выберите учебный семестр</p>
+        <div class="choose-project__buttons-div">
+            <button class="choose-project__button choose-project__button-selected" (click)="viewProject()">Осень 2023</button>
+            <button class="choose-project__button choose-project__button-active" (click)="createNewTeam()">Весна 2024</button>
+            <button class="choose-project__button choose-project__button-inactive" disabled>Осень 2024</button>
+        </div>
+
+        <!-- <div>
+            <div class="choose-project__role">
+                <p class="choose-project__role-title">Роль в команде<span class="choose-project__role-title-star">*</span></p>
+                <div class="choose-project__role-input__bg">
+                    <select class="choose-project__role-select" name="" id="">
+                        <option value="">Выберите из списка</option>
+                        <option value="">1 курс</option>
+                        <option value="">2 курс</option>
+                        <option value="">3 курс</option>
+                        <option value="">4 курс</option>
+                    </select>
+                </div>
+                <span class="choose-project__role-span">Создать команду может только Team Lead</span>
             </div>
-            <div class="project__description">
-                <p class="project__pub-date">
-                    Проект опубликован: 24.03.2022
-                </p>
-                <div class="project__player-count-block">
-                    <p class="project__player-count-title">Количество игроков</p>
-                    <div class="project__player-count-container">
-                        <img
-                            class="project__player-count-icon"
-                             src="assets/images/icons/eye.svg"
-                             alt="Глаз"
-                        >
-                        <p>10,2k</p>
+            <ul class="team-member__list">
+                <li class="team-member">
+                    <p class="inputs__title">Название команды<span class="choose-project__role-title-star">*</span></p>
+                    <div class="inputs__input-bg inputs__input-bg__inactive">
+                        Название команды
+                    </div>
+                </li>
+                <li class="team-member">
+                    <p class="inputs__title">Участник команды №1</p>
+                    <div class="inputs__input-bg inputs__input-bg__inactive">
+                        Фамилия, Имя, Академ. группа
+                    </div>
+                    <div class="team-member__info">
+                        <p class="team-member__info-role">Роль:</p>
+                        <p class="team-member__info-contact">Контакты</p>
+                    </div>
+                </li>
+                <li class="team-member">
+                    <p class="inputs__title">Участник команды №2</p>
+                    <button class="team-member__delete-btn">Удалить</button>
+                    <div class="inputs__input-bg">
+                        <input class="inputs__input" type="text" placeholder="Фамилия, Имя, Академ. группа">
+                    </div>
+                    <div class="team-member__info">
+                        <p class="team-member__info-role">Роль:</p>
+                        <p class="team-member__info-contact">Контакты</p>
+                    </div>
+                </li>
+            </ul>
+            <button class="add-member-btn">Добавить участника</button>
+            <button class="leave-team-btn">Выйти из команды</button>
+        </div> -->
+
+<!--        <button-->
+<!--            class="projects__choose-semester-button"-->
+<!--            appearance="choose-semester-button"-->
+<!--            tuiButton-->
+<!--            (click)="createNewTeam()"-->
+<!--        >-->
+<!--            Весна 2024-->
+<!--        </button>-->
+        @if (createTeam()) {
+            <div class="team">
+                <h3 class="team__role">
+                    Роль в команде
+                </h3>
+                <form
+                    class="chose-role-form b-form"
+                    [formGroup]="choseRoleForm"
+                >
+                    <tui-select
+                        tuiTextfieldSize="m"
+                        class="tui-space_vertical-4"
+                        formControlName="role"
+                        [tuiTextfieldLabelOutside]="true"
+                    >
+                        Выберите роль
+                        <input
+                            placeholder="Выберите свою роль"
+                            tuiTextfield
+                        />
+                        <tui-data-list-wrapper
+                            *tuiDataList
+                            [items]="rolesNames"
+                        ></tui-data-list-wrapper>
+                    </tui-select>
+                </form>
+                <span class="team_warn">Создать команду может только Team Lead</span>
+                @if (role() === 'Team Lead') {
+                    <h3 class="team__name">
+                        Название команды
+                    </h3>
+                    <form
+                        class="team-name-form"
+                        [formGroup]="teamNameForm"
+                    >
+                        <div class="tui-form__row">
+                            <tui-input
+                                formControlName="name"
+                            >
+                                Название команды
+                                <input
+                                    tuiTextfield
+                                    type="text"
+                                />
+                                <span class="tui-required"></span>
+                            </tui-input>
+                            <tui-error
+                                formControlName="name"
+                                [error]="[] | tuiFieldError | async"
+                            ></tui-error>
+                        </div>
+                    </form>
+
+                    <div class="team-member__container">
+                        @for (member of team; track member.name) {
+                            <p class="team-member__info">
+                                {{member.name}} {{member.surname}}, {{member.academicGroup}}
+                            </p>
+                        }
+                    </div>
+
+                    <h3 class="team__member">
+                        Участник команды #1
+                    </h3>
+                    <form
+                        class="team-member-form"
+                        [formGroup]="teamMemberInfoForm"
+                    >
+                        <div class="tui-form__row">
+                            <tui-input
+                                formControlName="info"
+                            >
+                                Информация об участнике
+                                <input
+                                    tuiTextfield
+                                    type="text"
+                                />
+                                <span class="tui-required"></span>
+                            </tui-input>
+                            <tui-error
+                                formControlName="info"
+                                [error]="[] | tuiFieldError | async"
+                            ></tui-error>
+                        </div>
+
+                        <div class="team-member-form__action">
+                            <button
+                                class="add-game-form__submit-button"
+                                appearance="auth-button"
+                                tuiButton
+                                (click)="addTeamMember()"
+                            >
+                                Добавить участника
+                            </button>
+                        </div>
+                    </form>
+                }
+            </div>
+        } @else {
+            <div class="project">
+                <div class="project__main-info">
+                    <h3 class="project__main-info__name">
+                        Merge Комбинаторика
+                    </h3>
+                    <img
+                        class="project__main-info__img"
+                        src="assets/images/test-game-img.png"
+                        alt="Фото игры"
+                    >
+                </div>
+                <div class="project__description">
+                    <div class="project__pub-date">
+                        <p class="project__pub-date__text">Проект опубликован</p>
+                        <p class="project__pub-date__date">24.03.2022</p>
+                    </div>
+                    <div class="game-rating">
+                        <h3 class="game-rating__title">Рейтинг проекта</h3>
+                        <div class="rating-points">
+                            <img class="rating-points__before" src="assets/images/third-place.svg" alt="">
+                            <div class="rating-points__all">
+                                <div class="rating-points__has"></div>
+                            </div>
+                            <img class="rating-points__after" src="assets/images/second-place.svg" alt="">
+                            <div class="rating-points__count-div">
+                                <img class="rating-points__fire-img" src="assets/images/icons/fire-icon.svg" alt="">
+                                <p class="rating-points__count">350/1500</p>
+                            </div>
+                        </div>
+                        <p class="game-rating__text">Отдано голосов</p>
+                        <div class="game-rating__votes">
+                            <img src="assets/images/icons/fire-icon.svg" alt="">
+                            <p>0</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="team">
+                <div class="team__container">
+                    <div class="team__role-container">
+                        <p class="team__role-title">Роль в команде</p>
+                        <div class="team__role-devoleper-role">Роль</div>
+                    </div>
+                    <div class="team__devoleper-team-container">
+                        <p class="team__devoleper-team-title">Ваша команда</p>
+                        <p class="team__devoleper-team-count">Участников: 4</p>
+                        <div class="team__devoleper-team-name">Название команды</div>
+                    </div>
+                </div>
+                <div class="developer">
+                    <p class="developer__count">Участник команды #1</p>
+                    <div class="developer__name">Фамилия Имя, Академическая группа</div>
+                    <div class="developer__info">
+                        <p class="developer__role">Роль: Роль</p>
+                        <a class="developer__contacts" href="">Контакты</a>
+                    </div>
+                </div>
+                <div class="developer">
+                    <p class="developer__count">Участник команды #1</p>
+                    <div class="developer__name">Фамилия Имя, Академическая группа</div>
+                    <div class="developer__info">
+                        <p class="developer__role">Роль: Роль</p>
+                        <a class="developer__contacts" href="">Контакты</a>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>

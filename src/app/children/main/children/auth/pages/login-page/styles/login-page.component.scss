@@ -1,29 +1,41 @@
 :host {
     display: flex;
     justify-content: center;
+    --tui-radius-m: 0;
 }
 
 .login-form {
-    width: 22rem;
+    // position: absolute;
+    // top:  50%;
+    // left: 50%;
+    // transform: translate(-50%,-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: var(--secondary-bg-color);
-    padding: 2rem 3rem;
+    padding: 3.7rem 6.375rem;
 
     &__title {
-        font: var(--font-m);
+        font-weight: 600;
+        font-size: 26px;
         text-align: center;
-        margin-bottom: 1rem;
+        color: #dcdcdc;
+        // font: var(--font-m);
+        text-align: center;
+        margin-bottom: 2rem;
     }
 
     &__content {
-        width: 100%;
+        width: 21.125rem;
         display: flex;
         flex-direction: column;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
+}
+
+.tui-form__row {
+    margin-top: 1.56rem;
 }
 
 .login-form-action {
@@ -32,6 +44,17 @@
     align-items: center;
     flex-direction: column;
     gap: 1rem;
+
+    &__btn {
+        width: 21.125rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        font-size: 20px;
+        text-align: center;
+        color: #fff;
+        border-radius: 3px;
+        background: #5a9df5;
+    }
 
     &__link {
         color: var(--active-link-color);

@@ -28,15 +28,18 @@
     --primary-color: #FFFFFF;
     --secondary-color: #D0E6EE;
     --base-color-01: #B6B6B6;
+    --base-color-02: #C1D9E2;
     --footer-nav-item-color: #99A2AD;
     --active-bg-button-color: #5A9DF5;
     --play-button-color: linear-gradient(#1EFE77, #0D9834);
     --error-color: #FF8197;
     --active-link-color: #65A7FF;
     --active-nav-link-color: #93C2FF;
+    --good-status-color: #47FFA7;
 
 
     //Taiga UI
     --tui-error-fill: var(--error-color);
     --tui-negative: var(--error-color);
+    --tui-radius-m: 0;
 }

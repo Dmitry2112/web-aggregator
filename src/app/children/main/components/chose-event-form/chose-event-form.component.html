@@ -1,0 +1,19 @@
+<form
+    class="chose-event-form b-form"
+    [formGroup]="choseEventForm"
+>
+    <details class="custom-select">
+        <summary class="radios">
+            <input class="radios-text" type="radio" name="event" id="default" title="Выберите событие" checked>
+            <input class="radios-text" type="radio" name="event" id="item1" title="Весна 2024" value="{{eventsNames[2]}}" formControlName="event">
+            <input class="radios-text" type="radio" name="event" id="item2" title="Осень 2023" value="{{eventsNames[1]}}" formControlName="event">
+            <input class="radios-text" type="radio" name="event" id="item3" title="Весна 2023" value="{{eventsNames[0]}}" formControlName="event">
+        </summary>
+        <ul class="options-list">
+            <li class="options-item"><label class="options-label" for="item1">Весна 2024</label></li>
+            <li class="options-item"><label class="options-label" for="item2">Осень 2023</label></li>
+            <li class="options-item"><label class="options-label" for="item3">Весна 2023</label></li>
+        </ul>
+    </details>
+</form>
+

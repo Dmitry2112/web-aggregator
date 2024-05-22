@@ -7,6 +7,9 @@
             <li class="profile-nav__item">
                 <a class="profile-nav__link" [ngClass]="{'profile-nav__link_active': profileActive()}" routerLink="../profile">Данные пользователя</a>
             </li>
+            <li class="profile-nav__item">
+                <a class="profile-nav__link" [ngClass]="{'profile-nav__link_active': securityActive()}" routerLink="../security">Безопасность</a>
+            </li>
         </ul>
     </nav>
     <div

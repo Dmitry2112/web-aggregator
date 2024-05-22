@@ -1,0 +1,71 @@
+<div class="profile">
+    <form
+        class="profile-form"
+        [formGroup]="profileForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <div class="profile__info-name">
+            <p class="profile__info-title">Фамилия <span class="profile__info-title-star">*</span></p>
+            <div class="profile__info-input__bg">
+                <input class="profile__info-input" type="text" placeholder="Введите фамилию" formControlName="surname">
+            </div>
+        </div>
+        <div class="profile__info-name">
+            <p class="profile__info-title">Имя <span class="profile__info-title-star">*</span></p>
+            <div class="profile__info-input__bg">
+                <input class="profile__info-input" type="text" placeholder="Введите имя" formControlName="name">
+            </div>
+        </div>
+        <div class="profile__info-name">
+            <p class="profile__info-title">Отчество</p>
+            <div class="profile__info-input__bg">
+                <input class="profile__info-input" type="text" placeholder="Введите отчество">
+            </div>
+        </div>
+        <div class="profile__info-data">
+            <div class="user-data">
+                <p class="profile__info-title">Направление обучения <span class="profile__info-title-star">*</span></p>
+                <div class="profile__info-input__bg">
+                    <select class="profile__info-select" name="" id="" aria-placeholder="Выберите из списка">
+                        <option value="">Выберите из списка</option>
+                    </select>
+                </div>
+            </div>
+            <div class="user-data">
+                <p class="profile__info-title">Курс <span class="profile__info-title-star">*</span></p>
+                <div class="profile__info-input__bg">
+                    <select class="profile__info-select" formControlName="course">
+                        <option [ngValue]="null">Выберите из списка</option>
+                        <option [ngValue]="'1 курс'">1 курс</option>
+                        <option [ngValue]="'2 курс'">2 курс</option>
+                        <option [ngValue]="'3 курс'">3 курс</option>
+                        <option [ngValue]="'4 курс'">4 курс</option>
+                    </select>
+                </div>
+            </div>
+            <div class="user-data">
+                <p class="profile__info-title">Академ. группа <span class="profile__info-title-star">*</span></p>
+                <div class="profile__info-input__bg">
+                    <input class="profile__info-input" type="text" placeholder="Введите группу" formControlName="academicGroup">
+                </div>
+            </div>
+            <div class="user-data">
+                <p class="profile__info-title">Контакты <span class="profile__info-title-star">*</span></p>
+                <div class="profile__info-input__bg">
+                    <input class="profile__info-input" type="text" placeholder="Ссылка на Telegram или ВК">
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-form__action">
+            <button
+                class="profile-form__submit-button"
+                appearance="auth-button"
+                tuiButton
+                type="submit"
+            >
+                Сохранить
+            </button>
+        </div>
+    </form>
+</div>

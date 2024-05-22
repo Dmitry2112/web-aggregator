@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ProfileSideBarComponent } from '../../components/profile-side-bar/profile-side-bar.component';
 import { LoadGameComponent } from '../../components/load-game/load-game.component';
 
 @Component({
@@ -7,6 +8,6 @@ import { LoadGameComponent } from '../../components/load-game/load-game.componen
     styleUrls: ['./styles/add-project-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [LoadGameComponent]
+    imports: [ProfileSideBarComponent, LoadGameComponent]
 })
 export class AddProjectPageComponent { }
