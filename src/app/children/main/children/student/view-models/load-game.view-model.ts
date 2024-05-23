@@ -30,15 +30,29 @@ export class LoadGameViewModel {
     public toModel(): GameModel {
         const game: GameModel = new GameModel();
 
-        game.teamId = '123';
+        // game.teamId = '123';
+        // game.name = this.loadGameForm.controls['name'].value;
+        // game.semesterId = 'a08544b6-5af3-45ba-85cb-85c3d93d2b6b';
+        // // game.categoryId = this.loadGameForm.controls['categoryId'].value;
+        // game.categoryId = '89b1cedd-4ad7-4b1f-94ba-51b8d3d06c2a';
+        // // game.theme = this.loadGameForm.controls['theme'].value;
+        // game.theme = '562e6375-5a27-46ae-bc64-19f4ebe86356';
+        // game.rating = '0';
+        // game.statusId = 'a0f0260a-3278-4464-8f10-0da38eddbc65';
+        // game.shortDescription = this.loadGameForm.controls['shortDescription'].value;
+        // game.playDescription = this.loadGameForm.controls['playDescription'].value;
+        // game.gitHubLink = this.loadGameForm.controls['gitHubLink'].value;
+        // game.gameFile = this.gameFile;
+
+        game.teamId = '3433423';
         game.name = this.loadGameForm.controls['name'].value;
-        game.semesterId = 'a08544b6-5af3-45ba-85cb-85c3d93d2b6b';
+        game.semesterId = '77039b00-6daa-4e91-935b-5a2b5c491136';
         // game.categoryId = this.loadGameForm.controls['categoryId'].value;
-        game.categoryId = '89b1cedd-4ad7-4b1f-94ba-51b8d3d06c2a';
+        game.categoryId = 'b26d2304-9aa2-4feb-b6ac-f1e69dba2a6c';
         // game.theme = this.loadGameForm.controls['theme'].value;
-        game.theme = '562e6375-5a27-46ae-bc64-19f4ebe86356';
+        game.theme = '18fbc0de-8bcc-4921-b889-d221ab94ed30';
         game.rating = '0';
-        game.statusId = 'a0f0260a-3278-4464-8f10-0da38eddbc65';
+        game.statusId = 'f6debe93-f75c-477a-9d81-f03a501308de';
         game.shortDescription = this.loadGameForm.controls['shortDescription'].value;
         game.playDescription = this.loadGameForm.controls['playDescription'].value;
         game.gitHubLink = this.loadGameForm.controls['gitHubLink'].value;

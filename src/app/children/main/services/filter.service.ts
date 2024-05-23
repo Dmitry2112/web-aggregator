@@ -19,7 +19,7 @@ export class FilterService {
         'math': '1',
         'medicine': '2',
         'physics': '3',
-        'arcades': '4',
+        'arcades': '18fbc0de-8bcc-4921-b889-d221ab94ed30',
         'fighters': '5'
     };
 

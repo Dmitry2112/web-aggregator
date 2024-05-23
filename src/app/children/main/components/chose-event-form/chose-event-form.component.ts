@@ -40,7 +40,7 @@ export class ChoseEventFormComponent implements OnInit {
 
     public ngOnInit(): void {
         this.choseNamesToChoseIds.set(this.eventsNames[0], '1');
-        this.choseNamesToChoseIds.set(this.eventsNames[1], '2');
+        this.choseNamesToChoseIds.set(this.eventsNames[1], '77039b00-6daa-4e91-935b-5a2b5c491136');
         this.choseNamesToChoseIds.set(this.eventsNames[2], '3');
 
         this.choseEventForm.controls['event'].valueChanges
