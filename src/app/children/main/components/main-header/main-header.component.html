@@ -31,7 +31,8 @@
                     Гость
                 </ng-template>
             </span>
-            <img class="main-header__avatar-img" src="assets/images/icons/avatar-guest-img.svg" alt="avatar_img">
+<!--            <img class="main-header__avatar-img" src="assets/images/icons/avatar-guest-img.svg" alt="avatar_img">-->
+            <img class="main-header__avatar-img" [src]='defaultAvatarUrl()' alt="avatar_img">
             <img class="main-header__avatar-chevron" src="assets/images/icons/chevron.svg" alt="chevron">
 
             <div class="main-header__avatar-score-block">
