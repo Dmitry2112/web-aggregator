@@ -4,6 +4,203 @@
         [formGroup]="loadGameForm"
         (ngSubmit)="onSubmit()"
     >
+        <div class="two-columns-form-div">
+            <aside class="aside">
+                <h2 class="aside-title">Статус проекта</h2>
+                <p class="aside-state">Проект опубликован</p>
+                <button class="aside-btn">Загрузить файл</button>
+                <span class="aside-span">Загружено: </span>
+                <div class="aside-item">
+                    <h2 class="aside-item__title">Трек проекта</h2>
+                    <details class="custom-select">
+                        <summary class="radios">
+                            <input class="radios-text" type="radio" name="event" id="default" title="Выберите из списка" checked>
+                            <input class="radios-text" type="radio" name="event" id="item1" title="Весна 2024">
+                            <input class="radios-text" type="radio" name="event" id="item2" title="Осень 2023">
+                            <input class="radios-text" type="radio" name="event" id="item3" title="Весна 2023">
+                        </summary>
+                        <ul class="options-list">
+                            <li class="options-item"><label class="options-label" for="item1">Весна 2024</label></li>
+                            <li class="options-item"><label class="options-label" for="item2">Осень 2023</label></li>
+                            <li class="options-item"><label class="options-label" for="item3">Весна 2023</label></li>
+                        </ul>
+                    </details>
+                </div>
+                <div class="aside-item">
+                    <h2 class="aside-item__title">Категория проекта</h2>
+                    <details class="custom-select">
+                        <summary class="radios">
+                            <input class="radios-text" type="radio" name="event" id="default" title="Выберите из списка" checked>
+                            <input class="radios-text" type="radio" name="event" id="item1" title="Весна 2024">
+                            <input class="radios-text" type="radio" name="event" id="item2" title="Осень 2023">
+                            <input class="radios-text" type="radio" name="event" id="item3" title="Весна 2023">
+                        </summary>
+                        <ul class="options-list">
+                            <li class="options-item"><label class="options-label" for="item1">Весна 2024</label></li>
+                            <li class="options-item"><label class="options-label" for="item2">Осень 2023</label></li>
+                            <li class="options-item"><label class="options-label" for="item3">Весна 2023</label></li>
+                        </ul>
+                    </details>
+                </div>
+                <div class="aside-item">
+                    <h2 class="aside-item__title">Тема проекта</h2>
+                    <details class="custom-select">
+                        <summary class="radios">
+                            <input class="radios-text" type="radio" name="event" id="default" title="Выберите из списка" checked>
+                            <input class="radios-text" type="radio" name="event" id="item1" title="Весна 2024">
+                            <input class="radios-text" type="radio" name="event" id="item2" title="Осень 2023">
+                            <input class="radios-text" type="radio" name="event" id="item3" title="Весна 2023">
+                        </summary>
+                        <ul class="options-list">
+                            <li class="options-item"><label class="options-label" for="item1">Весна 2024</label></li>
+                            <li class="options-item"><label class="options-label" for="item2">Осень 2023</label></li>
+                            <li class="options-item"><label class="options-label" for="item3">Весна 2023</label></li>
+                        </ul>
+                    </details>
+                </div>
+                <div class="aside-item">
+                    <h2 class="aside-item__title">Команда разработки</h2>
+                    <details class="custom-select">
+                        <summary class="radios">
+                            <input class="radios-text" type="radio" name="event" id="default" title="Выберите из списка" checked>
+                            <input class="radios-text" type="radio" name="event" id="item1" title="Весна 2024">
+                            <input class="radios-text" type="radio" name="event" id="item2" title="Осень 2023">
+                            <input class="radios-text" type="radio" name="event" id="item3" title="Весна 2023">
+                        </summary>
+                        <ul class="options-list">
+                            <li class="options-item"><label class="options-label" for="item1">Весна 2024</label></li>
+                            <li class="options-item"><label class="options-label" for="item2">Осень 2023</label></li>
+                            <li class="options-item"><label class="options-label" for="item3">Весна 2023</label></li>
+                        </ul>
+                    </details>
+                    <span class="aside-item__span">Профиль команды</span>
+                </div>
+                <div class="aside-item">
+                    <h2 class="aside-item__title"></h2>
+                    <div class="add-game-inputs__bg">
+                        <input class="add-game-inputs__input" type="text" placeholder="Вставьте ссылку">
+                        <img src="assets/images/icons/check-icon.svg" alt="">
+                    </div>
+                    <span class="aside-item__span">Очистить поле</span>
+                </div>
+            </aside>
+            <div class="add-game-inputs">
+                <div class="add-game-inputs__item">
+                    <p class="add-game-inputs__title">Название проекта</p>
+                    <div class="add-game-inputs__bg">
+                        <input class="add-game-inputs__input" type="text" placeholder="Введите название проекта">
+                    </div>
+                    <span class="add-game-inputs__span">0/20</span>
+                </div>
+                <div class="add-game-inputs__item">
+                    <p class="add-game-inputs__title">Краткое описнаие</p>
+                    <div class="add-game-inputs__bg">
+                        <textarea class="add-game-inputs__input" name="" id="" placeholder="Введите краткое описание" rows="3"></textarea>
+                    </div>
+                    <span class="add-game-inputs__span">0/90</span>
+                </div>
+                <div class="add-game-inputs__item">
+                    <p class="add-game-inputs__title">Описание проекта</p>
+                    <div class="add-game-inputs__bg">
+                        <textarea class="add-game-inputs__input" name="" id="" placeholder="Введите описание проекта" rows="15"></textarea>
+                    </div>
+                    <span class="add-game-inputs__span">0/1000</span>
+                </div>
+                <div class="add-game-inputs__item">
+                    <p class="add-game-inputs__title">Как играть</p>
+                    <div class="add-game-inputs__bg">
+                        <textarea class="add-game-inputs__input" name="" id="" placeholder="Введите правила игры" rows="15"></textarea>
+                    </div>
+                    <span class="add-game-inputs__span">0/1000</span>
+                </div>
+            </div>
+        </div>
+        <h2>Промо-материалы</h2>
+        <p>Загрузите материалы для демонстранции проекта</p>
+        <div class="promo">
+            <div class="promo-item">
+                <h3 class="promo-item__title">Обложка</h3>
+                <div class="promo-item__block">
+                    <p class="promo-item__size">800x470</p>
+                    <img class="promo-item__img" src="" alt="">
+                </div>
+                <div class="promo-item__download">
+                    <p class="promo-item__link">Загрузить</p>
+                    <p class="promo-item__format">Формат: .png</p>
+                </div>
+            </div>
+            <div class="promo-item">
+                <h3 class="promo-item__title">Изображения проекта</h3>
+                <div class="promo-item__block">
+                    <p class="promo-item__text">Ширина от 1280px</p>
+                    <p class="promo-item__span">Альбомная ориентация</p>
+                    <p class="promo-item__size">16:9</p>
+                    <img class="promo-item__img" src="" alt="">
+                </div>
+                <div class="promo-item__download">
+                    <p class="promo-item__link">Загрузить</p>
+                    <p class="promo-item__format">Формат: .png .jpg</p>
+                </div>
+            </div>
+            <div class="promo-item">
+                <h3 class="promo-item__title"></h3>
+                <div class="promo-item__block">
+                    <p class="promo-item__text">Ширина от 1280px</p>
+                    <p class="promo-item__span">Альбомная ориентация</p>
+                    <p class="promo-item__size">16:9</p>
+                    <img class="promo-item__img" src="" alt="">
+                </div>
+                <div class="promo-item__download">
+                    <p class="promo-item__link">Загрузить</p>
+                    <p class="promo-item__format">Формат: .png .jpg</p>
+                </div>
+            </div>
+            <div class="promo-item">
+                <h3 class="promo-item__title">Видео геймплея</h3>
+                <div class="promo-item__block">
+                    <p class="promo-item__text">Высота от 400px</p>
+                    <p class="promo-item__span">Длительность не более 30 секунд</p>
+                    <p class="promo-item__size">16:9</p>
+                    <img class="promo-item__img" src="" alt="">
+                </div>
+                <div class="promo-item__download">
+                    <p class="promo-item__link">Загрузить</p>
+                    <p class="promo-item__format">Формат: .mp4</p>
+                </div>
+            </div>
+            <div class="promo-item">
+                <h3 class="promo-item__title"></h3>
+                <div class="promo-item__block">
+                    <p class="promo-item__text">Ширина от 1280px</p>
+                    <p class="promo-item__span">Альбомная ориентация</p>
+                    <p class="promo-item__size">16:9</p>
+                    <img class="promo-item__img" src="" alt="">
+                </div>
+                <div class="promo-item__download">
+                    <p class="promo-item__link">Загрузить</p>
+                    <p class="promo-item__format">Формат: .png .jpg</p>
+                </div>
+            </div>
+            <div class="promo-item">
+                <h3 class="promo-item__title"></h3>
+                <div class="promo-item__block">
+                    <p class="promo-item__text">Ширина от 1280px</p>
+                    <p class="promo-item__span">Альбомная ориентация</p>
+                    <p class="promo-item__size">16:9</p>
+                    <img class="promo-item__img" src="" alt="">
+                </div>
+                <div class="promo-item__download">
+                    <p class="promo-item__link">Загрузить</p>
+                    <p class="promo-item__format">Формат: .png .jpg</p>
+                </div>
+            </div>
+        </div>
+        <div class="add-game-btns">
+            <button class="add-game-btns__save">Сохранить</button>
+            <button class="add-game-btns__push">Опубликовать</button>
+        </div>
+        <p class="add-game-form__text">Проект будет опубликован после одобрения модератором</p>
+
         <div class="tui-form__row">
             <tui-input
                 formControlName="name"
