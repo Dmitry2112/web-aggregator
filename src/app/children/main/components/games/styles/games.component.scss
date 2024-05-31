@@ -145,30 +145,6 @@
     //         border: none;
     //     }
     // }
-
-    &__search {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-        width: 100%;
-
-        padding: 0.75rem 1rem;
-        background-color: var(--secondary-bg-color);
-
-        &-input {
-            width: 96%;
-            background: rgba(200, 200, 200, 0.1);
-            padding: 0.75rem;
-            outline: none;
-            border: none;
-        }
-
-        &-input::placeholder {
-            font-weight: 400;
-            font-size: 16px;
-            color: #b6b6b6;
-        }
-    }
 }
 
 .select-second {
