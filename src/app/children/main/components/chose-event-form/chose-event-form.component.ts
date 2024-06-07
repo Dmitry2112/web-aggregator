@@ -1,10 +1,12 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { TuiDataListWrapperModule, TuiSelectModule } from '@taiga-ui/kit';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { FilterService } from '../../services/filter.service';
 import { takeUntil, tap } from 'rxjs';
+import { SemesterDataService } from '../../data/services/semester-data.service';
+import { SemesterModel } from '../../data/models/semester.model';
 
 @Component({
     selector: 'chose-event-form',
@@ -22,12 +24,7 @@ import { takeUntil, tap } from 'rxjs';
 })
 export class ChoseEventFormComponent implements OnInit {
     public choseNamesToChoseIds: Map<string, string> = new Map<string, string>();
-
-    public eventsNames: string[] = [
-        'Весна 2023',
-        'Осень 2023',
-        'Весна 2024'
-    ];
+    public eventsNames: WritableSignal<string[]> = signal([]);
 
     public choseEventForm: FormGroup = new FormGroup({
         event: new FormControl()
@@ -35,13 +32,21 @@ export class ChoseEventFormComponent implements OnInit {
 
     constructor(
         private _filterService: FilterService,
-        private _destroy$: TuiDestroyService
+        private _destroy$: TuiDestroyService,
+        private _semesterDataService: SemesterDataService
     ) {}
 
     public ngOnInit(): void {
-        this.choseNamesToChoseIds.set(this.eventsNames[0], '1');
-        this.choseNamesToChoseIds.set(this.eventsNames[1], '2');
-        this.choseNamesToChoseIds.set(this.eventsNames[2], '3');
+        this._semesterDataService.getAllSemesters()
+            .pipe(
+                tap((semesters: SemesterModel[]) => {
+                    semesters.forEach((semester: SemesterModel) => {
+                        this.eventsNames.set([...this.eventsNames(), semester.name]);
+                        this.choseNamesToChoseIds.set(semester.name, semester.id);
+                    });
+                })
+            )
+            .subscribe(console.log);
 
         this.choseEventForm.controls['event'].valueChanges
             .pipe(
