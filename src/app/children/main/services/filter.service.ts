@@ -3,6 +3,8 @@ import { BehaviorSubject, combineLatest, map, Observable, switchMap, tap } from 
 import { GameModel } from '../data/models/game.model';
 import { GameDataService } from '../data/services/game-data.service';
 import { FilterFormValues } from '../components/filter-form/filter-form-values.type';
+import { CategoryDataService } from '../data/services/category-data.service';
+import { CategoryModel } from '../data/models/category.model';
 
 
 @Injectable({
@@ -10,12 +12,12 @@ import { FilterFormValues } from '../components/filter-form/filter-form-values.t
 })
 export class FilterService {
     public event$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-    public themes$: BehaviorSubject<Set<string>> = new BehaviorSubject<Set<string>>(new Set<string>());
+    public categories$: BehaviorSubject<Set<string>> = new BehaviorSubject<Set<string>>(new Set<string>());
     public gameName$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-    public filters$: Observable<[string, Set<string>, string]> = combineLatest([this.event$, this.themes$, this.gameName$]);
+    public filters$: Observable<[string, Set<string>, string]> = combineLatest([this.event$, this.categories$, this.gameName$]);
     public gamesCount$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-    private _themes: Record<string, string> = {
+    private _categories: Record<string, string> = {
         'all': '0',
         'math': '1',
         'medicine': '2',
@@ -33,7 +35,7 @@ export class FilterService {
             .pipe(
                 switchMap(() => this._gameDataService.getAllGames()),
                 map((games: GameModel[]) => this.filterGamesByEvent(games)),
-                map((games: GameModel[]) => this.filterGamesByThemes(games)),
+                map((games: GameModel[]) => this.filterGamesByCategories(games)),
                 map((games: GameModel[]) => this.filterGamesByGameName(games)),
                 tap((games: GameModel[]) => this.gamesCount$.next(games.length))
             );
@@ -43,11 +45,11 @@ export class FilterService {
         this.event$.next(semesterId);
     }
 
-    public changeThemes(filterFormValues: Partial<FilterFormValues>): void {
+    public changeCategories(filterFormValues: Partial<FilterFormValues>): void {
         for (const [key, value] of Object.entries(filterFormValues)) {
             value
-                ? this.addTheme(this._themes[key])
-                : this.deleteTheme(this._themes[key]);
+                ? this.addCategory(this._categories[key])
+                : this.deleteCategory(this._categories[key]);
         }
     }
 
@@ -55,21 +57,21 @@ export class FilterService {
         this.gameName$.next(gameName);
     }
 
-    private addTheme(filter: string): void {
-        this.themes$.next(this.themes$.value.add(filter));
+    private addCategory(filter: string): void {
+        this.categories$.next(this.categories$.value.add(filter));
     }
 
-    private deleteTheme(filter: string): void {
-        const currentFilters: Set<string> = this.themes$.value;
+    private deleteCategory(filter: string): void {
+        const currentFilters: Set<string> = this.categories$.value;
         currentFilters.delete(filter);
-        this.themes$.next(currentFilters);
+        this.categories$.next(currentFilters);
     }
 
-    private filterGamesByThemes(games: GameModel[]): GameModel[] {
-        return this.themes$.value.size === 0 || this.themes$.value.has(this._themes['all'])
+    private filterGamesByCategories(games: GameModel[]): GameModel[] {
+        return this.categories$.value.size === 0 || this.categories$.value.has(this._categories['all'])
             ? games
             : games.filter((game: GameModel) => {
-                return this.themes$.value.has(game.theme);
+                return this.categories$.value.has(game.categoryId);
             });
     }
 
