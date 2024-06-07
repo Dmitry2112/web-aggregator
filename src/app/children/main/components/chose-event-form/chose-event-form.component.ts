@@ -44,9 +44,10 @@ export class ChoseEventFormComponent implements OnInit {
                         this.eventsNames.set([...this.eventsNames(), semester.name]);
                         this.choseNamesToChoseIds.set(semester.name, semester.id);
                     });
-                })
+                }),
+                takeUntil(this._destroy$)
             )
-            .subscribe(console.log);
+            .subscribe();
 
         this.choseEventForm.controls['event'].valueChanges
             .pipe(
