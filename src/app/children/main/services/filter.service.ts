@@ -8,7 +8,7 @@ import { CategoryModel } from '../data/models/category.model';
 
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FilterService {
     public event$: BehaviorSubject<string> = new BehaviorSubject<string>('');
@@ -19,16 +19,33 @@ export class FilterService {
 
     private _categories: Record<string, string> = {
         'all': '0',
-        'math': '1',
-        'medicine': '2',
-        'physics': '3',
-        'arcades': '4',
-        'fighters': '5'
+    };
+
+    private _ruToEnCategoryName: Record<string, string> = {
+        'Медицина': 'medicine',
+        'Аркады': 'arcades',
+        'Головоломки': 'puzzles',
+        'Приложения': 'applications',
+        'Боевики': 'fighters',
+        'Физика': 'physics',
+        'Математика': 'math',
+        'Биомеханика': 'biomechanics',
     };
 
     constructor(
-        private _gameDataService: GameDataService
-    ) {}
+        private _gameDataService: GameDataService,
+        private _categoryDataService: CategoryDataService
+    ) {
+        this._categoryDataService.getAllCategories()
+            .pipe(
+                tap((categories: CategoryModel[]) => {
+                    categories.forEach((category: CategoryModel) => {
+                        this._categories[this._ruToEnCategoryName[category.name]] = category.id;
+                    });
+                })
+            )
+            .subscribe(() => console.log(this._categories));
+    }
 
     public filterGames(): Observable<GameModel[]> {
         return this.filters$
