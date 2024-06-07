@@ -4,7 +4,7 @@ import { ProfileSideBarComponent } from '../../components/profile-side-bar/profi
 import { ProjectStatusDataService } from '../../../../data/services/project-status-data.service';
 import { BehaviorSubject, takeUntil, tap } from 'rxjs';
 import { ProjectStatusModel } from '../../../../data/models/project-status.model';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
@@ -22,7 +22,7 @@ import { TeamMember } from '../../types/team-member.type';
     styleUrls: ['./styles/projects-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [ProfileSideBarComponent, TuiButtonModule, AsyncPipe, FormsModule, ReactiveFormsModule, TuiDataListWrapperModule, TuiInputMonthModule, TuiSelectModule, TuiTextfieldControllerModule, NgIf, TuiErrorModule, TuiFieldErrorPipeModule, TuiFilesModule, TuiInputFilesModule, TuiInputModule, TuiTextareaModule],
+    imports: [ProfileSideBarComponent, TuiButtonModule, AsyncPipe, FormsModule, ReactiveFormsModule, TuiDataListWrapperModule, TuiInputMonthModule, TuiSelectModule, TuiTextfieldControllerModule, NgIf, TuiErrorModule, TuiFieldErrorPipeModule, TuiFilesModule, TuiInputFilesModule, TuiInputModule, TuiTextareaModule, NgClass],
     providers: [TuiDestroyService]
 })
 export class ProjectsPageComponent implements OnInit {

@@ -10,66 +10,22 @@
         <h2 class="choose-project__title">Выбор проекта</h2>
         <p class="choose-project__text">Выберите учебный семестр</p>
         <div class="choose-project__buttons-div">
-            <button class="choose-project__button choose-project__button-selected" (click)="viewProject()">Осень 2023</button>
-            <button class="choose-project__button choose-project__button-active" (click)="createNewTeam()">Весна 2024</button>
+            <button
+                class="choose-project__button"
+                [ngClass]="{'choose-project__button-selected': !createTeam(), 'choose-project__button-active': createTeam()}"
+                (click)="viewProject()"
+            >
+                Осень 2023
+            </button>
+            <button
+                class="choose-project__button"
+                [ngClass]="{'choose-project__button-selected': createTeam(), 'choose-project__button-active': !createTeam()}"
+                (click)="createNewTeam()"
+            >
+                Весна 2024
+            </button>
             <button class="choose-project__button choose-project__button-inactive" disabled>Осень 2024</button>
         </div>
-
-        <!-- <div>
-            <div class="choose-project__role">
-                <p class="choose-project__role-title">Роль в команде<span class="choose-project__role-title-star">*</span></p>
-                <div class="choose-project__role-input__bg">
-                    <select class="choose-project__role-select" name="" id="">
-                        <option value="">Выберите из списка</option>
-                        <option value="">1 курс</option>
-                        <option value="">2 курс</option>
-                        <option value="">3 курс</option>
-                        <option value="">4 курс</option>
-                    </select>
-                </div>
-                <span class="choose-project__role-span">Создать команду может только Team Lead</span>
-            </div>
-            <ul class="team-member__list">
-                <li class="team-member">
-                    <p class="inputs__title">Название команды<span class="choose-project__role-title-star">*</span></p>
-                    <div class="inputs__input-bg inputs__input-bg__inactive">
-                        Название команды
-                    </div>
-                </li>
-                <li class="team-member">
-                    <p class="inputs__title">Участник команды №1</p>
-                    <div class="inputs__input-bg inputs__input-bg__inactive">
-                        Фамилия, Имя, Академ. группа
-                    </div>
-                    <div class="team-member__info">
-                        <p class="team-member__info-role">Роль:</p>
-                        <p class="team-member__info-contact">Контакты</p>
-                    </div>
-                </li>
-                <li class="team-member">
-                    <p class="inputs__title">Участник команды №2</p>
-                    <button class="team-member__delete-btn">Удалить</button>
-                    <div class="inputs__input-bg">
-                        <input class="inputs__input" type="text" placeholder="Фамилия, Имя, Академ. группа">
-                    </div>
-                    <div class="team-member__info">
-                        <p class="team-member__info-role">Роль:</p>
-                        <p class="team-member__info-contact">Контакты</p>
-                    </div>
-                </li>
-            </ul>
-            <button class="add-member-btn">Добавить участника</button>
-            <button class="leave-team-btn">Выйти из команды</button>
-        </div> -->
-
-<!--        <button-->
-<!--            class="projects__choose-semester-button"-->
-<!--            appearance="choose-semester-button"-->
-<!--            tuiButton-->
-<!--            (click)="createNewTeam()"-->
-<!--        >-->
-<!--            Весна 2024-->
-<!--        </button>-->
         @if (createTeam()) {
             <div class="team">
                 <h3 class="team__role">
