@@ -13,7 +13,7 @@ export class GameDataService {
     constructor(private _http: HttpClient) {}
 
     public getAllGames(): Observable<GameModel[]> {
-        return this._http.get<IGameResponseModel[]>('api/games')
+        return this._http.get<IGameResponseModel[]>('api/games/getall')
             .pipe(
                 map((games: IGameResponseModel[]) => {
                     return games.map((game: IGameResponseModel) => {
@@ -25,6 +25,18 @@ export class GameDataService {
                 }),
                 tap((games: GameModel[]) => {
                     this.games$.next(games);
+                })
+            );
+    }
+
+    public getGameById(id: string): Observable<GameModel> {
+        return this._http.get<IGameResponseModel>(`api/games/getbyid/${id}`)
+            .pipe(
+                map((game: IGameResponseModel) => {
+                    const gameModel: GameModel = new GameModel();
+                    gameModel.fromDto(game);
+
+                    return gameModel;
                 })
             );
     }
