@@ -44,7 +44,7 @@ export class FilterService {
                     });
                 })
             )
-            .subscribe(() => console.log(this._categories));
+            .subscribe();
     }
 
     public filterGames(): Observable<GameModel[]> {
