@@ -41,6 +41,18 @@ export class GameDataService {
             );
     }
 
+    public getGameByUserIdAndSemesterId(userId: string, semesterId: string): Observable<GameModel> {
+        return this._http.get<IGameResponseModel>(`team-dist/getProjectByUserSemId/?userId=${userId}&semesterId=${semesterId}`)
+            .pipe(
+                map((game: IGameResponseModel) => {
+                    const gameModel: GameModel = new GameModel();
+                    gameModel.fromDto(game);
+
+                    return gameModel;
+                })
+            );
+    }
+
     public addGame(newGame: GameModel): Observable<IGameResponseModel> {
         return this._http.post<IGameResponseModel>('api/games', newGame.toDto());
     }

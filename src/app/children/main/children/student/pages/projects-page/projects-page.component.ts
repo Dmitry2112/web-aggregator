@@ -15,6 +15,7 @@ import {
     TuiSelectModule, TuiTextareaModule
 } from '@taiga-ui/kit';
 import { TeamMember } from '../../types/team-member.type';
+import { ProjectInfoComponent } from '../../components/project-info/project-info.component';
 
 @Component({
     selector: 'projects-page',
@@ -22,7 +23,7 @@ import { TeamMember } from '../../types/team-member.type';
     styleUrls: ['./styles/projects-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [ProfileSideBarComponent, TuiButtonModule, AsyncPipe, FormsModule, ReactiveFormsModule, TuiDataListWrapperModule, TuiInputMonthModule, TuiSelectModule, TuiTextfieldControllerModule, NgIf, TuiErrorModule, TuiFieldErrorPipeModule, TuiFilesModule, TuiInputFilesModule, TuiInputModule, TuiTextareaModule, NgClass],
+    imports: [ProfileSideBarComponent, TuiButtonModule, AsyncPipe, FormsModule, ReactiveFormsModule, TuiDataListWrapperModule, TuiInputMonthModule, TuiSelectModule, TuiTextfieldControllerModule, NgIf, TuiErrorModule, TuiFieldErrorPipeModule, TuiFilesModule, TuiInputFilesModule, TuiInputModule, TuiTextareaModule, NgClass, ProjectInfoComponent],
     providers: [TuiDestroyService]
 })
 export class ProjectsPageComponent implements OnInit {
