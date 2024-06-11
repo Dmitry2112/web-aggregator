@@ -34,7 +34,7 @@
             <div class="team">
                 <div>
                     <h3 class="team__role">Роль в команде</h3>
-                    <details class="custom-select">
+                    <!-- <details class="custom-select">
                         <summary class="radios">
                             <input class="radios-text" type="radio" name="event" id="default" title="Выберите роль" checked>
                             <input class="radios-text" type="radio" name="event" id="item1" title="Team Lead">
@@ -44,7 +44,7 @@
                             <li class="options-item"><label class="options-label" for="item1">Team Lead</label></li>
                             <li class="options-item"><label class="options-label" for="item2">UX/UI-дизайнер</label></li>
                         </ul>
-                    </details>
+                    </details> -->
 
                     <form
                         class="chose-role-form b-form"
@@ -73,15 +73,15 @@
                 </div>
                 @if (role() === 'Team Lead') {
                     <div>
-                        <div class="add-game-inputs__item">
+                        <!-- <div class="add-game-inputs__item">
                             <p class="add-game-inputs__title">Название команды</p>
                             <div class="add-game-inputs__bg">
                                 <input class="add-game-inputs__input" type="text" placeholder="Введите название проекта">
                             </div>
                             <span class="add-game-inputs__span">0/20</span>
-                        </div>
+                        </div> -->
 
-                        <!-- <form
+                        <form
                             class="team-name-form"
                             [formGroup]="teamNameForm"
                         >
@@ -101,7 +101,7 @@
                                     [error]="[] | tuiFieldError | async"
                                 ></tui-error>
                             </div>
-                        </form> -->
+                        </form>
                     </div>
 
                     <div class="team-member__container">
@@ -112,7 +112,7 @@
                         }
                     </div>
 
-                    <div class="developer">
+                    <!-- <div class="developer">
                         <p class="developer__count">Участник команды #1</p>
                         <div class="developer__name">Фамилия Имя, Академическая группа</div>
                         <div class="developer__info">
@@ -130,13 +130,13 @@
                             <p class="developer__role">Роль: Роль</p>
                             <a class="developer__contacts" href="">Контакты</a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <form
                         class="team-member-form"
                         [formGroup]="teamMemberInfoForm"
                     >
-                        <!-- <div class="tui-form__row">
+                        <div class="tui-form__row">
                             <tui-input
                                 formControlName="info"
                             >
@@ -151,7 +151,7 @@
                                 formControlName="info"
                                 [error]="[] | tuiFieldError | async"
                             ></tui-error>
-                        </div> -->
+                        </div>
 
                         <div class="team-member-form__action">
                             <button
