@@ -4,6 +4,7 @@ import { GameDataService } from '../../data/services/game-data.service';
 import { map, tap } from 'rxjs';
 import { GameModel } from '../../data/models/game.model';
 import { TuiButtonModule } from '@taiga-ui/core';
+import { HistoryService } from '../../services/history.service';
 
 @Component({
     selector: 'about-game-page',
@@ -23,7 +24,8 @@ export class AboutGamePageComponent implements OnInit {
 
     constructor(
         private _route: ActivatedRoute,
-        private _gameDataService: GameDataService
+        private _gameDataService: GameDataService,
+        private _historyService: HistoryService,
     ) { }
 
     //TODO: реализовать отписку
@@ -50,5 +52,7 @@ export class AboutGamePageComponent implements OnInit {
                 this.playDescription.set(game.playDescription);
                 this.gitHubLink.set(game.gitHubLink);
             });
+
+        this._historyService.addGameInHistory(this.gameId());
     }
 }

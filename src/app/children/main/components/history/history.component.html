@@ -1,0 +1,7 @@
+<div class="history">
+    @if (historyGames$ | async; as historyGames) {
+        @for (gameId of historyGames; track gameId) {
+            <history-card [gameId]="gameId"></history-card>
+        }
+    }
+</div>

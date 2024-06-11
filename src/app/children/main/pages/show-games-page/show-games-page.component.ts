@@ -8,6 +8,7 @@ import { FilterFormComponent } from '../../components/filter-form/filter-form.co
 import { FilterService } from '../../services/filter.service';
 import { takeUntil, tap } from 'rxjs';
 import { TuiDestroyService } from '@taiga-ui/cdk';
+import { HistoryComponent } from '../../components/history/history.component';
 
 @Component({
     selector: 'show-games-page',
@@ -28,7 +29,8 @@ import { TuiDestroyService } from '@taiga-ui/cdk';
         TuiCarouselModule,
         TuiIslandModule,
         ChoseEventFormComponent,
-        FilterFormComponent
+        FilterFormComponent,
+        HistoryComponent
     ],
     providers: [TuiDestroyService]
 })

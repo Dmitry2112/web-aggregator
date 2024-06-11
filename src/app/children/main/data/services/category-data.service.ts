@@ -28,4 +28,16 @@ export class CategoryDataService {
                 })
             );
     }
+
+    public getCategoryById(id: string): Observable<CategoryModel> {
+        return this._http.get<ICategoryResponseModel>(`categories/${id}`)
+            .pipe(
+                map((category: ICategoryResponseModel) => {
+                    const categoryModel: CategoryModel = new CategoryModel();
+                    categoryModel.fromDto(category);
+
+                    return categoryModel;
+                })
+            );
+    }
 }

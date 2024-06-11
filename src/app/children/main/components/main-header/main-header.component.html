@@ -51,6 +51,9 @@
                         <a class="main-header__avatar-menu-link" routerLink="student/projects">Мои проекты</a>
                     </li>
                     <li class="main-header__avatar-menu-item">
+                        <a class="main-header__avatar-menu-link" routerLink="student/security">Безопасность</a>
+                    </li>
+                    <li class="main-header__avatar-menu-item">
                         <ng-container *ngIf="isLogin(); else notLoginMenu">
                             <a class="main-header__avatar-menu-link_logout" (click)="logout()">Выйти</a>
                         </ng-container>
