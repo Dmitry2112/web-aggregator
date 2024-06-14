@@ -13,7 +13,7 @@ export class GameDataService {
     constructor(private _http: HttpClient) {}
 
     public getAllGames(): Observable<GameModel[]> {
-        return this._http.get<IGameResponseModel[]>('api/games')
+        return this._http.get<IGameResponseModel[]>('api/games/getall')
             .pipe(
                 map((games: IGameResponseModel[]) => {
                     return games.map((game: IGameResponseModel) => {

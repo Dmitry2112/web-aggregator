@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, InputSignal, Signal } from '@angular/core';
+import { AuthService } from '../../../auth/data/services/auth.service';
 
 @Component({
     selector: 'project-info',
@@ -9,5 +10,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectInfoComponent {
+    public semesterId: InputSignal<string> = input.required<string>();
+    public userId: Signal<string> = computed(() => this._authService.getUserId());
 
+    constructor(private _authService: AuthService) {}
 }
