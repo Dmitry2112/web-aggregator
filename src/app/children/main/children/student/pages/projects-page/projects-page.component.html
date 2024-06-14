@@ -4,6 +4,9 @@
 <div class="projects">
     <aside class="side-bar">
         <profile-side-bar [actionName]="'Создать проект'" [isTeamLead]="role() === 'Team Lead'"></profile-side-bar>
+        @if ((role() !== 'Team Lead')) {
+            <span class="side-bar__span">Создать проект может только Team Lead</span>
+        }
     </aside>
 
     <div class="choose-project__info">
@@ -30,59 +33,81 @@
             >
                 Осень 2024
             </button>
+            <button class="choose-project__button choose-project__button-inactive" disabled>Весна 2025</button>
         </div>
         @if (createTeam()) {
             <div class="team">
-                <h3 class="team__role">
-                    Роль в команде
-                </h3>
-                <form
-                    class="chose-role-form b-form"
-                    [formGroup]="choseRoleForm"
-                >
-                    <tui-select
-                        tuiTextfieldSize="m"
-                        class="tui-space_vertical-4"
-                        formControlName="role"
-                        [tuiTextfieldLabelOutside]="true"
-                    >
-                        Выберите роль
-                        <input
-                            placeholder="Выберите свою роль"
-                            tuiTextfield
-                        />
-                        <tui-data-list-wrapper
-                            *tuiDataList
-                            [items]="rolesNames"
-                        ></tui-data-list-wrapper>
-                    </tui-select>
-                </form>
-                <span class="team_warn">Создать команду может только Team Lead</span>
-                @if (role() === 'Team Lead') {
-                    <h3 class="team__name">
-                        Название команды
-                    </h3>
+                <div>
+                    <h3 class="team__role">Роль в команде</h3>
+                    <!-- <details class="custom-select">
+                        <summary class="radios">
+                            <input class="radios-text" type="radio" name="event" id="default" title="Выберите роль" checked>
+                            <input class="radios-text" type="radio" name="event" id="item1" title="Team Lead">
+                            <input class="radios-text" type="radio" name="event" id="item2" title="UX/UI-дизайнер">
+                        </summary>
+                        <ul class="options-list">
+                            <li class="options-item"><label class="options-label" for="item1">Team Lead</label></li>
+                            <li class="options-item"><label class="options-label" for="item2">UX/UI-дизайнер</label></li>
+                        </ul>
+                    </details> -->
+
                     <form
-                        class="team-name-form"
-                        [formGroup]="teamNameForm"
+                        class="chose-role-form b-form"
+                        [formGroup]="choseRoleForm"
                     >
-                        <div class="tui-form__row">
-                            <tui-input
-                                formControlName="name"
-                            >
-                                Название команды
-                                <input
-                                    tuiTextfield
-                                    type="text"
-                                />
-                                <span class="tui-required"></span>
-                            </tui-input>
-                            <tui-error
-                                formControlName="name"
-                                [error]="[] | tuiFieldError | async"
-                            ></tui-error>
-                        </div>
+                        <tui-select
+                            tuiTextfieldSize="m"
+                            class="tui-space_vertical-4"
+                            formControlName="role"
+                            [tuiTextfieldLabelOutside]="true"
+                        >
+                            Выберите роль
+                            <input
+                                placeholder="Выберите свою роль"
+                                tuiTextfield
+                            />
+                            <tui-data-list-wrapper
+                                *tuiDataList
+                                [items]="rolesNames"
+                            ></tui-data-list-wrapper>
+                        </tui-select>
                     </form>
+                    @if ((role() !== 'Team Lead')) {
+                        <span class="side-bar__span">Создать команду может только Team Lead</span>
+                    }
+                </div>
+                @if (role() === 'Team Lead') {
+                    <div>
+                        <!-- <div class="add-game-inputs__item">
+                            <p class="add-game-inputs__title">Название команды</p>
+                            <div class="add-game-inputs__bg">
+                                <input class="add-game-inputs__input" type="text" placeholder="Введите название проекта">
+                            </div>
+                            <span class="add-game-inputs__span">0/20</span>
+                        </div> -->
+
+                        <form
+                            class="team-name-form"
+                            [formGroup]="teamNameForm"
+                        >
+                            <div class="tui-form__row">
+                                <tui-input
+                                    formControlName="name"
+                                >
+                                    Название команды
+                                    <input
+                                        tuiTextfield
+                                        type="text"
+                                    />
+                                    <span class="tui-required"></span>
+                                </tui-input>
+                                <tui-error
+                                    formControlName="name"
+                                    [error]="[] | tuiFieldError | async"
+                                ></tui-error>
+                            </div>
+                        </form>
+                    </div>
 
                     <div class="team-member__container">
                         @for (member of team; track member.name) {
@@ -92,9 +117,26 @@
                         }
                     </div>
 
-                    <h3 class="team__member">
-                        Участник команды #1
-                    </h3>
+                    <!-- <div class="developer">
+                        <p class="developer__count">Участник команды #1</p>
+                        <div class="developer__name">Фамилия Имя, Академическая группа</div>
+                        <div class="developer__info">
+                            <p class="developer__role">Роль: Team Lead</p>
+                            <a class="developer__contacts" href="">Контакты</a>
+                        </div>
+                    </div>
+
+                    <div class="add-game-inputs__item">
+                        <p class="add-game-inputs__title">Участник команды #2</p>
+                        <div class="add-game-inputs__bg">
+                            <input class="add-game-inputs__input" type="text" placeholder="Фамилия Имя, Академическая группа">
+                        </div>
+                        <div class="developer__info">
+                            <p class="developer__role">Роль: Роль</p>
+                            <a class="developer__contacts" href="">Контакты</a>
+                        </div>
+                    </div> -->
+
                     <form
                         class="team-member-form"
                         [formGroup]="teamMemberInfoForm"
