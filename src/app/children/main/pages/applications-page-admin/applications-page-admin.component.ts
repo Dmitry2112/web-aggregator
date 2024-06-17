@@ -10,6 +10,14 @@ import { takeUntil, tap } from 'rxjs';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { HistoryComponent } from '../../components/history/history.component';
 
+import { BehaviorSubject, Observable } from 'rxjs';
+import { GameModel } from '../../data/models/game.model';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { PaginationComponent } from '../../components/pagination/pagination.component';
+import { PaginationService } from '../../services/pagination.service';
+import { SearchComponent } from '../../components/search/search.component';
+import { GameCardAdminComponent } from '../../components/game-card-admin/game-card-admin.component';
+
 @Component({
     selector: 'applications-page-admin',
     templateUrl: './applications-page-admin.component.html',
@@ -30,7 +38,8 @@ import { HistoryComponent } from '../../components/history/history.component';
         TuiIslandModule,
         ChoseEventFormComponent,
         FilterFormComponent,
-        HistoryComponent
+        HistoryComponent,
+        NgIf, NgFor, GameCardAdminComponent, AsyncPipe, PaginationComponent, SearchComponent
     ],
     providers: [TuiDestroyService]
 })
@@ -58,9 +67,13 @@ export class ApplicationsPageAdminComponent implements OnInit {
         'Весна 2024'
     ];
 
+    public games$: Observable<GameModel[]> = new Observable<GameModel[]>();
+    public gamesCount$: BehaviorSubject<number> = this._filterService.gamesCount$;
+
     constructor(
         private _filterService: FilterService,
-        private _destroy$: TuiDestroyService
+        private _destroy$: TuiDestroyService,
+        private _paginationService: PaginationService,
     ) {}
 
     public ngOnInit(): void {
@@ -76,5 +89,7 @@ export class ApplicationsPageAdminComponent implements OnInit {
                 takeUntil(this._destroy$)
             )
             .subscribe();
+
+        this.games$ = this._paginationService.paginateGames();
     }
 }

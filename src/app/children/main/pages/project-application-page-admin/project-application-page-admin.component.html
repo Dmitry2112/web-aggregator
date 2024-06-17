@@ -1,8 +1,8 @@
-<h1>Страница проекта</h1>
+<h1>Заявка проекта</h1>
 
 <div class="game-info__navigation">
-    <a routerLink="" class="game-info__navigation-link">Проекты </a>
-    <p>> Название проекта</p>
+    <a routerLink="/cabinet/applications" class="game-info__navigation-link">Проектные заявки </a>
+    <p>> {{ name() }}</p>
 </div>
 
 <div class="game-info">
@@ -13,35 +13,26 @@
             src="assets/images/test-game-img.png"
             alt="Фото игры"
         >
-        <button class="game-info__play-button" routerLink="../../play-game/{{ gameId() }}">
+        <div class="status-div">
+            <h3 class="status-title">Статус проекта</h3>
+            <p class="status-new">Новая заявка</p>
+        </div>
+        <button class="game-info__button game-info__button-play" routerLink="../../play-game/{{ gameId() }}">
             Играть
         </button>
-        <!-- <button
-            appearance="main-page-play-button"
-            tuiButton
-            routerLink="../../play-game/{{ gameId() }}"
-        >
-            Играть
-        </button> -->
-        <div class="game-rating">
-            <h3 class="game-rating__title">Рейтинг проекта</h3>
-            <div class="rating-points">
-                <img class="rating-points__before" src="assets/images/third-place.svg" alt="">
-                <div class="rating-points__all">
-                    <div class="rating-points__has"></div>
-                </div>
-                <img class="rating-points__after" src="assets/images/second-place.svg" alt="">
-                <div class="rating-points__count-div">
-                    <img class="rating-points__fire-img" src="assets/images/icons/fire-icon.svg" alt="">
-                    <p class="rating-points__count">350/1500</p>
-                </div>
-            </div>
-            <p class="game-rating__text">Отдано голосов</p>
-            <div class="game-rating__votes">
-                <img src="assets/images/icons/fire-icon.svg" alt="">
-                <p>0</p>
-            </div>
-            <button class="game-rating__voting-button">Проголосовать</button>
+
+        <button class="game-info__button game-info__button-download">
+            Скачать файл
+        </button>
+        <span class="game-info__download">Загружено: </span>
+
+        <div class="game-info__div">
+            <h3 class="game-info__title">Категория проекта</h3>
+            <p class="game-info__span">название категории</p>
+        </div>
+        <div class="game-info__div">
+            <h3 class="game-info__title">Тема проекта</h3>
+            <p class="game-info__span">название темы</p>
         </div>
         <div class="game-developers">
             <h3 class="game-developers__title">Команда разработчика</h3>
@@ -63,77 +54,21 @@
                 <p class="rating__list-page-text">1 из 1</p>
                 <img class="pagination__img_disabled right_img" src="assets/images/icons/inactive-arrow.svg" alt="">
             </div>
+            <button class="game-developers__edit-btn">Редактировать</button>
         </div>
-        <div class="team-projects">
-            <h3 class="team-projects__title">Проекты команды</h3>
-            <div class="team-projects__div">
-                <div class="team-project">
-                    <p class="team-project__type">Ролевые</p>
-                    <p class="team-project__name">Mafia</p>
-                    <img class="team-project__img" src="assets/images/icons/play.svg" alt="">
-                </div>
-                <div class="team-project">
-                    <p class="team-project__type">Ролевые</p>
-                    <p class="team-project__name">Mafia</p>
-                    <img class="team-project__img" src="assets/images/icons/play.svg" alt="">
-                </div>
-                <div class="team-project">
-                    <p class="team-project__type">Ролевые</p>
-                    <p class="team-project__name">Mafia</p>
-                    <img class="team-project__img" src="assets/images/icons/play.svg" alt="">
-                </div>
-            </div>
+        <div class="game-info__div">
+            <h3 class="game-info__title">Ссылка на репозиторий</h3>
+            <span class="game-info__span">ссылка</span>
         </div>
     </div>
 
     <div class="game-info__left">
-        <div class="name-and-gh-link">
-            <p class="name-and-gh-link__name">Об игре</p>
-            <a
-                class="name-and-gh-link__gh-link"
-                routerLink="{{ gitHubLink() }}"
-            >
-                Git
-            </a>
-        </div>
-        <div class="game-photos">
-            <img
-                class="game-photos__main-img"
-                src="assets/images/about-game-img.png"
-                alt="Фото игры"
-            >
-            <div class="game-photos__btns">
-                <button class="game-photos__btn game-photos__btn-active">
-                    <img
-                        class="game-photos__img"
-                        src="assets/images/about-game-img.png"
-                        alt="Фото игры"
-                    >
-                </button>
-                <button class="game-photos__btn game-photos__btn-inactive">
-                    <img
-                        class="game-photos__img"
-                        src="assets/images/about-game-img.png"
-                        alt="Фото игры"
-                    >
-                </button>
-                <button class="game-photos__btn game-photos__btn-inactive">
-                    <img
-                        class="game-photos__img"
-                        src="assets/images/about-game-img.png"
-                        alt="Фото игры"
-                    >
-                </button>
-                <button class="game-photos__btn game-photos__btn-inactive">
-                    <img
-                        class="game-photos__img"
-                        src="assets/images/about-game-img.png"
-                        alt="Фото игры"
-                    >
-                </button>
+        <div class="description">
+            <h2 class="play-description__title">Краткое описание</h2>
+            <div class="play-description__text-container">
+                <p class="play-description__text">{{ shortDescription() }}</p>
             </div>
         </div>
-
         <div class="description">
             <h2 class="description__title">Описание проекта</h2>
             <div class="description__text-container">
@@ -148,29 +83,89 @@
         </div>
     </div>
 </div>
-
-<div class="other-projects">
-    <h2 class="other-projects__title">Другие проекты</h2>
-    <div class="other-projects__container">
-        <div class="other-project">
-            <img class="other-project__img" src="assets/images/test-game-2-img.png" alt="">
-            <div class="other-project__info">
-                <div>
-                    <p class="other-project__category">Категория</p>
-                    <p class="other-project__name">Название</p>
-                </div>
-                <button class="other-project__button">Играть</button>
+<div>
+    <h2 class="promo-title">Промо-материалы</h2>
+    <div class="promo">
+        <div class="promo-item">
+            <h3 class="promo-item__title">Обложка</h3>
+            <div class="promo-item__block">
+                <p class="promo-item__size">800x470</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
             </div>
         </div>
-        <div class="other-project">
-            <img class="other-project__img" src="assets/images/test-game-2-img.png" alt="">
-            <div class="other-project__info">
-                <div>
-                    <p class="other-project__category">Категория</p>
-                    <p class="other-project__name">Название</p>
-                </div>
-                <button class="other-project__button">Играть</button>
+        <div class="promo-item">
+            <h3 class="promo-item__title">Изображения проекта</h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Ширина от 1280px</p>
+                <p class="promo-item__span">Альбомная ориентация</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title"></h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Ширина от 1280px</p>
+                <p class="promo-item__span">Альбомная ориентация</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title">Видео геймплея</h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Высота от 400px</p>
+                <p class="promo-item__span">Длительность не более 30 секунд</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title"></h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Ширина от 1280px</p>
+                <p class="promo-item__span">Альбомная ориентация</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title"></h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Ширина от 1280px</p>
+                <p class="promo-item__span">Альбомная ориентация</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
             </div>
         </div>
     </div>
+    <div class="add-game-btns">
+        <button class="add-game-btns__save">Сохранить</button>
+        <button class="add-game-btns__push">Опубликовать</button>
+    </div>
 </div>
+

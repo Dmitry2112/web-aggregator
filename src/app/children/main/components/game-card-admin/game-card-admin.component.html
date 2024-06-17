@@ -1,0 +1,40 @@
+<div
+    class="game-card"
+    *ngIf="game"
+>
+    <div class="game-card__content">
+        <div class="game-card__status-div">
+            <p class="game-card__status-new">Новая заявка</p>
+            <span class="game-card__date">Дата: </span>
+        </div>
+        <div class="game-card__info-top">
+            <img
+                class="game-card__img"
+                src="assets/images/test-game-img.png"
+                alt="Фото игры"
+            >
+            <div class="game-card__description">
+                <p class="game-card__theme-category">{{ category() }} - {{ theme() }}</p>
+                <p class="game-card__name">{{ game.name }}</p>
+                <p class="game-card__short-description">{{ game.shortDescription }}</p>
+            </div>
+        </div>
+        <div class="game-card__info-bottom">
+            <p class="game-card__team-name">Название команды</p>
+            <span class="game-card__team-count">Кол-во участников: 5</span>
+            <div class="game-card__btns">
+                <button class="game-card__push-btn">Опубликовать</button>
+                <button class="game-card__more-btn" routerLink="../project-application">Перейти</button>
+
+                <!-- <button
+                    appearance="main-page-play-button"
+                    tuiButton
+                    routerLink="../about-game/{{ game.id }}"
+                >
+                    Перейти
+                </button> -->
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+.game-card {
+    position: relative;
+    padding: 1rem;
+    width: 100%;
+    background-color: #2D2D2D;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__status-div {
+        position: absolute;
+        top: 1rem;
+        right: 1.4rem;
+        display: flex;
+        gap: 1.2rem;
+    }
+
+    &__status-new {
+        font-weight: 400;
+        font-size: 16px;
+        color: #fbff47;
+    }
+
+    &__status-published {
+        font-weight: 400;
+        font-size: 16px;
+        color: #47ffa7;
+    }
+
+    &__status-rejected {
+        font-weight: 400;
+        font-size: 16px;
+        color: #ff8197;
+    }
+
+    &__date {
+        font-weight: 300;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.65);
+    }
+
+    &__info-top {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__theme-category {
+        margin-bottom: 0.25rem;
+        font-weight: 500;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    &__name {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    &__short-description {
+        font-weight: 300;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.65);
+    }
+
+    &__info-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__team-name {
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    &__team-count {
+        font-weight: 300;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.65);
+    }
+
+    &__push-btn {
+        margin-right: 1rem;
+        padding: 0 1rem;
+        height: 2rem;
+        font-weight: 400;
+        font-size: 16px;
+        color: #fff;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        background: #16cd57;
+        cursor: pointer;
+    }
+
+    &__more-btn {
+        padding: 0 1rem;
+        height: 2rem;
+        font-weight: 400;
+        font-size: 16px;
+        color: #fff;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        background: #5a9df5;
+        cursor: pointer;
+    }
+}

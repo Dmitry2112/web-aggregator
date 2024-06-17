@@ -12,6 +12,38 @@
         </div>
     </aside>
     <div class="main__content">
+        <section
+            class="games"
+            *ngIf="games$ | async as games"
+        >
+            <ng-container>
+                <div class="rating__property">
+                <span class="rating__property-find">
+                    Найдено 10 проектов
+                </span>
+                    <div class="rating__property-filters">
+                        <pagination
+                            [gamesOnPage]="5"
+                        >
+                        </pagination>
+                        <select class="select-second">
+                            <option value="">По возрастанию рейтинга</option>
+                            <option value="">По убыванию рейтнга</option>
+                        </select>
+                        <img class="rating__property-loupe" src="assets/images/icons/loupe.svg" alt="">
+                    </div>
+                </div>
+                <search></search>
+                <ul class="games__list">
+                    <li
+                        class="games__item"
+                        *ngFor="let game of games"
+                    >
+                        <game-card-admin [game]="game"></game-card-admin>
+                    </li>
+                </ul>
+            </ng-container>
+        </section>
 
     </div>
 </div>
