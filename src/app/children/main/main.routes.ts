@@ -6,6 +6,7 @@ import { PlayGamePageComponent } from './pages/play-game-page/play-game-page.com
 import { ApplicationsPageAdminComponent } from './pages/applications-page-admin/applications-page-admin.component';
 import { ProjectApplicationPageAdminComponent } from './pages/project-application-page-admin/project-application-page-admin.component';
 import { authGuard } from './children/auth/guards/auth.guard';
+import { adminGuard } from './children/auth/guards/admin.guard';
 
 export const MAIN_ROUTES: Routes = [
     {
@@ -39,11 +40,13 @@ export const MAIN_ROUTES: Routes = [
                 loadChildren: () => import('./children/student/student.routes').then(m => m.STUDENT_ROUTES)
             },
             {
-                path: 'project-application',
+                path: 'project-application/:gameId',
+                canActivate: [adminGuard],
                 component: ProjectApplicationPageAdminComponent
             },
             {
                 path: 'applications',
+                canActivate: [adminGuard],
                 component: ApplicationsPageAdminComponent
             }
         ]
