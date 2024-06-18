@@ -21,6 +21,7 @@ import { SemesterModel } from '../../../../data/models/semester.model';
 import { RoleDataService } from '../../../../data/services/role-data.service';
 import { RoleModel } from '../../../../data/models/role.model';
 import { AuthService } from '../../../auth/data/services/auth.service';
+import { TeamDataService } from '../../../../data/services/team-data.service';
 
 @Component({
     selector: 'projects-page',
@@ -72,6 +73,7 @@ export class ProjectsPageComponent implements OnInit {
         private _semesterDataService: SemesterDataService,
         private _roleDataService: RoleDataService,
         private _authService: AuthService,
+        private _teamDataService: TeamDataService,
         private _destroy$: TuiDestroyService
     ) {}
 
@@ -175,7 +177,20 @@ export class ProjectsPageComponent implements OnInit {
     }
 
     public submitForms(): void {
-        console.log(this.role());
-        console.log(this.teamName());
+        this._roleDataService.postTeamDist({
+            userId: this.userId(),
+            roleId: this.roleNameToRoleId[this.role()],
+            semesterId: this.selectedSemester()
+        })
+            .pipe(
+                takeUntil(this._destroy$)
+            )
+            .subscribe();
+
+        this._teamDataService.createTeam(this.teamName())
+            .pipe(
+                takeUntil(this._destroy$)
+            )
+            .subscribe();
     }
 }

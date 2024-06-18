@@ -25,7 +25,7 @@ export class RoleDataService {
             );
     }
 
-    public postTeamDist(teamDistData: {userId: string; roleId: string; semesterId: string}): unknown {
+    public postTeamDist(teamDistData: {userId: string; roleId: string; semesterId: string}): Observable<unknown> {
         return this._http.post<unknown>('team-dist', teamDistData);
     }
 
