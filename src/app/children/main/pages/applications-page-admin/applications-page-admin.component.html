@@ -1,0 +1,49 @@
+<div class="main__container">
+    <aside class="main-side-bar">
+        <h2 class="main-side-bar__title">
+            Выбор события
+        </h2>
+        <div class="main-side-bar__chose-block">
+            <chose-event-form></chose-event-form>
+        </div>
+        <h2 class="main-side-bar__title">Категории</h2>
+        <div class="main-side-bar__categories">
+            <filter-form></filter-form>
+        </div>
+    </aside>
+    <div class="main__content">
+        <section
+            class="games"
+            *ngIf="games$ | async as games"
+        >
+            <ng-container>
+                <div class="rating__property">
+                <span class="rating__property-find">
+                    Найдено {{ games.length }} проектов
+                </span>
+                    <div class="rating__property-filters">
+                        <pagination
+                            [gamesOnPage]="5"
+                        >
+                        </pagination>
+                        <select class="select-second">
+                            <option value="">Новые заявки </option>
+                            <option value="">Опубликованные проекты</option>
+                            <option value="">Архив проектов</option>
+                        </select>
+                    </div>
+                </div>
+                <search></search>
+                <ul class="games__list">
+                    <li
+                        class="games__item"
+                        *ngFor="let game of games"
+                    >
+                        <game-card-admin [game]="game"></game-card-admin>
+                    </li>
+                </ul>
+            </ng-container>
+        </section>
+
+    </div>
+</div>

@@ -35,7 +35,7 @@
                 <p class="profile__info-title">Курс <span class="profile__info-title-star">*</span></p>
                 <div class="profile__info-input__bg">
                     <select class="profile__info-select" formControlName="course">
-                        <option [ngValue]="null">Выберите из списка</option>
+                        <option selected disabled [ngValue]="null" >Выберите из списка</option>
                         <option [ngValue]="'1 курс'">1 курс</option>
                         <option [ngValue]="'2 курс'">2 курс</option>
                         <option [ngValue]="'3 курс'">3 курс</option>

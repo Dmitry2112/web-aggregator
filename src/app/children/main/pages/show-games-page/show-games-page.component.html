@@ -5,33 +5,6 @@
         </h2>
         <div class="main-side-bar__chose-block">
             <chose-event-form></chose-event-form>
-            <!-- <form class="event__form">
-                <tui-select
-                    tuiTextfieldSize="m"
-                    class="tui-space_vertical-4 event__form-select"
-                    [formControl]="chooseEvent"
-                    [tuiTextfieldLabelOutside]="true"
-                >
-                    <p class="event__form-test">Осень 2023</p>
-                    <input
-                        class="event__form-input"
-                        placeholder="Выберите событие"
-                        tuiTextfield
-                    />
-                    <tui-data-list-wrapper
-                        *tuiDataList
-                        [items]="events"
-                        class="event__form-list"
-                        [itemContent]="cardContent"
-                    ></tui-data-list-wrapper>
-                </tui-select>
-                <ng-template
-                    #cardContent
-                    let-event
-                >
-                    <div class="event__form-list-text">{{event}}</div>
-                </ng-template>
-            </form> -->
         </div>
         <h2 class="main-side-bar__title">Категории</h2>
         <div class="main-side-bar__categories">
@@ -113,31 +86,56 @@
                 </div>
             </div>
         </div>
+
         <h2 class="popular-title">Популярные проекты</h2>
-        <!-- <div class="popular">
-            <div class="wrapper">
-                <button class="button" (click)="carousel.prev()">
-                    <img src="assets/images/arrow.svg" alt="">
-                </button>
-                <tui-carousel
-                    #carousel
-                    class="carousel"
-                >
-                    <tui-island *tuiItem>
-                        <img class="carousel-img" src="assets/images/test-game-big-img.png" alt="">
-                    </tui-island>
-                    <tui-island *tuiItem>
-                        <img class="carousel-img" src="assets/images/test-game-big-img.png" alt="">
-                    </tui-island>
-                    <tui-island *tuiItem>
-                        <img class="carousel-img" src="assets/images/test-game-big-img.png" alt="">
-                    </tui-island>
-                </tui-carousel>
-                <button class="button" (click)="carousel.next()">
-                    <img src="assets/images/arrow.svg" alt="">
-                </button>
-            </div>
-        </div> -->
+        <section id="slider">
+            <input type="radio" name="slider" id="s1">
+            <input type="radio" name="slider" id="s2" checked>
+            <input type="radio" name="slider" id="s3">
+            <label for="s1" id="slide1">
+                <div class="popular-slide">
+                    <img src="assets/images/test-game-big-img.png" alt="">
+                    <div class="popular-info">
+                        <div class="popular-text">
+                            <span class="popular-text__span">Развлекательные - Аркады</span>
+                            <h3 class="popular-text__tutle">Merge Комбинаторика</h3>
+                        </div>
+                        <button class="popular-btn">
+                            Играть
+                        </button>
+                    </div>
+                </div>
+            </label>
+            <label for="s2" id="slide2">
+                <div class="popular-slide">
+                    <img src="assets/images/test-game-big-img.png" alt="">
+                    <div class="popular-info">
+                        <div class="popular-text">
+                            <span class="popular-text__span">Развлекательные - Аркады</span>
+                            <h3 class="popular-text__title">Merge Комбинаторика</h3>
+                        </div>
+                        <button class="popular-btn">
+                            Играть
+                        </button>
+                    </div>
+                </div>
+            </label>
+            <label for="s3" id="slide3">
+                <div class="popular-slide">
+                    <img src="assets/images/test-game-big-img.png" alt="">
+                    <div class="popular-info">
+                        <div class="popular-text">
+                            <span class="popular-text__span">Развлекательные - Аркады</span>
+                            <h3 class="popular-text__title">Merge Комбинаторика</h3>
+                        </div>
+                        <button class="popular-btn">
+                            Играть
+                        </button>
+                    </div>
+                </div>
+            </label>
+        </section>
+
         <div class="rating">
             <h2 class="popular-title">Лидеры рейтинга</h2>
             <games></games>

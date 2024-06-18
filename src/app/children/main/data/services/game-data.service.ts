@@ -42,11 +42,11 @@ export class GameDataService {
     }
 
     public getGameByUserIdAndSemesterId(userId: string, semesterId: string): Observable<GameModel> {
-        return this._http.get<IGameResponseModel>(`team-dist/getProjectByUserSemId/?userId=${userId}&semesterId=${semesterId}`)
+        return this._http.get<IGameResponseModel[]>(`team-dist/getProjectByUserSemId/?userId=${userId}&semesterId=${semesterId}`)
             .pipe(
-                map((game: IGameResponseModel) => {
+                map((games: IGameResponseModel[]) => {
                     const gameModel: GameModel = new GameModel();
-                    gameModel.fromDto(game);
+                    gameModel.fromDto(games[0]);
 
                     return gameModel;
                 })

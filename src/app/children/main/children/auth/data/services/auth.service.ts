@@ -13,6 +13,7 @@ import { UserLoginModel } from '../models/user-login.model';
 export class AuthService {
     private _token: WritableSignal<string> = signal('');
     private _userId: WritableSignal<string> = signal('');
+    private _isAdmin: WritableSignal<boolean> = signal(false);
 
     constructor(
         private _http: HttpClient,
@@ -26,6 +27,7 @@ export class AuthService {
                 tap((response: IAuthUserResponseModel) => {
                     this.setToken(response.token);
                     this.setUserId(response.user.id);
+                    this.setIsAdmin(response.user.email);
                 })
             );
     }
@@ -36,6 +38,7 @@ export class AuthService {
                 tap((response: IAuthUserResponseModel) => {
                     this.setToken(response.token);
                     this.setUserId(response.user.id);
+                    this.setIsAdmin(response.user.email);
                 })
             );
     }
@@ -43,12 +46,17 @@ export class AuthService {
     public logout(): void {
         this.removeToken();
         this.removeUserId();
+        this.removeIsAdmin();
         localStorage.clear();
         this._router.navigate(['cabinet']);
     }
 
     public isAuthenticated(): boolean {
         return !!this._token() || !!localStorage.getItem('token');
+    }
+
+    public isAdmin(): boolean {
+        return this._isAdmin();
     }
 
     //TODO: использовать, чтобы передавать токен в запросах
@@ -79,5 +87,15 @@ export class AuthService {
     private removeUserId(): void {
         localStorage.removeItem('userId');
         this._userId.set('');
+    }
+
+    private setIsAdmin(email: string): void {
+        if (email === 'mainadmin@urfu.me') {
+            this._isAdmin.set(true);
+        }
+    }
+
+    private removeIsAdmin(): void {
+        this._isAdmin.set(false);
     }
 }

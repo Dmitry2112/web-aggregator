@@ -10,10 +10,10 @@
         tuiButton
         routerLink="../add-project"
         [disabled]="!isTeamLead()"
+        (click)="emit()"
     >
         {{ actionName }}
     </button>
-    <span class="side-bar__span">Выберите роль в команде</span>
 </ng-container>
 
 <!-- <button class="save-btn">Сохранить</button>

@@ -1,0 +1,171 @@
+<h1>Заявка проекта</h1>
+
+<div class="game-info__navigation">
+    <a routerLink="/cabinet/applications" class="game-info__navigation-link">Проектные заявки </a>
+    <p>> {{ name() }}</p>
+</div>
+
+<div class="game-info">
+    <div class="game-info__right">
+        <p class="game-info__name">{{ name() }}</p>
+        <img
+            class="game-info__img"
+            src="assets/images/test-game-img.png"
+            alt="Фото игры"
+        >
+        <div class="status-div">
+            <h3 class="status-title">Статус проекта</h3>
+            <p class="status-new">Новая заявка</p>
+        </div>
+        <button class="game-info__button game-info__button-play" routerLink="../../play-game/{{ gameId() }}">
+            Играть
+        </button>
+
+        <button class="game-info__button game-info__button-download">
+            Скачать файл
+        </button>
+        <span class="game-info__download">Загружено: </span>
+
+        <div class="game-info__div">
+            <h3 class="game-info__title">Категория проекта</h3>
+            <p class="game-info__span">название категории</p>
+        </div>
+        <div class="game-info__div">
+            <h3 class="game-info__title">Тема проекта</h3>
+            <p class="game-info__span">название темы</p>
+        </div>
+        <div class="game-developers">
+            <h3 class="game-developers__title">Команда разработчика</h3>
+            <p class="game-developers__name">Название команды</p>
+            <p class="game-developers__count">1 участник</p>
+            <div class="developers">
+                <div class="developers-card">
+                    <p class="developers-card__name">Имя участника</p>
+                    <p class="developers-card__role">Роль</p>
+                    <a
+                        href=""
+                        class="developers-card__contacts">
+                        Контакты
+                    </a>
+                </div>
+            </div>
+            <div class="pagination">
+                <img class="pagination__img_disabled" src="assets/images/icons/inactive-arrow.svg" alt="">
+                <p class="rating__list-page-text">1 из 1</p>
+                <img class="pagination__img_disabled right_img" src="assets/images/icons/inactive-arrow.svg" alt="">
+            </div>
+            <button class="game-developers__edit-btn">Редактировать</button>
+        </div>
+        <div class="game-info__div">
+            <h3 class="game-info__title">Ссылка на репозиторий</h3>
+            <span class="game-info__span">ссылка</span>
+        </div>
+    </div>
+
+    <div class="game-info__left">
+        <div class="description">
+            <h2 class="play-description__title">Краткое описание</h2>
+            <div class="play-description__text-container">
+                <p class="play-description__text">{{ shortDescription() }}</p>
+            </div>
+        </div>
+        <div class="description">
+            <h2 class="description__title">Описание проекта</h2>
+            <div class="description__text-container">
+                <p class="description__text">{{ shortDescription() }}</p>
+            </div>
+        </div>
+        <div class="play-description">
+            <h2 class="play-description__title">Как играть</h2>
+            <div class="play-description__text-container">
+                <p class="play-description__text">{{ playDescription() }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <h2 class="promo-title">Промо-материалы</h2>
+    <div class="promo">
+        <div class="promo-item">
+            <h3 class="promo-item__title">Обложка</h3>
+            <div class="promo-item__block">
+                <p class="promo-item__size">800x470</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title">Изображения проекта</h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Ширина от 1280px</p>
+                <p class="promo-item__span">Альбомная ориентация</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title"></h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Ширина от 1280px</p>
+                <p class="promo-item__span">Альбомная ориентация</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title">Видео геймплея</h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Высота от 400px</p>
+                <p class="promo-item__span">Длительность не более 30 секунд</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title"></h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Ширина от 1280px</p>
+                <p class="promo-item__span">Альбомная ориентация</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+        <div class="promo-item">
+            <h3 class="promo-item__title"></h3>
+            <div class="promo-item__block">
+                <p class="promo-item__text">Ширина от 1280px</p>
+                <p class="promo-item__span">Альбомная ориентация</p>
+                <p class="promo-item__size">16:9</p>
+                <img class="promo-item__img" src="" alt="">
+            </div>
+            <div class="promo-item__download">
+                <p class="promo-item__link">Загрузить</p>
+                <p class="promo-item__delete">Удалить</p>
+            </div>
+        </div>
+    </div>
+    <div class="add-game-btns">
+        <button class="add-game-btns__save">Сохранить</button>
+        <button class="add-game-btns__push">Опубликовать</button>
+    </div>
+</div>
+
