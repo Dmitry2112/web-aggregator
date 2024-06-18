@@ -13,32 +13,43 @@
         <h2 class="choose-project__title">Выбор проекта</h2>
         <p class="choose-project__text">Выберите учебный семестр</p>
         <div class="choose-project__buttons-div">
-            <button
-                class="choose-project__button"
-                [ngClass]="{'choose-project__button-selected': !createTeam(), 'choose-project__button-active': createTeam()}"
-                (click)="viewProject()"
-            >
-                Осень 2023
-            </button>
-            <button
-                class="choose-project__button"
-                [ngClass]="{'choose-project__button-selected': createTeam(), 'choose-project__button-active': !createTeam()}"
-                (click)="createNewTeam()"
-            >
-                Весна 2024
-            </button>
-            <button
-                class="choose-project__button choose-project__button-inactive"
-                disabled
-            >
-                Осень 2024
-            </button>
-            <button
-                class="choose-project__button choose-project__button-inactive"
-                disabled
-            >
-                Весна 2025
-            </button>
+            @if (semesters$ | async; as semesters) {
+                @for (semester of semesters; track semester.id) {
+                    <button
+                        class="choose-project__button"
+                        [ngClass]="{'choose-project__button-selected': !createTeam(), 'choose-project__button-active': createTeam()}"
+                        (click)="viewProject()"
+                    >
+                        {{ semester.name }}
+                    </button>
+                }
+            }
+<!--            <button-->
+<!--                class="choose-project__button"-->
+<!--                [ngClass]="{'choose-project__button-selected': !createTeam(), 'choose-project__button-active': createTeam()}"-->
+<!--                (click)="viewProject()"-->
+<!--            >-->
+<!--                Осень 2023-->
+<!--            </button>-->
+<!--            <button-->
+<!--                class="choose-project__button"-->
+<!--                [ngClass]="{'choose-project__button-selected': createTeam(), 'choose-project__button-active': !createTeam()}"-->
+<!--                (click)="createNewTeam()"-->
+<!--            >-->
+<!--                Весна 2024-->
+<!--            </button>-->
+<!--            <button-->
+<!--                class="choose-project__button choose-project__button-inactive"-->
+<!--                disabled-->
+<!--            >-->
+<!--                Осень 2024-->
+<!--            </button>-->
+<!--            <button-->
+<!--                class="choose-project__button choose-project__button-inactive"-->
+<!--                disabled-->
+<!--            >-->
+<!--                Весна 2025-->
+<!--            </button>-->
         </div>
         @if (createTeam()) {
             <div class="team">

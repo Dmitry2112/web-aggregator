@@ -20,7 +20,17 @@ export class SemesterDataService {
 
                         return semesterModel;
                     });
-                })
+                }),
+                map(this.sortSemestersByYear)
             );
+    }
+
+    private sortSemestersByYear(semesters: SemesterModel[]): SemesterModel[] {
+        return semesters.sort((a: SemesterModel, b: SemesterModel) => {
+            const yearA: number = Number.parseInt(a.name.split(' ')[1]);
+            const yearB: number = Number.parseInt(b.name.split(' ')[1]);
+
+            return  yearA - yearB;
+        });
     }
 }

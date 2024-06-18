@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } fr
 import { TuiButtonModule, TuiErrorModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { ProfileSideBarComponent } from '../../components/profile-side-bar/profile-side-bar.component';
 import { ProjectStatusDataService } from '../../../../data/services/project-status-data.service';
-import { BehaviorSubject, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, Observable, takeUntil, tap } from 'rxjs';
 import { ProjectStatusModel } from '../../../../data/models/project-status.model';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { TuiDestroyService } from '@taiga-ui/cdk';
@@ -16,6 +16,8 @@ import {
 } from '@taiga-ui/kit';
 import { TeamMember } from '../../types/team-member.type';
 import { ProjectInfoComponent } from '../../components/project-info/project-info.component';
+import { SemesterDataService } from '../../../../data/services/semester-data.service';
+import { SemesterModel } from '../../../../data/models/semester.model';
 
 @Component({
     selector: 'projects-page',
@@ -28,6 +30,7 @@ import { ProjectInfoComponent } from '../../components/project-info/project-info
 })
 export class ProjectsPageComponent implements OnInit {
     public projectStatus$: BehaviorSubject<ProjectStatusModel> = new BehaviorSubject<ProjectStatusModel>({} as ProjectStatusModel);
+    public semesters$: Observable<SemesterModel[]> = new Observable<SemesterModel[]>();
     public createTeam: WritableSignal<boolean> = signal(false);
     public role: WritableSignal<string> = signal('');
 
@@ -52,10 +55,13 @@ export class ProjectsPageComponent implements OnInit {
 
     constructor(
         private _projectStatusDataService: ProjectStatusDataService,
+        private _semesterDataService: SemesterDataService,
         private _destroy$: TuiDestroyService
     ) {}
 
     public ngOnInit(): void {
+        this.semesters$ = this._semesterDataService.getAllSemesters();
+
         this._projectStatusDataService.getAllStatuses()
             .pipe(
                 tap((statuses: ProjectStatusModel[]) => {
