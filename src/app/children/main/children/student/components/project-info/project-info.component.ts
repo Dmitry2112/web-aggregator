@@ -34,7 +34,6 @@ export class ProjectInfoComponent implements OnInit {
     ) {}
 
     public ngOnInit(): void {
-        console.log(this.semesterId());
         this.game$ = this._gameDataService.getGameByUserIdAndSemesterId(this.userId(), this.semesterId())
             .pipe(
                 tap((game: GameModel) => {

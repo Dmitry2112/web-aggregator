@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, OnInit, Signal, signal, WritableSignal } from '@angular/core';
 import { TuiButtonModule, TuiErrorModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { ProfileSideBarComponent } from '../../components/profile-side-bar/profile-side-bar.component';
 import { ProjectStatusDataService } from '../../../../data/services/project-status-data.service';
-import { BehaviorSubject, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, debounceTime, switchMap, takeUntil, tap } from 'rxjs';
 import { ProjectStatusModel } from '../../../../data/models/project-status.model';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { TuiDestroyService } from '@taiga-ui/cdk';
@@ -18,6 +18,9 @@ import { TeamMember } from '../../types/team-member.type';
 import { ProjectInfoComponent } from '../../components/project-info/project-info.component';
 import { SemesterDataService } from '../../../../data/services/semester-data.service';
 import { SemesterModel } from '../../../../data/models/semester.model';
+import { RoleDataService } from '../../../../data/services/role-data.service';
+import { RoleModel } from '../../../../data/models/role.model';
+import { AuthService } from '../../../auth/data/services/auth.service';
 
 @Component({
     selector: 'projects-page',
@@ -33,6 +36,8 @@ export class ProjectsPageComponent implements OnInit {
     public createTeam: WritableSignal<boolean> = signal(false);
     public role: WritableSignal<string> = signal('');
     public selectedSemester: WritableSignal<string> = signal('');
+    public userId: Signal<string> = computed(() => this._authService.getUserId());
+    public teamName: WritableSignal<string> = signal('');
 
     public semesterNameToSemesterId: Record<string, string> = {
         'Весна 2023': '',
@@ -40,6 +45,8 @@ export class ProjectsPageComponent implements OnInit {
         'Весна 2024': '',
         'Осень 2024': ''
     };
+
+    public roleNameToRoleId: Record<string, string> = {};
 
     public team: TeamMember[] = [];
 
@@ -63,6 +70,8 @@ export class ProjectsPageComponent implements OnInit {
     constructor(
         private _projectStatusDataService: ProjectStatusDataService,
         private _semesterDataService: SemesterDataService,
+        private _roleDataService: RoleDataService,
+        private _authService: AuthService,
         private _destroy$: TuiDestroyService
     ) {}
 
@@ -106,6 +115,17 @@ export class ProjectsPageComponent implements OnInit {
             )
             .subscribe();
 
+        this._roleDataService.getAllRoles()
+            .pipe(
+                tap((roles: RoleModel[]) => {
+                    roles.forEach((role: RoleModel) => {
+                        this.roleNameToRoleId[role.name] = role.id;
+                    });
+                }),
+                takeUntil(this._destroy$)
+            )
+            .subscribe();
+
         this.choseRoleForm.valueChanges
             .pipe(
                 tap((v: {role: string}) => {
@@ -113,7 +133,17 @@ export class ProjectsPageComponent implements OnInit {
                 }),
                 takeUntil(this._destroy$)
             )
-            .subscribe();
+            .subscribe(console.log);
+
+        this.teamNameForm.valueChanges
+            .pipe(
+                debounceTime(300),
+                tap((v: {name: string}) => {
+                    this.teamName.set(v.name);
+                }),
+                takeUntil(this._destroy$)
+            )
+            .subscribe(console.log);
     }
 
     public selectSemester(semesterName: string): void {

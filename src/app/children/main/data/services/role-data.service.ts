@@ -11,6 +11,24 @@ import { IRoleResponseModel } from '../response-models/role.response-model.inter
 export class RoleDataService {
     constructor(private _http: HttpClient) {}
 
+    public getAllRoles(): Observable<RoleModel[]> {
+        return this._http.get<IRoleResponseModel[]>('team-roles')
+            .pipe(
+                map((roles: IRoleResponseModel[]) => {
+                    return roles.map((role: IRoleResponseModel) => {
+                        const roleModel: RoleModel = new RoleModel();
+                        roleModel.fromDto(role);
+
+                        return roleModel;
+                    });
+                })
+            );
+    }
+
+    public postTeamDist(teamDistData: {userId: string; roleId: string; semesterId: string}): unknown {
+        return this._http.post<unknown>('team-dist', teamDistData);
+    }
+
     public getRoleByUserIdAndSemesterId(userId: string, semesterId: string): Observable<RoleModel> {
         return this._http.get<ITeamDistResponseModel[]>(`team-dist/getrolebyusersemid/?userId=${userId}&semesterId=${semesterId}`)
             .pipe(
