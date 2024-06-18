@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } fr
 import { TuiButtonModule, TuiErrorModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { ProfileSideBarComponent } from '../../components/profile-side-bar/profile-side-bar.component';
 import { ProjectStatusDataService } from '../../../../data/services/project-status-data.service';
-import { BehaviorSubject, Observable, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, takeUntil, tap } from 'rxjs';
 import { ProjectStatusModel } from '../../../../data/models/project-status.model';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { TuiDestroyService } from '@taiga-ui/cdk';
@@ -30,9 +30,16 @@ import { SemesterModel } from '../../../../data/models/semester.model';
 })
 export class ProjectsPageComponent implements OnInit {
     public projectStatus$: BehaviorSubject<ProjectStatusModel> = new BehaviorSubject<ProjectStatusModel>({} as ProjectStatusModel);
-    public semesters$: Observable<SemesterModel[]> = new Observable<SemesterModel[]>();
     public createTeam: WritableSignal<boolean> = signal(false);
     public role: WritableSignal<string> = signal('');
+    public selectedSemester: WritableSignal<string> = signal('');
+
+    public semesterNameToSemesterId: Record<string, string> = {
+        'Весна 2023': '',
+        'Осень 2023': '',
+        'Весна 2024': '',
+        'Осень 2024': ''
+    };
 
     public team: TeamMember[] = [];
 
@@ -60,7 +67,31 @@ export class ProjectsPageComponent implements OnInit {
     ) {}
 
     public ngOnInit(): void {
-        this.semesters$ = this._semesterDataService.getAllSemesters();
+        this._semesterDataService.getAllSemesters()
+            .pipe(
+                tap((semesters: SemesterModel[]) => {
+                    semesters.forEach((semester: SemesterModel) => {
+                        switch (semester.name) {
+                            case 'Весна 2023':
+                                this.semesterNameToSemesterId['Весна 2023'] = semester.id;
+                                break;
+                            case 'Осень 2023':
+                                this.semesterNameToSemesterId['Осень 2023'] = semester.id;
+                                break;
+                            case 'Весна 2024':
+                                this.semesterNameToSemesterId['Весна 2024'] = semester.id;
+                                break;
+                            case 'Осень 2024':
+                                this.semesterNameToSemesterId['Осень 2024'] = semester.id;
+                                break;
+                        }
+                    });
+                }),
+                tap(() => {
+                    this.selectedSemester.set(this.semesterNameToSemesterId['Осень 2023']);
+                }),
+                takeUntil(this._destroy$)
+            ).subscribe();
 
         this._projectStatusDataService.getAllStatuses()
             .pipe(
@@ -83,6 +114,10 @@ export class ProjectsPageComponent implements OnInit {
                 takeUntil(this._destroy$)
             )
             .subscribe();
+    }
+
+    public selectSemester(semesterName: string): void {
+        this.selectedSemester.set(this.semesterNameToSemesterId[semesterName]);
     }
 
     public createNewTeam(): void {
