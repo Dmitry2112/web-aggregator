@@ -53,10 +53,10 @@ export class ProjectsPageComponent implements OnInit {
     public studentIds: Set<string> = new Set<string>();
 
     public semesterNameToSemesterId: Record<string, string> = {
-        'Весна 2023': '',
         'Осень 2023': '',
         'Весна 2024': '',
-        'Осень 2024': ''
+        'Осень 2024': '',
+        'Весна 2025': ''
     };
 
     public roleNameToRoleId: Record<string, string> = {};
@@ -96,9 +96,6 @@ export class ProjectsPageComponent implements OnInit {
                 tap((semesters: SemesterModel[]) => {
                     semesters.forEach((semester: SemesterModel) => {
                         switch (semester.name) {
-                            case 'Весна 2023':
-                                this.semesterNameToSemesterId['Весна 2023'] = semester.id;
-                                break;
                             case 'Осень 2023':
                                 this.semesterNameToSemesterId['Осень 2023'] = semester.id;
                                 break;
@@ -107,6 +104,9 @@ export class ProjectsPageComponent implements OnInit {
                                 break;
                             case 'Осень 2024':
                                 this.semesterNameToSemesterId['Осень 2024'] = semester.id;
+                                break;
+                            case 'Весна 2025':
+                                this.semesterNameToSemesterId['Весна 2025'] = semester.id;
                                 break;
                         }
                     });

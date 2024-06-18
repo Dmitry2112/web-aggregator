@@ -40,14 +40,6 @@ export class ShowGamesPageComponent implements OnInit {
         'Осень 2023'
     ];
 
-    public ratingFilters: string[] = [
-        'По возрастанию рейтинга',
-        'По убыванию рейтнга'
-    ];
-
-    public chooseEvent: FormControl<string> = new FormControl();
-    public chooseRatingFilter: FormControl<string> = new FormControl();
-
     public event: WritableSignal<string | undefined> = signal('');
 
     public eventIdsToEventNames: Map<string, string> = new Map<string, string>();
@@ -65,8 +57,8 @@ export class ShowGamesPageComponent implements OnInit {
 
     public ngOnInit(): void {
         this.eventIdsToEventNames.set('1', this.eventsNames[0]);
-        this.eventIdsToEventNames.set('2', this.eventsNames[1]);
-        this.eventIdsToEventNames.set('3', this.eventsNames[2]);
+        this.eventIdsToEventNames.set('08a675d0-7931-4a6e-8fc7-d1ffc3d30798', this.eventsNames[1]);
+        this.eventIdsToEventNames.set('91cfce5a-f061-4b9c-a3f1-fa2e1b39aaba', this.eventsNames[2]);
 
         this._filterService.event$
             .pipe(
