@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, OnInit, Signal, signal, W
 import { TuiButtonModule, TuiErrorModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { ProfileSideBarComponent } from '../../components/profile-side-bar/profile-side-bar.component';
 import { ProjectStatusDataService } from '../../../../data/services/project-status-data.service';
-import { BehaviorSubject, debounceTime, switchMap, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, debounceTime, takeUntil, tap } from 'rxjs';
 import { ProjectStatusModel } from '../../../../data/models/project-status.model';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { TuiDestroyService } from '@taiga-ui/cdk';
@@ -22,6 +22,9 @@ import { RoleDataService } from '../../../../data/services/role-data.service';
 import { RoleModel } from '../../../../data/models/role.model';
 import { AuthService } from '../../../auth/data/services/auth.service';
 import { TeamDataService } from '../../../../data/services/team-data.service';
+import { UserDataService } from '../../data/services/user-data.service';
+import { UserModel } from '../../data/models/user.model';
+import { TeamModel } from '../../../../data/models/team.model';
 
 @Component({
     selector: 'projects-page',
@@ -38,7 +41,16 @@ export class ProjectsPageComponent implements OnInit {
     public role: WritableSignal<string> = signal('');
     public selectedSemester: WritableSignal<string> = signal('');
     public userId: Signal<string> = computed(() => this._authService.getUserId());
+    public teamId: WritableSignal<string> = signal('');
     public teamName: WritableSignal<string> = signal('');
+    public users: UserModel[] = [];
+    public viewUsers: Signal<string[]> = computed(() => {
+        return this.users
+            .map((user: UserModel) => {
+                return `${user.surname} ${user.name}, ${user.academicGroup}, ${user.id}`;
+            });
+    });
+    public studentIds: Set<string> = new Set<string>();
 
     public semesterNameToSemesterId: Record<string, string> = {
         'Весна 2023': '',
@@ -74,6 +86,7 @@ export class ProjectsPageComponent implements OnInit {
         private _roleDataService: RoleDataService,
         private _authService: AuthService,
         private _teamDataService: TeamDataService,
+        private _userDataService: UserDataService,
         private _destroy$: TuiDestroyService
     ) {}
 
@@ -128,6 +141,15 @@ export class ProjectsPageComponent implements OnInit {
             )
             .subscribe();
 
+        this._userDataService.getAllUsers()
+            .pipe(
+                tap((users: UserModel[]) => {
+                    this.users = users;
+                }),
+                takeUntil(this._destroy$)
+            )
+            .subscribe();
+
         this.choseRoleForm.valueChanges
             .pipe(
                 tap((v: {role: string}) => {
@@ -163,15 +185,17 @@ export class ProjectsPageComponent implements OnInit {
     public addTeamMember(): void {
         const value: string = this.teamMemberInfoForm.controls['info'].value;
 
-        const [surname, name]: string[] = value.split(',')[0].split(' ');
+        const [surnameAndName, academicGroup, id]: string[] = value.split(',');
+        const [surname, name]: string[] = surnameAndName.split(' ');
 
         const newMember: TeamMember = {
             name,
             surname,
-            academicGroup: 'РИ-111111'
+            academicGroup
         };
 
         this.team.push(newMember);
+        this.studentIds.add(id.trim());
 
         this.teamMemberInfoForm.reset('');
     }
@@ -188,6 +212,19 @@ export class ProjectsPageComponent implements OnInit {
             .subscribe();
 
         this._teamDataService.createTeam(this.teamName())
+            .pipe(
+                tap((team: TeamModel) => {
+                    this.teamId.set(team.id);
+                }),
+                takeUntil(this._destroy$)
+            )
+            .subscribe();
+
+        this._teamDataService.addTeamIdForStudents({
+            semesterId: this.selectedSemester(),
+            teamId: this.teamId(),
+            studentsIds: [...this.studentIds]
+        })
             .pipe(
                 takeUntil(this._destroy$)
             )

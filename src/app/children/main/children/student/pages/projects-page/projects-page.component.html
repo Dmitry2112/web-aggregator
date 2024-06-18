@@ -152,20 +152,37 @@
                         [formGroup]="teamMemberInfoForm"
                     >
                         <div class="tui-form__row">
-                            <tui-input
+<!--                            <tui-input-->
+<!--                                formControlName="info"-->
+<!--                            >-->
+<!--                                Информация об участнике-->
+<!--                                <input-->
+<!--                                    tuiTextfield-->
+<!--                                    type="text"-->
+<!--                                />-->
+<!--                                <span class="tui-required"></span>-->
+<!--                            </tui-input>-->
+<!--                            <tui-error-->
+<!--                                formControlName="info"-->
+<!--                                [error]="[] | tuiFieldError | async"-->
+<!--                            ></tui-error>-->
+
+                            <tui-select
+                                tuiTextfieldSize="m"
+                                class="tui-space_vertical-4"
                                 formControlName="info"
+                                [tuiTextfieldLabelOutside]="true"
                             >
-                                Информация об участнике
+                                Выберите участника
                                 <input
+                                    placeholder="Выберите участника команды"
                                     tuiTextfield
-                                    type="text"
                                 />
-                                <span class="tui-required"></span>
-                            </tui-input>
-                            <tui-error
-                                formControlName="info"
-                                [error]="[] | tuiFieldError | async"
-                            ></tui-error>
+                                <tui-data-list-wrapper
+                                    *tuiDataList
+                                    [items]="viewUsers()"
+                                ></tui-data-list-wrapper>
+                            </tui-select>
                         </div>
 
                         <div class="team-member-form__action">
