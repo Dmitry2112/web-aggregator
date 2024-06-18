@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, Input, InputSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, input, Input, InputSignal, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileNavComponent } from '../profile-nav/profile-nav.component';
 import { RouterLink } from '@angular/router';
@@ -16,5 +16,12 @@ export class ProfileSideBarComponent {
     @Input()
     public actionName!: string;
 
+    @Output()
+    public submitEvent: EventEmitter<void> = new EventEmitter<void>();
+
     public isTeamLead: InputSignal<boolean> = input<boolean>(false);
+
+    public emit(): void {
+        this.submitEvent.emit();
+    }
 }

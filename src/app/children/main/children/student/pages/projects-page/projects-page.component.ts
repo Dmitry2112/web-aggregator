@@ -133,7 +133,7 @@ export class ProjectsPageComponent implements OnInit {
                 }),
                 takeUntil(this._destroy$)
             )
-            .subscribe(console.log);
+            .subscribe();
 
         this.teamNameForm.valueChanges
             .pipe(
@@ -143,7 +143,7 @@ export class ProjectsPageComponent implements OnInit {
                 }),
                 takeUntil(this._destroy$)
             )
-            .subscribe(console.log);
+            .subscribe();
     }
 
     public selectSemester(semesterName: string): void {
@@ -172,5 +172,10 @@ export class ProjectsPageComponent implements OnInit {
         this.team.push(newMember);
 
         this.teamMemberInfoForm.reset('');
+    }
+
+    public submitForms(): void {
+        console.log(this.role());
+        console.log(this.teamName());
     }
 }

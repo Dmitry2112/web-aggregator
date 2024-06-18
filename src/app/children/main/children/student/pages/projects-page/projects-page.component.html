@@ -3,7 +3,12 @@
 
 <div class="projects">
     <aside class="side-bar">
-        <profile-side-bar [actionName]="'Создать проект'" [isTeamLead]="role() === 'Team Lead'"></profile-side-bar>
+        <profile-side-bar
+            [actionName]="'Создать проект'"
+            [isTeamLead]="role() === 'Team Lead'"
+            (submitEvent)="submitForms()"
+        >
+        </profile-side-bar>
         @if ((role() !== 'Team Lead')) {
             <span class="side-bar__span">Создать проект может только Team Lead</span>
         }
