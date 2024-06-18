@@ -35,10 +35,12 @@ export class GameModel {
 
     public fromDto(dto: IGameResponseModel): void {
         this.id = dto.id;
+        this.teamId = dto.teamId;
         this.name = dto.name;
         this.semesterId = dto.semesterId;
         this.categoryId = dto.categoryId;
         this.theme = dto.theme;
+        this.rating = dto.rating;
         this.statusId = dto.statusId;
         this.shortDescription = dto.shortDescription;
         this.playDescription = dto.playDescription;
