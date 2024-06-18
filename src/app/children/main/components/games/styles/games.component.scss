@@ -120,18 +120,10 @@
     }
 }
 
-.select-second {
-    font-weight: 400;
-    font-size: 16px;
-    color: #fff;
+select {
     padding: 0.5rem 1rem;
-    background-color: transparent;
+    cursor: pointer;
     outline: none;
     border: 1px solid #B6B6B6;
-    cursor: pointer;
-}
-
-.empty-message {
-    display: block;
-    margin: 0 auto;
+    background-color: var(--primary-bg-color);
 }
